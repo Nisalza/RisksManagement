@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using SqlServerQueriesBuilder.Exceptions;
 using SqlServerQueriesBuilder.General;
 
-namespace SqlServerQueriesBuilder.SelectClause
+namespace SqlServerQueriesBuilder.SelectStatement
 {
     public class SelectQuery
     {
@@ -27,10 +22,8 @@ namespace SqlServerQueriesBuilder.SelectClause
 
         public override string ToString()
         {
-            if (IsNullData(TableName) || IsNullData(Columns) || Columns.Length == 0)
-            {
+            if (string.IsNullOrEmpty(TableName)) 
                 throw new NoRequiredDataException();
-            }
 
             string query = BuildSelect(Distinct);
             query += BuildFrom();
@@ -44,7 +37,10 @@ namespace SqlServerQueriesBuilder.SelectClause
 
         private string BuildSelect(bool distinct = false)
         {
-            var b = new Builders();
+            if (IsNullData(Columns) || Columns.Length == 0)
+                return $"select {(distinct ? "distinct " : "")}[{TableName}].* ";
+
+            var b = new BuildersSupport();
             return
                 $"select {(distinct ? "distinct " : "")}{b.ArrayToStringWithComma(TableName, Columns)} ";
         }
@@ -54,40 +50,30 @@ namespace SqlServerQueriesBuilder.SelectClause
         private string BuildWhere()
         {
             if (IsNullData(Where)) return "";
-            var comp = new Dictionaries().GetComparisonOperators();
-            var res = "where";
-            var b = new Builders();
-            foreach (var (logic, not, condition) in Where)
-            {
-                res += $"{logic?.ToString()} {(not ? "not " : "")}[{TableName}].[{condition.ColumnName}]{comp[condition.Operator]}{b.BuildComparison(condition.Operator, condition.Values)} ";
-            }
+            var b = new BuildersSupport();
+            string res = b.BuildConditions(TableName, "where", Where);
             return res;
         }
 
         private string BuildGroupBy()
         {
             if (IsNullData(GroupBy)) return "";
-            var b = new Builders();
+            var b = new BuildersSupport();
             return $"group by {b.ArrayToStringWithComma(TableName, GroupBy)} ";
         }
 
         private string BuildHaving()
         {
             if (IsNullData(Having) || IsNullData(GroupBy)) return "";
-            var comp = new Dictionaries().GetComparisonOperators();
-            var res = "having";
-            var b = new Builders();
-            foreach (var (logic, not, condition) in Having)
-            {
-                res += $"{logic?.ToString()} {(not ? "not " : "")}[{TableName}].[{condition.ColumnName}]{comp[condition.Operator]}{b.BuildComparison(condition.Operator, condition.Values)} ";
-            }
+            var b = new BuildersSupport();
+            string res = b.BuildConditions(TableName, "having", Having);
             return res;
         }
 
         private string BuildOrderBy()
         {
             if (IsNullData(OrderBy)) return "";
-            var b = new Builders();
+            var b = new BuildersSupport();
             return $"order by {OrderBy.Aggregate("", (current, v) => current + $"[{TableName}].[{v.Item1}] {v.Item2}, ").TrimEnd(' ', ',')} ";
         }
 

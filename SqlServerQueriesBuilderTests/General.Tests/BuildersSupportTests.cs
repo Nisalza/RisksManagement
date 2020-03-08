@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,7 @@ using SqlServerQueriesBuilder.General;
 namespace SqlServerQueriesBuilderTests.General.Tests
 {
     [TestClass]
-    public class BuildersTests
+    public class BuildersSupportTests
     {
         [TestMethod]
         public void ArrayToStringWithComma_Obj_NoElements()
@@ -20,7 +21,7 @@ namespace SqlServerQueriesBuilderTests.General.Tests
             string expected = "";
 
             //Act
-            string result = new Builders().ArrayToStringWithComma(array);
+            string result = new BuildersSupport().ArrayToStringWithComma(array);
 
             //Assert
             Assert.AreEqual(expected, result);
@@ -34,7 +35,7 @@ namespace SqlServerQueriesBuilderTests.General.Tests
             string expected = "\'45\'";
 
             //Act
-            string result = new Builders().ArrayToStringWithComma(array);
+            string result = new BuildersSupport().ArrayToStringWithComma(array);
 
             //Assert
             Assert.AreEqual(expected, result);
@@ -48,7 +49,7 @@ namespace SqlServerQueriesBuilderTests.General.Tests
             string expected = "\'5\', \'t\', \'str\', \'-6\'";
 
             //Act
-            string result = new Builders().ArrayToStringWithComma(array);
+            string result = new BuildersSupport().ArrayToStringWithComma(array);
 
             //Assert
             Assert.AreEqual(expected, result);
@@ -62,7 +63,7 @@ namespace SqlServerQueriesBuilderTests.General.Tests
             string expected = "";
 
             //Act
-            string result = new Builders().ArrayToStringWithComma(array);
+            string result = new BuildersSupport().ArrayToStringWithComma(array);
 
             //Assert
             Assert.AreEqual(expected, result);
@@ -76,7 +77,7 @@ namespace SqlServerQueriesBuilderTests.General.Tests
             string expected = "\'str1\'";
 
             //Act
-            string result = new Builders().ArrayToStringWithComma(array);
+            string result = new BuildersSupport().ArrayToStringWithComma(array);
 
             //Assert
             Assert.AreEqual(expected, result);
@@ -90,7 +91,7 @@ namespace SqlServerQueriesBuilderTests.General.Tests
             string expected = "\'a3\', \'o.o\', \'temp\', \'\', \'!\'";
 
             //Act
-            string result = new Builders().ArrayToStringWithComma(array);
+            string result = new BuildersSupport().ArrayToStringWithComma(array);
 
             //Assert
             Assert.AreEqual(expected, result);
@@ -106,7 +107,7 @@ namespace SqlServerQueriesBuilderTests.General.Tests
             string expected = "(\'qwerty\', \'45\', \'?\')";
 
             //Act
-            string result = new Builders().BuildComparison(co, array);
+            string result = new BuildersSupport().BuildComparison(co, array);
 
             //Assert
             Assert.AreEqual(expected, result);
@@ -127,7 +128,7 @@ namespace SqlServerQueriesBuilderTests.General.Tests
             string expected = "\'qwerty\'";
 
             //Act
-            string result = new Builders().BuildComparison(co, array);
+            string result = new BuildersSupport().BuildComparison(co, array);
 
             //Assert
             Assert.AreEqual(expected, result);
@@ -142,10 +143,52 @@ namespace SqlServerQueriesBuilderTests.General.Tests
             string expected = "[table].[c1], [table].[c2]";
 
             //Act
-            string result = new Builders().ArrayToStringWithComma(tn, array);
+            string result = new BuildersSupport().ArrayToStringWithComma(tn, array);
 
             //Assert
             Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void RealNumbersConverter()
+        {
+            //Arrange
+            object[] array = {4.5f, "abc", 5, -2.8f};
+            object[] expected = {"4.5", "abc", 5, "-2.8"};
+
+            //Act
+            object[] res = new BuildersSupport().RealNumbersConverter(array);
+
+            //Assert
+            CollectionAssert.AreEqual(expected, res);
+        }
+
+        [TestMethod]
+        public void RealNumbersConverter_OneItem_Float()
+        {
+            //Arrange
+            object array = 4.5f;
+            object expected = "4.5";
+
+            //Act
+            object res = new BuildersSupport().RealNumbersConverter(array);
+
+            //Assert
+            Assert.AreEqual(expected, res);
+        }
+
+        [TestMethod]
+        public void RealNumbersConverter_OneItem_String()
+        {
+            //Arrange
+            object array = "!qwe";
+            object expected = "!qwe";
+
+            //Act
+            object res = new BuildersSupport().RealNumbersConverter(array);
+
+            //Assert
+            Assert.AreEqual(expected, res);
         }
     }
 }

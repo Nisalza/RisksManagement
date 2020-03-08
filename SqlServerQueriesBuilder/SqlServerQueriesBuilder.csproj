@@ -42,11 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\NoRequiredDataException.cs" />
-    <Compile Include="General\Builders.cs" />
+    <Compile Include="General\BuildersSupport.cs" />
     <Compile Include="General\Dictionaries.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SelectClause\SelectQuery.cs" />
+    <Compile Include="SelectStatement\SelectBuilder.cs" />
+    <Compile Include="SelectStatement\SelectQuery.cs" />
     <Compile Include="General\ConditionClause.cs" />
+    <Compile Include="UpdateStatement\UpdateBuilder.cs" />
+    <Compile Include="UpdateStatement\UpdateQuery.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

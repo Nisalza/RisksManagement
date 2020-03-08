@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SqlServerQueriesBuilder.Exceptions;
 using SqlServerQueriesBuilder.General;
-using SqlServerQueriesBuilder.SelectClause;
+using SqlServerQueriesBuilder.SelectStatement;
 
 namespace SqlServerQueriesBuilderTests
 {
@@ -28,32 +28,38 @@ namespace SqlServerQueriesBuilderTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NoRequiredDataException))]
         public void ToString_NullColumns()
         {
             //Arrange
             var q = new SelectQuery()
             {
-                TableName = ""
+                TableName = "t"
             };
+            string expected = "select [t].* from [t] ";
 
             //Act
-            q.ToString();
+            string res = q.ToString();
+
+            //Assert
+            Assert.AreEqual(expected, res);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NoRequiredDataException))]
         public void ToString_NoColumns()
         {
             //Arrange
             var q = new SelectQuery()
             {
-                TableName = "",
+                TableName = "t",
                 Columns = new string[0]
             };
+            string expected = "select [t].* from [t] ";
 
             //Act
-            q.ToString();
+            string res = q.ToString();
+
+            //Assert
+            Assert.AreEqual(expected, res);
         }
 
         [TestMethod]
@@ -110,7 +116,8 @@ namespace SqlServerQueriesBuilderTests
                 }
             };
             string expected = "select distinct [SomeTable].[Col1], [SomeTable].[Col2], [SomeTable].[Col3] " +
-                              "from [SomeTable] where [SomeTable].[Col1] = \'abc\' ";
+                              "from [SomeTable] " +
+                              "where [SomeTable].[Col1] = \'abc\' ";
 
             //Act
             string res = q.ToString();
