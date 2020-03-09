@@ -7,7 +7,7 @@ using SqlServerQueriesBuilder.General;
 
 namespace SqlServerQueriesBuilder.UpdateStatement
 {
-    public class UpdateBuilder
+    public class UpdateBuilder : IUpdateBuilder
     {
         public UpdateQuery UpdateQuery { get; private set; }
 
@@ -22,6 +22,11 @@ namespace SqlServerQueriesBuilder.UpdateStatement
             UpdateQuery.TableName = tn;
         }
 
+        public void SetTableName(string tableName)
+        {
+            UpdateQuery.TableName = tableName;
+        }
+
         public void SetValues((string, object)[] values)
         {
             CheckRealNumbers(values);
@@ -34,7 +39,7 @@ namespace SqlServerQueriesBuilder.UpdateStatement
             UpdateQuery.Where = where;
         }
 
-        private void Reset()
+        public void Reset()
         {
             UpdateQuery = new UpdateQuery();
         }

@@ -2,7 +2,7 @@
 
 namespace SqlServerQueriesBuilder.SelectStatement
 {
-    public class SelectBuilder
+    public class SelectBuilder : ISelectBuilder
     {
         public SelectQuery SelectQuery { get; private set; }
 
@@ -18,9 +18,9 @@ namespace SqlServerQueriesBuilder.SelectStatement
             BuildColumns(cols);
         }
 
-        public void BuildTableName(string name)
+        public void BuildTableName(string tableName)
         {
-            SelectQuery.TableName = name;
+            SelectQuery.TableName = tableName;
         }
 
         public void BuildColumns(string[] cols)
@@ -34,9 +34,9 @@ namespace SqlServerQueriesBuilder.SelectStatement
             SelectQuery.Where = where;
         }
 
-        public void BuildGroupBy(string[] gb)
+        public void BuildGroupBy(string[] groupBy)
         {
-            SelectQuery.GroupBy = gb;
+            SelectQuery.GroupBy = groupBy;
         }
 
         public void BuildHaving((Dictionaries.LogicOperators?, bool, ConditionClause)[] having)
@@ -45,14 +45,14 @@ namespace SqlServerQueriesBuilder.SelectStatement
             SelectQuery.Having = having;
         }
 
-        public void BuildOrderBy((string, Dictionaries.OrderBy)[] ob)
+        public void BuildOrderBy((string, Dictionaries.OrderBy)[] orderBy)
         {
-            SelectQuery.OrderBy = ob;
+            SelectQuery.OrderBy = orderBy;
         }
 
-        public void BuildDistinct(bool d)
+        public void BuildDistinct(bool distinct)
         {
-            SelectQuery.Distinct = d;
+            SelectQuery.Distinct = distinct;
         }
 
         public void Reset()

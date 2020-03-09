@@ -6,36 +6,26 @@ using System.Threading.Tasks;
 using SqlServerQueriesBuilder.Exceptions;
 using SqlServerQueriesBuilder.General;
 
-namespace SqlServerQueriesBuilder.UpdateStatement
+namespace SqlServerQueriesBuilder.DeleteStatement
 {
-    public class UpdateQuery : IUpdateQuery
+    public class DeleteQuery : IDeleteQuery
     {
         public string TableName { get; set; }
-
-        public (string, object)[] Values { get; set; }
 
         public (Dictionaries.LogicOperators?, bool, ConditionClause)[] Where { get; set; }
 
         public override string ToString()
         {
-            if (string.IsNullOrEmpty(TableName) || Values == null || Values.Length == 0)
-                throw new NoRequiredDataException();
+            if (string.IsNullOrEmpty(TableName)) throw new NoRequiredDataException();
 
-            string res = BuildUpdate();
-            res += BuildSet();
+            string res = BuildDelete();
             res += BuildWhere();
             return res;
         }
 
-        private string BuildUpdate()
+        private string BuildDelete()
         {
-            return $"update [{TableName}] ";
-        }
-
-        private string BuildSet()
-        {
-            return
-                $"{Values.Aggregate("set ", (current, t) => current + $"[{TableName}].[{t.Item1}] = \'{t.Item2}\', ").TrimEnd(' ', ',')} ";
+            return $"delete from [{TableName}] ";
         }
 
         private string BuildWhere()

@@ -4,7 +4,7 @@ using SqlServerQueriesBuilder.General;
 
 namespace SqlServerQueriesBuilder.SelectStatement
 {
-    public class SelectQuery
+    public class SelectQuery : ISelectQuery
     {
         public string TableName { get; set; }
 

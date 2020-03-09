@@ -49,6 +49,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeleteQueryTests.cs" />
     <Compile Include="General.Tests\BuildersSupportTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectQueryTests.cs" />

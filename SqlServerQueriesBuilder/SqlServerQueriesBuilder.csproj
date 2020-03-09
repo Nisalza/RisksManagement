@@ -41,13 +41,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DeleteStatement\DeleteBuilder.cs" />
+    <Compile Include="DeleteStatement\DeleteQuery.cs" />
+    <Compile Include="DeleteStatement\IDeleteBuilder.cs" />
+    <Compile Include="DeleteStatement\IDeleteQuery.cs" />
     <Compile Include="Exceptions\NoRequiredDataException.cs" />
     <Compile Include="General\BuildersSupport.cs" />
     <Compile Include="General\Dictionaries.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SelectStatement\ISelectBuilder.cs" />
+    <Compile Include="SelectStatement\ISelectQuery.cs" />
     <Compile Include="SelectStatement\SelectBuilder.cs" />
     <Compile Include="SelectStatement\SelectQuery.cs" />
     <Compile Include="General\ConditionClause.cs" />
+    <Compile Include="UpdateStatement\IUpdateBuilder.cs" />
+    <Compile Include="UpdateStatement\IUpdateQuery.cs" />
     <Compile Include="UpdateStatement\UpdateBuilder.cs" />
     <Compile Include="UpdateStatement\UpdateQuery.cs" />
   </ItemGroup>
