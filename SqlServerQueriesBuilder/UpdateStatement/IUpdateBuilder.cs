@@ -9,13 +9,13 @@ namespace SqlServerQueriesBuilder.UpdateStatement
 {
     public interface IUpdateBuilder
     {
-        UpdateQuery UpdateQuery { get; }
+        IUpdateQuery UpdateQuery { get; }
 
-        void SetTableName(string tableName);
+        void BuildTableName(string tableName);
 
-        void SetValues((string, object)[] values);
+        void BuildValues((string, object)[] values);
 
-        void SetWhere((Dictionaries.LogicOperators?, bool, ConditionClause)[] where);
+        void BuildWhere((Dictionaries.LogicOperators?, bool, ConditionClause)[] where);
 
         void Reset();
     }

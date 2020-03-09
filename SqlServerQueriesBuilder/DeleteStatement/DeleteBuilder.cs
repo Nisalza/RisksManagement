@@ -9,7 +9,7 @@ namespace SqlServerQueriesBuilder.DeleteStatement
 {
     public class DeleteBuilder : IDeleteBuilder
     {
-        public DeleteQuery DeleteQuery { get; private set; }
+        public IDeleteQuery DeleteQuery { get; private set; }
 
         public DeleteBuilder()
         {
@@ -19,15 +19,15 @@ namespace SqlServerQueriesBuilder.DeleteStatement
         public DeleteBuilder(string tn)
         {
             Reset();
-            DeleteQuery.TableName = tn;
+            BuildTableName(tn);
         }
 
-        public void SetTableName(string tableName)
+        public void BuildTableName(string tableName)
         {
             DeleteQuery.TableName = tableName;
         }
 
-        public void SetWhere((Dictionaries.LogicOperators?, bool, ConditionClause)[] @where)
+        public void BuildWhere((Dictionaries.LogicOperators?, bool, ConditionClause)[] @where)
         {
             CheckRealNumbers(where);
             DeleteQuery.Where = where;

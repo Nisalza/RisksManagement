@@ -9,7 +9,7 @@ namespace SqlServerQueriesBuilder.UpdateStatement
 {
     public class UpdateBuilder : IUpdateBuilder
     {
-        public UpdateQuery UpdateQuery { get; private set; }
+        public IUpdateQuery UpdateQuery { get; private set; }
 
         public UpdateBuilder()
         {
@@ -19,21 +19,21 @@ namespace SqlServerQueriesBuilder.UpdateStatement
         public UpdateBuilder(string tn)
         {
             Reset();
-            UpdateQuery.TableName = tn;
+            BuildTableName(tn);
         }
 
-        public void SetTableName(string tableName)
+        public void BuildTableName(string tableName)
         {
             UpdateQuery.TableName = tableName;
         }
 
-        public void SetValues((string, object)[] values)
+        public void BuildValues((string, object)[] values)
         {
             CheckRealNumbers(values);
             UpdateQuery.Values = values;
         }
 
-        public void SetWhere((Dictionaries.LogicOperators?, bool, ConditionClause)[] where)
+        public void BuildWhere((Dictionaries.LogicOperators?, bool, ConditionClause)[] where)
         {
             CheckRealNumbers(where);
             UpdateQuery.Where = where;

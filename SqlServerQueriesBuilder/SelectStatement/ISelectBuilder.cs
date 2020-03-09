@@ -9,7 +9,7 @@ namespace SqlServerQueriesBuilder.SelectStatement
 {
     public interface ISelectBuilder
     {
-        SelectQuery SelectQuery { get; }
+        ISelectQuery SelectQuery { get; }
 
         void BuildTableName(string tableName);
 

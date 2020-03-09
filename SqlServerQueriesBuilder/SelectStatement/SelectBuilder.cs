@@ -4,7 +4,7 @@ namespace SqlServerQueriesBuilder.SelectStatement
 {
     public class SelectBuilder : ISelectBuilder
     {
-        public SelectQuery SelectQuery { get; private set; }
+        public ISelectQuery SelectQuery { get; private set; }
 
         public SelectBuilder()
         {

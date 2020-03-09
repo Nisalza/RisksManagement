@@ -9,11 +9,11 @@ namespace SqlServerQueriesBuilder.DeleteStatement
 {
     public interface IDeleteBuilder
     {
-        DeleteQuery DeleteQuery { get; }
+        IDeleteQuery DeleteQuery { get; }
 
-        void SetTableName(string tableName);
+        void BuildTableName(string tableName);
 
-        void SetWhere((Dictionaries.LogicOperators?, bool, ConditionClause)[] where);
+        void BuildWhere((Dictionaries.LogicOperators?, bool, ConditionClause)[] where);
 
         void Reset();
     }

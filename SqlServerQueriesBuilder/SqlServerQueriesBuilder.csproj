@@ -48,6 +48,10 @@
     <Compile Include="Exceptions\NoRequiredDataException.cs" />
     <Compile Include="General\BuildersSupport.cs" />
     <Compile Include="General\Dictionaries.cs" />
+    <Compile Include="InsertStatement\IInsertBuilder.cs" />
+    <Compile Include="InsertStatement\IInsertQuery.cs" />
+    <Compile Include="InsertStatement\InsertBuilder.cs" />
+    <Compile Include="InsertStatement\InsertQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectStatement\ISelectBuilder.cs" />
     <Compile Include="SelectStatement\ISelectQuery.cs" />
