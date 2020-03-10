@@ -39,6 +39,11 @@ namespace SqlServerQueriesBuilder.UpdateStatement
             UpdateQuery.Where = where;
         }
 
+        public string BuildRequest()
+        {
+            return UpdateQuery.ToString();
+        }
+
         public void Reset()
         {
             UpdateQuery = new UpdateQuery();

@@ -39,6 +39,11 @@ namespace SqlServerQueriesBuilder.InsertStatement
             InsertQuery.Values = values;
         }
 
+        public string BuildRequest()
+        {
+            return InsertQuery.ToString();
+        }
+
         public void Reset()
         {
             InsertQuery = new InsertQuery();

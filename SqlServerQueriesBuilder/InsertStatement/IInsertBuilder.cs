@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SqlServerQueriesBuilder.InsertStatement
 {
-    public interface IInsertBuilder
+    public interface IInsertBuilder : IBuilder
     {
         IInsertQuery InsertQuery { get; }
 
@@ -15,7 +15,5 @@ namespace SqlServerQueriesBuilder.InsertStatement
         void BuildColumns(string[] columns);
 
         void BuildValues(object[] values);
-
-        void Reset();
     }
 }

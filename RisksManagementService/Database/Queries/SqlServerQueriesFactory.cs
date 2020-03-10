@@ -1,42 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
-namespace RisksManagementService.Database.Queries.Factories
+namespace RisksManagementService.Database.Queries
 {
     public class SqlServerQueriesFactory : IQueryFactory
     {
         public IQuery Select()
         {
-            throw new NotImplementedException();
+            return new SelectStatement();
         }
 
         public IQuery Update()
         {
-            throw new NotImplementedException();
+            return new UpdateStatement();
         }
 
         public IQuery Insert()
         {
-            throw new NotImplementedException();
+            return new InsertStatement();
         }
 
         public IQuery Delete()
         {
-            throw new NotImplementedException();
+            return new DeleteStatement();
         }
 
+        //todo CreateStatement
         public IQuery Create()
         {
             throw new NotImplementedException();
         }
 
+        //todo AlterStatement
         public IQuery Alter()
         {
             throw new NotImplementedException();
         }
 
+        //todo DropStatement
         public IQuery Drop()
         {
             throw new NotImplementedException();

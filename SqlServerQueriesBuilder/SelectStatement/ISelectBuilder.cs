@@ -7,7 +7,7 @@ using SqlServerQueriesBuilder.General;
 
 namespace SqlServerQueriesBuilder.SelectStatement
 {
-    public interface ISelectBuilder
+    public interface ISelectBuilder : IBuilder
     {
         ISelectQuery SelectQuery { get; }
 
@@ -24,7 +24,5 @@ namespace SqlServerQueriesBuilder.SelectStatement
         void BuildOrderBy((string, Dictionaries.OrderBy)[] orderBy);
 
         void BuildDistinct(bool distinct);
-
-        void Reset();
     }
 }

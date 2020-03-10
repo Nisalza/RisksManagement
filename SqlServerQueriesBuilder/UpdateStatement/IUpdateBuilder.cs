@@ -7,7 +7,7 @@ using SqlServerQueriesBuilder.General;
 
 namespace SqlServerQueriesBuilder.UpdateStatement
 {
-    public interface IUpdateBuilder
+    public interface IUpdateBuilder : IBuilder
     {
         IUpdateQuery UpdateQuery { get; }
 
@@ -16,7 +16,5 @@ namespace SqlServerQueriesBuilder.UpdateStatement
         void BuildValues((string, object)[] values);
 
         void BuildWhere((Dictionaries.LogicOperators?, bool, ConditionClause)[] where);
-
-        void Reset();
     }
 }

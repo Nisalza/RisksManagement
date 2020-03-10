@@ -73,9 +73,13 @@
     <Compile Include="Database\Models\Role.cs" />
     <Compile Include="Database\Models\RolePattern.cs" />
     <Compile Include="Database\Models\Settings.cs" />
-    <Compile Include="Database\Queries\Factories\SqlServerQueriesFactory.cs" />
+    <Compile Include="Database\Queries\DeleteStatement.cs" />
+    <Compile Include="Database\Queries\InsertStatement.cs" />
+    <Compile Include="Database\Queries\SelectStatement.cs" />
+    <Compile Include="Database\Queries\SqlServerQueriesFactory.cs" />
     <Compile Include="Database\Queries\IQuery.cs" />
     <Compile Include="Database\Queries\IQueryFactory.cs" />
+    <Compile Include="Database\Queries\UpdateStatement.cs" />
     <Compile Include="Database\SingletonConnection.cs" />
     <Compile Include="Service.svc.cs">
       <DependentUpon>Service.svc</DependentUpon>

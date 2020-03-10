@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RisksManagementService.Database.Queries
+namespace SqlServerQueriesBuilder
 {
-    public interface IQuery
+    public interface IBuilder
     {
-        string GetRequest();
+        string BuildRequest();
+
+        void Reset();
     }
 }

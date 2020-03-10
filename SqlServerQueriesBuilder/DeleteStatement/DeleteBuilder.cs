@@ -33,6 +33,11 @@ namespace SqlServerQueriesBuilder.DeleteStatement
             DeleteQuery.Where = where;
         }
 
+        public string BuildRequest()
+        {
+            return DeleteQuery.ToString();
+        }
+
         public void Reset()
         {
             DeleteQuery = new DeleteQuery();

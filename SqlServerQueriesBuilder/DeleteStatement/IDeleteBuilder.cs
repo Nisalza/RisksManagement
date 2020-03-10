@@ -7,14 +7,12 @@ using SqlServerQueriesBuilder.General;
 
 namespace SqlServerQueriesBuilder.DeleteStatement
 {
-    public interface IDeleteBuilder
+    public interface IDeleteBuilder : IBuilder
     {
         IDeleteQuery DeleteQuery { get; }
 
         void BuildTableName(string tableName);
 
         void BuildWhere((Dictionaries.LogicOperators?, bool, ConditionClause)[] where);
-
-        void Reset();
     }
 }

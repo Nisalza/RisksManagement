@@ -55,6 +55,11 @@ namespace SqlServerQueriesBuilder.SelectStatement
             SelectQuery.Distinct = distinct;
         }
 
+        public string BuildRequest()
+        {
+            return SelectQuery.ToString();
+        }
+
         public void Reset()
         {
             SelectQuery = new SelectQuery();
