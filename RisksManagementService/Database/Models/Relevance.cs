@@ -6,16 +6,16 @@ using RisksManagementService.Attributes;
 
 namespace RisksManagementService.Database.Models
 {
-    [DataDescription("role_pattern", "RolePattern", FieldType.TableName)]
-    public class RolePattern
+    [DataDescription("relevance", "Relevance")]
+    public class Relevance
     {
         [DataDescription("id", "Id")]
         public int Id { get; set; }
 
+        [DataDescription("assessment", "Assessment")]
+        public float Assessment { get; set; }
+
         [DataDescription("name", "Name")]
         public string Name { get; set; }
-
-        [DataDescription("settings", "Settings")]
-        public Settings Settings { get; set; }
     }
 }

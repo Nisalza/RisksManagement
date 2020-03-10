@@ -69,10 +69,33 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\DataDescriptionAttribute.cs" />
+    <Compile Include="Database\Models\Notification.cs" />
+    <Compile Include="Database\Models\NotificationApplication.cs" />
     <Compile Include="Database\Models\AppUser.cs" />
+    <Compile Include="Database\Models\Classification.cs" />
+    <Compile Include="Database\Models\Department.cs" />
+    <Compile Include="Database\Models\Environment.cs" />
+    <Compile Include="Database\Models\ExposureComputation.cs" />
+    <Compile Include="Database\Models\Impact.cs" />
+    <Compile Include="Database\Models\ImpactType.cs" />
+    <Compile Include="Database\Models\Priority.cs" />
+    <Compile Include="Database\Models\Probability.cs" />
+    <Compile Include="Database\Models\ProbabilityType.cs" />
+    <Compile Include="Database\Models\Project.cs" />
+    <Compile Include="Database\Models\Relevance.cs" />
+    <Compile Include="Database\Models\Risk.cs" />
+    <Compile Include="Database\Models\RiskCause.cs" />
+    <Compile Include="Database\Models\RiskManagementPlan.cs" />
+    <Compile Include="Database\Models\RiskTrigger.cs" />
     <Compile Include="Database\Models\Role.cs" />
     <Compile Include="Database\Models\RolePattern.cs" />
     <Compile Include="Database\Models\Settings.cs" />
+    <Compile Include="Database\Models\Strategy.cs" />
+    <Compile Include="Database\Models\StrategyType.cs" />
+    <Compile Include="Database\Models\Team.cs" />
+    <Compile Include="Database\Models\TeamUser.cs" />
+    <Compile Include="Database\Models\UserStructure.cs" />
     <Compile Include="Database\Queries\DeleteStatement.cs" />
     <Compile Include="Database\Queries\InsertStatement.cs" />
     <Compile Include="Database\Queries\SelectStatement.cs" />

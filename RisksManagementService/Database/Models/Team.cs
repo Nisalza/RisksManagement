@@ -6,8 +6,8 @@ using RisksManagementService.Attributes;
 
 namespace RisksManagementService.Database.Models
 {
-    [DataDescription("role_pattern", "RolePattern", FieldType.TableName)]
-    public class RolePattern
+    [DataDescription("team", "Team", FieldType.TableName)]
+    public class Team
     {
         [DataDescription("id", "Id")]
         public int Id { get; set; }
@@ -15,7 +15,7 @@ namespace RisksManagementService.Database.Models
         [DataDescription("name", "Name")]
         public string Name { get; set; }
 
-        [DataDescription("settings", "Settings")]
-        public Settings Settings { get; set; }
+        [DataDescription("description", "Description")]
+        public string Description { get; set; }
     }
 }
