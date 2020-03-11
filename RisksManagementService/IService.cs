@@ -5,15 +5,16 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using RisksManagementService.Database.Models;
 
 namespace RisksManagementService
 {
-    [ServiceContract(CallbackContract = typeof(IServerCallback))]
+    [ServiceContract(CallbackContract = typeof(IServiceCallback))]
     public interface IService
     {
 
         [OperationContract]
-        void Connect(string login);
+        AppUser Connect(string login);
 
         [OperationContract]
         void Disconnect();

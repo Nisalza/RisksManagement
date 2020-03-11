@@ -108,7 +108,7 @@
     <Compile Include="Database\SingletonConnection.cs" />
     <Compile Include="Database\SqlGenerators\ForModels\SqlForAppUser.cs" />
     <Compile Include="Database\SqlGenerators\SqlSupport.cs" />
-    <Compile Include="IServerCallback.cs" />
+    <Compile Include="IServiceCallback.cs" />
     <Compile Include="Service.svc.cs">
       <DependentUpon>Service.svc</DependentUpon>
     </Compile>

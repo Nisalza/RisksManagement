@@ -6,13 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Prism.Mvvm;
+using RisksManagementClient;
 using RisksManagementClient.ServiceRisksManagement;
-using RisksManagementService;
-using RisksManagementService.Database.Models;
 
 namespace RisksManagementClient.ViewModels
 {
-    public class MainViewModel : BindableBase, IServerCallback
+    public class MainViewModel : BindableBase, IServiceCallback
     {
         public ServiceClient Client;
 
@@ -22,15 +21,17 @@ namespace RisksManagementClient.ViewModels
         {
             ViewLoaded += OnViewLoaded;
             Client = new ServiceClient(new InstanceContext(this));
+            //IServiceCallback
         }
 
         private void OnViewLoaded(object sender, EventArgs e)
         {
             //todo Нормальный логин
-            Client.Connect("ALZA/Dashi");
+            AppUser user = Client.Connect("ALZA/Dashi");
+            MessageBox.Show(user.Name);
         }
 
-        public void AppUserCallback(string result)
+        public void AppUserCallback(AppUser result)
         {
             //MessageBox.Show(result.Name);
         }

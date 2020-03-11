@@ -18,7 +18,7 @@ namespace RisksManagementService
         public AppUser CurrentUser { get; private set; }
 
         //todo вызывать при загрузке клиента
-        public void Connect(string login)
+        public AppUser Connect(string login)
         {
             SqlForAppUser sqlForAppUser = new SqlForAppUser();
             CurrentUser = sqlForAppUser.SelectAllByLogin(login);
@@ -28,7 +28,9 @@ namespace RisksManagementService
             SingletonConnection connection = SingletonConnection.GetInstance();
             connection.OpenConnection();
 
-            //CurrentUser.OperationContext.GetCallbackChannel<IServerCallback>().AppUserCallback(CurrentUser);
+            //CurrentUser.OperationContext.GetCallbackChannel<IServiceCallback>().AppUserCallback(CurrentUser);
+
+            return CurrentUser;
         }
 
         //todo вызывать при закрытии клиента
