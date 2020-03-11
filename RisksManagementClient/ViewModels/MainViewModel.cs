@@ -21,7 +21,7 @@ namespace RisksManagementClient.ViewModels
         public MainViewModel()
         {
             ViewLoaded += OnViewLoaded;
-            //Client = new ServiceClient(new InstanceContext(this));
+            Client = new ServiceClient(new InstanceContext(this));
         }
 
         private void OnViewLoaded(object sender, EventArgs e)
