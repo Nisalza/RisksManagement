@@ -12,6 +12,6 @@ namespace RisksManagementService
     public interface IServerCallback
     {
         [OperationContract(IsOneWay = true)]
-        void Callback(IDatabaseModel result);
+        void AppUserCallback(AppUser result);
     }
 }

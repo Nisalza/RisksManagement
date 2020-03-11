@@ -7,7 +7,9 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using RisksManagementService.Database;
 using RisksManagementService.Database.Models;
+using RisksManagementService.Database.SqlGenerators.ForModels;
 
 namespace RisksManagementService
 {
@@ -16,20 +18,24 @@ namespace RisksManagementService
         public AppUser CurrentUser { get; private set; }
 
         //todo вызывать при загрузке клиента
-        //todo убрать дефолтный логин
-        public void Connect(string login = "Alza Nis")
+        public void Connect(string login)
         {
-            //todo получить инфу о пользователе из БД
+            SqlForAppUser sqlForAppUser = new SqlForAppUser();
+            CurrentUser = sqlForAppUser.SelectAllByLogin(login);
             CurrentUser.OperationContext = OperationContext.Current;
+
             string cnString = ConfigurationManager.ConnectionStrings["RisksManagementDatabase"].ConnectionString;
-            CurrentUser.Connection = new SqlConnection(cnString);
-            CurrentUser.Connection.Open();
+            SingletonConnection connection = SingletonConnection.GetInstance();
+            connection.OpenConnection();
+
+            CurrentUser.OperationContext.GetCallbackChannel<IServerCallback>().AppUserCallback(CurrentUser);
         }
 
         //todo вызывать при закрытии клиента
         public void Disconnect()
         {
-            CurrentUser.Connection.Close();
+            var connection = SingletonConnection.GetInstance();
+            connection.CloseConnection();
         }
     }
 }
