@@ -8,7 +8,6 @@ using System.Web;
 
 namespace RisksManagementService.Database
 {
-    //todo удалить потом, если не понадобится
     public class SingletonConnection
     {
         private static SingletonConnection _instance;
@@ -30,14 +29,20 @@ namespace RisksManagementService.Database
 
         public void OpenConnection()
         {
-            Connection.Open();
-            IsOpen = true;
+            if (!IsOpen)
+            {
+                Connection.Open();
+                IsOpen = true;
+            }
         }
 
         public void CloseConnection()
         {
-            Connection.Close();
-            IsOpen = false;
+            if (IsOpen)
+            {
+                Connection.Close();
+                IsOpen = false;
+            }
         }
     }
 }

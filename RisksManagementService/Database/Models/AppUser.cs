@@ -41,8 +41,6 @@ namespace RisksManagementService.Database.Models
         [DataDescription("time_modified", "TimeModified")]
         public DateTime TimeModified { get; set; }
 
-        public SqlConnection Connection { get; set; }
-
         public OperationContext OperationContext { get; set; }
     }
 }
