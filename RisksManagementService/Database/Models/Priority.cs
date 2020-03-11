@@ -7,7 +7,7 @@ using RisksManagementService.Attributes;
 namespace RisksManagementService.Database.Models
 {
     [DataDescription("priority", "Priority", FieldType.TableName)]
-    public class Priority
+    public class Priority : IDatabaseModel
     {
         [DataDescription("id", "Id")]
         public int Id { get; set; }
@@ -17,5 +17,17 @@ namespace RisksManagementService.Database.Models
 
         [DataDescription("name", "Name")]
         public string Name { get; set; }
+
+        [DataDescription("created_by", "CreatedBy")]
+        public string CreatedBy { get; set; }
+
+        [DataDescription("modified_by", "ModifiedBy")]
+        public string ModifiedBy { get; set; }
+
+        [DataDescription("time_created", "TimeCreated")]
+        public DateTime TimeCreated { get; set; }
+
+        [DataDescription("time_modified", "TimeModified")]
+        public DateTime TimeModified { get; set; }
     }
 }

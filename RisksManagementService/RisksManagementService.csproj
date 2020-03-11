@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\DataDescriptionAttribute.cs" />
+    <Compile Include="Database\Models\IDatabaseModel.cs" />
     <Compile Include="Database\Models\Notification.cs" />
     <Compile Include="Database\Models\NotificationApplication.cs" />
     <Compile Include="Database\Models\AppUser.cs" />
@@ -96,13 +97,13 @@
     <Compile Include="Database\Models\Team.cs" />
     <Compile Include="Database\Models\TeamUser.cs" />
     <Compile Include="Database\Models\UserStructure.cs" />
-    <Compile Include="Database\Queries\DeleteStatement.cs" />
-    <Compile Include="Database\Queries\InsertStatement.cs" />
-    <Compile Include="Database\Queries\SelectStatement.cs" />
+    <Compile Include="Database\Queries\Statements\DeleteStatement.cs" />
+    <Compile Include="Database\Queries\Statements\InsertStatement.cs" />
+    <Compile Include="Database\Queries\Statements\SelectStatement.cs" />
     <Compile Include="Database\Queries\SqlServerQueriesFactory.cs" />
     <Compile Include="Database\Queries\IQuery.cs" />
     <Compile Include="Database\Queries\IQueryFactory.cs" />
-    <Compile Include="Database\Queries\UpdateStatement.cs" />
+    <Compile Include="Database\Queries\Statements\UpdateStatement.cs" />
     <Compile Include="Database\SingletonConnection.cs" />
     <Compile Include="Service.svc.cs">
       <DependentUpon>Service.svc</DependentUpon>

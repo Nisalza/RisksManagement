@@ -1,6 +1,6 @@
 ﻿using SqlServerQueriesBuilder.SelectStatement;
 
-namespace RisksManagementService.Database.Queries
+namespace RisksManagementService.Database.Queries.Statements
 {
     public class SelectStatement : IQuery
     {

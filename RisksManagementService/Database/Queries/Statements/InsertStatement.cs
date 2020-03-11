@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using SqlServerQueriesBuilder.InsertStatement;
+﻿using SqlServerQueriesBuilder.InsertStatement;
 
-namespace RisksManagementService.Database.Queries
+namespace RisksManagementService.Database.Queries.Statements
 {
     public class InsertStatement : IQuery
     {

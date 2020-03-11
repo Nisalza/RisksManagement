@@ -1,4 +1,5 @@
 ﻿using System;
+using RisksManagementService.Database.Queries.Statements;
 
 namespace RisksManagementService.Database.Queries
 {

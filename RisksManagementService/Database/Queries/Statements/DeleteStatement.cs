@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using SqlServerQueriesBuilder.DeleteStatement;
+﻿using SqlServerQueriesBuilder.DeleteStatement;
 
-namespace RisksManagementService.Database.Queries
+namespace RisksManagementService.Database.Queries.Statements
 {
     public class DeleteStatement : IQuery
     {

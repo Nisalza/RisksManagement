@@ -7,7 +7,7 @@ using RisksManagementService.Attributes;
 namespace RisksManagementService.Database.Models
 {
     [DataDescription("role_pattern", "RolePattern", FieldType.TableName)]
-    public class RolePattern
+    public class RolePattern : IDatabaseModel
     {
         [DataDescription("id", "Id")]
         public int Id { get; set; }
@@ -17,5 +17,17 @@ namespace RisksManagementService.Database.Models
 
         [DataDescription("settings", "Settings")]
         public Settings Settings { get; set; }
+
+        [DataDescription("created_by", "CreatedBy")]
+        public string CreatedBy { get; set; }
+
+        [DataDescription("modified_by", "ModifiedBy")]
+        public string ModifiedBy { get; set; }
+
+        [DataDescription("time_created", "TimeCreated")]
+        public DateTime TimeCreated { get; set; }
+
+        [DataDescription("time_modified", "TimeModified")]
+        public DateTime TimeModified { get; set; }
     }
 }
