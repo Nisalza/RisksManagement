@@ -97,14 +97,8 @@
     <None Include="Connected Services\ServiceRisksManagement\item.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceRisksManagement\item1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\ServiceRisksManagement\item2.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceRisksManagement\Service.wsdl" />
     <None Include="Properties\Settings.settings">
