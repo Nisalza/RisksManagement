@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RisksManagementClient.ServiceReference {
+namespace RisksManagementClient.ServiceRisksManagement {
     using System.Runtime.Serialization;
     using System;
     
@@ -75,7 +75,7 @@ namespace RisksManagementClient.ServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference.IService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceRisksManagement.IService")]
     public interface IService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetData", ReplyAction="http://tempuri.org/IService/GetDataResponse")]
@@ -85,19 +85,19 @@ namespace RisksManagementClient.ServiceReference {
         System.Threading.Tasks.Task<string> GetDataAsync(int value);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService/GetDataUsingDataContractResponse")]
-        RisksManagementClient.ServiceReference.CompositeType GetDataUsingDataContract(RisksManagementClient.ServiceReference.CompositeType composite);
+        RisksManagementClient.ServiceRisksManagement.CompositeType GetDataUsingDataContract(RisksManagementClient.ServiceRisksManagement.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<RisksManagementClient.ServiceReference.CompositeType> GetDataUsingDataContractAsync(RisksManagementClient.ServiceReference.CompositeType composite);
+        System.Threading.Tasks.Task<RisksManagementClient.ServiceRisksManagement.CompositeType> GetDataUsingDataContractAsync(RisksManagementClient.ServiceRisksManagement.CompositeType composite);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServiceChannel : RisksManagementClient.ServiceReference.IService, System.ServiceModel.IClientChannel {
+    public interface IServiceChannel : RisksManagementClient.ServiceRisksManagement.IService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServiceClient : System.ServiceModel.ClientBase<RisksManagementClient.ServiceReference.IService>, RisksManagementClient.ServiceReference.IService {
+    public partial class ServiceClient : System.ServiceModel.ClientBase<RisksManagementClient.ServiceRisksManagement.IService>, RisksManagementClient.ServiceRisksManagement.IService {
         
         public ServiceClient() {
         }
@@ -126,11 +126,11 @@ namespace RisksManagementClient.ServiceReference {
             return base.Channel.GetDataAsync(value);
         }
         
-        public RisksManagementClient.ServiceReference.CompositeType GetDataUsingDataContract(RisksManagementClient.ServiceReference.CompositeType composite) {
+        public RisksManagementClient.ServiceRisksManagement.CompositeType GetDataUsingDataContract(RisksManagementClient.ServiceRisksManagement.CompositeType composite) {
             return base.Channel.GetDataUsingDataContract(composite);
         }
         
-        public System.Threading.Tasks.Task<RisksManagementClient.ServiceReference.CompositeType> GetDataUsingDataContractAsync(RisksManagementClient.ServiceReference.CompositeType composite) {
+        public System.Threading.Tasks.Task<RisksManagementClient.ServiceRisksManagement.CompositeType> GetDataUsingDataContractAsync(RisksManagementClient.ServiceRisksManagement.CompositeType composite) {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 using RisksManagementService.Attributes;
 
@@ -41,5 +42,7 @@ namespace RisksManagementService.Database.Models
         public DateTime TimeModified { get; set; }
 
         public SqlConnection Connection { get; set; }
+
+        public OperationContext OperationContext { get; set; }
     }
 }

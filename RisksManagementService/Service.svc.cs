@@ -16,9 +16,11 @@ namespace RisksManagementService
         public AppUser CurrentUser { get; private set; }
 
         //todo вызывать при загрузке клиента
-        public void Connect(string login)
+        //todo убрать дефолтный логин
+        public void Connect(string login = "Alza Nis")
         {
             //todo получить инфу о пользователе из БД
+            CurrentUser.OperationContext = OperationContext.Current;
             string cnString = ConfigurationManager.ConnectionStrings["RisksManagementDatabase"].ConnectionString;
             CurrentUser.Connection = new SqlConnection(cnString);
             CurrentUser.Connection.Open();

@@ -14,7 +14,6 @@ namespace RisksManagementHost
             using (var host = new ServiceHost(typeof(RisksManagementService.Service)))
             {
                 host.Open();
-                Console.WriteLine("Eeee");
                 Console.ReadKey();
             }
         }

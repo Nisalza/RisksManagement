@@ -105,6 +105,7 @@
     <Compile Include="Database\Queries\IQueryFactory.cs" />
     <Compile Include="Database\Queries\Statements\UpdateStatement.cs" />
     <Compile Include="Database\SingletonConnection.cs" />
+    <Compile Include="IServerCallback.cs" />
     <Compile Include="Service.svc.cs">
       <DependentUpon>Service.svc</DependentUpon>
     </Compile>
