@@ -30,9 +30,9 @@ namespace RisksManagementClient.ViewModels
             Client.Connect("ALZA/Dashi");
         }
 
-        public void AppUserCallback(AppUser result)
+        public void AppUserCallback(string result)
         {
-            MessageBox.Show(result.Name);
+            //MessageBox.Show(result.Name);
         }
     }
 }

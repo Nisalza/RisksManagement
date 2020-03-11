@@ -8,10 +8,10 @@ using RisksManagementService.Database.Models;
 
 namespace RisksManagementService
 {
-    [ServiceContract]
+    //[ServiceContract]
     public interface IServerCallback
     {
         [OperationContract(IsOneWay = true)]
-        void AppUserCallback(AppUser result);
+        void AppUserCallback(string result);
     }
 }

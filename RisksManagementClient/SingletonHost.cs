@@ -20,7 +20,7 @@ namespace RisksManagementClient
 
         private SingletonHost()
         {
-            Host = new ServiceClient();
+            //Host = new ServiceClient();
         }
     }
 }

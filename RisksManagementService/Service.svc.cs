@@ -28,7 +28,7 @@ namespace RisksManagementService
             SingletonConnection connection = SingletonConnection.GetInstance();
             connection.OpenConnection();
 
-            CurrentUser.OperationContext.GetCallbackChannel<IServerCallback>().AppUserCallback(CurrentUser);
+            //CurrentUser.OperationContext.GetCallbackChannel<IServerCallback>().AppUserCallback(CurrentUser);
         }
 
         //todo вызывать при закрытии клиента
