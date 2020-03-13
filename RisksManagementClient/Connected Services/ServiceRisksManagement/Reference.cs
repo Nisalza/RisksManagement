@@ -1316,6 +1316,12 @@ namespace RisksManagementClient.ServiceRisksManagement {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUserProjects", ReplyAction="http://tempuri.org/IService/GetUserProjectsResponse")]
         System.Threading.Tasks.Task<RisksManagementClient.ServiceRisksManagement.Project[]> GetUserProjectsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateUser", ReplyAction="http://tempuri.org/IService/UpdateUserResponse")]
+        bool UpdateUser(RisksManagementClient.ServiceRisksManagement.AppUser user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateUser", ReplyAction="http://tempuri.org/IService/UpdateUserResponse")]
+        System.Threading.Tasks.Task<bool> UpdateUserAsync(RisksManagementClient.ServiceRisksManagement.AppUser user);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Disconnect", ReplyAction="http://tempuri.org/IService/DisconnectResponse")]
         void Disconnect();
         
@@ -1390,6 +1396,14 @@ namespace RisksManagementClient.ServiceRisksManagement {
         
         public System.Threading.Tasks.Task<RisksManagementClient.ServiceRisksManagement.Project[]> GetUserProjectsAsync() {
             return base.Channel.GetUserProjectsAsync();
+        }
+        
+        public bool UpdateUser(RisksManagementClient.ServiceRisksManagement.AppUser user) {
+            return base.Channel.UpdateUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateUserAsync(RisksManagementClient.ServiceRisksManagement.AppUser user) {
+            return base.Channel.UpdateUserAsync(user);
         }
         
         public void Disconnect() {

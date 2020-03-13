@@ -21,7 +21,6 @@ namespace RisksManagementService
 
         public AppUser Connect(string login)
         {
-            SingletonConnection connection = SingletonConnection.GetInstance();
             SqlForAppUser sqlForAppUser = new SqlForAppUser();
             CurrentUser = sqlForAppUser.SelectByLogin(login);
             CurrentUser.OperationContext = OperationContext.Current;
@@ -32,7 +31,6 @@ namespace RisksManagementService
         public Department[] GetUserDepartments()
         {
             if (CurrentUser == null) return null;
-            SingletonConnection connection = SingletonConnection.GetInstance();
             SqlForUserDepartment sqlForUserDepartment = new SqlForUserDepartment();
             UserDepartment[] ud = sqlForUserDepartment.SelectAllByAppUser(CurrentUser);
             var result = ud.Select(x => x.Department);
@@ -42,11 +40,21 @@ namespace RisksManagementService
         public Project[] GetUserProjects()
         {
             if (CurrentUser == null) return null;
-            SingletonConnection connection = SingletonConnection.GetInstance();
             SqlForUserProject sqlForUserProject = new SqlForUserProject();
             UserProject[] up = sqlForUserProject.SelectAllByAppUser(CurrentUser);
             var result = up.Select(x => x.Project);
             return result.ToArray();
+        }
+
+        public bool UpdateUser(AppUser user)
+        {
+            if (CurrentUser == null) return false;
+            CurrentUser.Phone = user.Phone;
+            CurrentUser.Email = user.Email;
+            CurrentUser.Telegram = user.Telegram;
+            SqlForAppUser sqlForAppUser = new SqlForAppUser();
+            bool result = sqlForAppUser.UpdateByUser(user);
+            return result;
         }
 
         public void Disconnect()

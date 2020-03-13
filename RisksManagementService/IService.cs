@@ -23,6 +23,9 @@ namespace RisksManagementService
         Project[] GetUserProjects();
 
         [OperationContract]
+        bool UpdateUser(AppUser user);
+
+        [OperationContract]
         void Disconnect();
     }
 }

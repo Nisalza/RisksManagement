@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Reflection;
@@ -61,6 +62,59 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             SqlExecutor sqlExecutor = new SqlExecutor();
             var reader = sqlExecutor.ExecuteReader(text);
             AppUser result = ConvertAllFields(reader);
+            return result;
+        }
+
+        public bool UpdateByUser(AppUser user)
+        {
+            bool ok = true;
+
+            try
+            {
+                UpdateStatement statement = QueryFactory.Update() as UpdateStatement;
+
+                AttributesSupport attributesSupport = new AttributesSupport();
+                string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(AppUser));
+
+                var id = attributesSupport.DataDescriptionDatabaseColumn(typeof(AppUser), "Id");
+                var phone = attributesSupport.DataDescriptionDatabaseColumn(typeof(AppUser), "Phone");
+                var email = attributesSupport.DataDescriptionDatabaseColumn(typeof(AppUser), "Email");
+                var telegram = attributesSupport.DataDescriptionDatabaseColumn(typeof(AppUser), "Telegram");
+                List<(string, object)> values = new List<(string, object)>
+                    {(phone, user.Phone), (email, user.Email), (telegram, user.Telegram)};
+                values.AddRange(CreateModified(user.Login));
+
+                ConditionClause c1 = new ConditionClause
+                {
+                    ColumnName = id,
+                    Values = new object[] { user.Id },
+                    Operator = Dictionaries.ComparisonOperators.EqualTo
+                };
+                var where = new (Dictionaries.LogicOperators?, bool, ConditionClause)[] { (null, false, c1) };
+
+                statement.UpdateBuilder.BuildTableName(tableName);
+                statement.UpdateBuilder.BuildValues(values.ToArray());
+                statement.UpdateBuilder.BuildWhere(where);
+
+                string text = statement.GetRequest();
+                SqlExecutor sqlExecutor = new SqlExecutor();
+                sqlExecutor.ExecuteReader(text);
+            }
+            catch (Exception)
+            {
+                ok = false;
+            }
+
+            return ok;
+        }
+
+        private (string, object)[] CreateModified(string login)
+        {
+            AttributesSupport attributesSupport = new AttributesSupport();
+            var modifiedBy = attributesSupport.DataDescriptionDatabaseColumn(typeof(AppUser), "ModifiedBy");
+            var timeModified = attributesSupport.DataDescriptionDatabaseColumn(typeof(AppUser), "TimeModified");
+
+            (string, object)[] result = { (modifiedBy, login), (timeModified, DateTime.Now) };
             return result;
         }
 

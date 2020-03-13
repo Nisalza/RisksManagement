@@ -25,5 +25,11 @@ namespace RisksManagementClient.UI.Views
         {
             InitializeComponent();
         }
+
+        private void UserSave_Click(object sender, RoutedEventArgs e)
+        {
+            MainViewModel viewModel = DataContext as MainViewModel;
+            viewModel?.UserSaving?.Invoke(null, EventArgs.Empty);
+        }
     }
 }

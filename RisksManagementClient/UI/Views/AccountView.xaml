@@ -6,6 +6,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="30,0,30,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
@@ -34,7 +38,7 @@
                 </Border.Background>
             </Border>
             <Label Grid.Row="1" Grid.Column="1" Width="Auto">Телефон</Label>
-            <TextBox Name="UserPhone" Grid.Row="1" Grid.Column="2" Text="{Binding CurrentUser.Phone}"/>
+            <TextBox Name="UserPhone" Grid.Row="1" Grid.Column="2" Text="{Binding Path=CurrentUser.Phone, Mode=TwoWay}"/>
 
             <Border Grid.Row="2" Grid.Column="0">
                 <Border.Background>
@@ -42,7 +46,7 @@
                 </Border.Background>
             </Border>
             <Label Grid.Row="2" Grid.Column="1" Width="Auto">Электронная почта</Label>
-            <TextBox Name="UserEmail" Grid.Row="2" Grid.Column="2" Text="{Binding CurrentUser.Email}"/>
+            <TextBox Name="UserEmail" Grid.Row="2" Grid.Column="2" Text="{Binding Path=CurrentUser.Email, Mode=TwoWay}"/>
 
             <Border Grid.Row="3" Grid.Column="0">
                 <Border.Background>
@@ -50,10 +54,10 @@
                 </Border.Background>
             </Border>
             <Label Grid.Row="3" Grid.Column="1" Width="Auto">Телеграм</Label>
-            <TextBox Name="UserTelegram" Grid.Row="3" Grid.Column="2" Text="{Binding CurrentUser.Telegram}"/>
+            <TextBox Name="UserTelegram" Grid.Row="3" Grid.Column="2" Text="{Binding Path=CurrentUser.Telegram, Mode=TwoWay}"/>
         </Grid>
 
-        <TabControl Grid.Column="1" Margin="5,0,0,0" Width="Auto" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+        <TabControl Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Margin="5,0,0,0" Width="Auto" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Stretch">
             <TabItem>
                 <TabItem.Header>Мои проекты</TabItem.Header>
                 <TabItem.Content>
@@ -80,5 +84,7 @@
                 </TabItem.Content>
             </TabItem>
         </TabControl>
+
+        <Button Grid.Column="0" Name="UserSave" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,5,0,0" Click="UserSave_Click">Сохранить</Button>
     </Grid>
 </UserControl>

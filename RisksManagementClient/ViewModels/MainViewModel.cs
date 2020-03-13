@@ -13,8 +13,20 @@ namespace RisksManagementClient.ViewModels
 {
     public class MainViewModel : BindableBase, IServiceCallback
     {
+        public MainViewModel()
+        {
+            ViewLoaded += OnViewLoaded;
+            UserSaving += OnUserSaving;
+            Client = SingletonClient.GetInstance(this).Client;
+        }
+
+        private void OnUserSaving(object sender, EventArgs e)
+        {
+            bool ok = Client.UpdateUser(CurrentUser);
+        }
+
         #region Поля
-        
+
         public ServiceClient Client;
 
         private AppUser _currentUser;
@@ -59,6 +71,8 @@ namespace RisksManagementClient.ViewModels
 
         public EventHandler ViewLoaded;
 
+        public EventHandler UserSaving;
+
         #endregion
 
         #region Методы событий
@@ -81,11 +95,5 @@ namespace RisksManagementClient.ViewModels
         }
 
         #endregion
-
-        public MainViewModel()
-        {
-            ViewLoaded += OnViewLoaded;
-            Client = SingletonClient.GetInstance(this).Client;          
-        }
     }
 }
