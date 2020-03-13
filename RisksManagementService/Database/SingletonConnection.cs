@@ -25,6 +25,8 @@ namespace RisksManagementService.Database
         {
             string cnString = ConfigurationManager.ConnectionStrings["RisksManagementDatabase"].ConnectionString;
             Connection = new SqlConnection(cnString);
+            IsOpen = false;
+            OpenConnection();
         }
 
         public void OpenConnection()

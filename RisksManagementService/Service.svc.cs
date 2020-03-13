@@ -7,29 +7,25 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Web.Configuration;
 using RisksManagementService.Database;
 using RisksManagementService.Database.Models;
 using RisksManagementService.Database.SqlGenerators.ForModels;
 
 namespace RisksManagementService
 {
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
     public class Service : IService
     {
         public AppUser CurrentUser { get; private set; }
 
-        //todo вызывать при загрузке клиента
         public AppUser Connect(string login)
         {
+            SingletonConnection connection = SingletonConnection.GetInstance();
             SqlForAppUser sqlForAppUser = new SqlForAppUser();
             CurrentUser = sqlForAppUser.SelectAllByLogin(login);
             CurrentUser.OperationContext = OperationContext.Current;
-
-            string cnString = ConfigurationManager.ConnectionStrings["RisksManagementDatabase"].ConnectionString;
-            SingletonConnection connection = SingletonConnection.GetInstance();
-            connection.OpenConnection();
-
-            //CurrentUser.OperationContext.GetCallbackChannel<IServiceCallback>().AppUserCallback(CurrentUser);
-
+            
             return CurrentUser;
         }
 

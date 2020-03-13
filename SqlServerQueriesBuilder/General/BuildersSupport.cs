@@ -9,7 +9,6 @@ namespace SqlServerQueriesBuilder.General
 {
     public class BuildersSupport
     {
-        //todo Лучше бы сделать перевод для вещественных чисел с ToString(CultureInfo.InvariantCulture) чтобы база не ругалась
         public string BuildComparison(Dictionaries.ComparisonOperators co, object[] values)
         {
             switch (co)

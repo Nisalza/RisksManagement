@@ -25,7 +25,6 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
 
             AttributesSupport attributesSupport = new AttributesSupport();
             string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(AppUser));
-            statement.SelectBuilder.BuildTableName(tableName);
 
             var login = attributesSupport.DataDescriptionDatabaseColumn(typeof(AppUser), "Login");
             ConditionClause c1 = new ConditionClause
@@ -35,6 +34,8 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
                 Operator = Dictionaries.ComparisonOperators.EqualTo
             };
             var where = new (Dictionaries.LogicOperators?, bool, ConditionClause)[] {(null, false, c1)};
+
+            statement.SelectBuilder.BuildTableName(tableName);
             statement.SelectBuilder.BuildWhere(where);
 
             string text = statement.GetRequest();
@@ -54,10 +55,10 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
                 result.Login = reader.GetString(2);
                 result.Role = new Role
                 {
-                    Id = reader.GetInt32(3)
+                    Id = reader[3] == null ? reader.GetInt32(3) : 0
                 };
                 result.Email = reader.GetString(4);
-                result.IsAdmin = reader.GetInt32(5) == 1;
+                result.IsAdmin = reader.GetBoolean(5);
             }
 
             return result;

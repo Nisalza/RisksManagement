@@ -7,9 +7,9 @@ using RisksManagementService.Attributes;
 
 namespace RisksManagementService.Database.Models
 {
-    [DataDescription("settings", "Settings", FieldType.TableName)]
+    [DataDescription("settings_category", "SettingsCategory", FieldType.TableName)]
     [DataContract]
-    public class Settings : IDatabaseModel
+    public class SettingsCategory : IDatabaseModel
     {
         [DataDescription("id", "Id")]
         [DataMember]
@@ -18,19 +18,6 @@ namespace RisksManagementService.Database.Models
         [DataDescription("name", "Name")]
         [DataMember]
         public string Name { get; set; }
-
-        [DataDescription("category", "Category")]
-        [DataMember]
-        public SettingsCategory Category { get; set; }
-
-        [DataDescription("subcategory", "Subcategory")]
-        [DataMember]
-        public SettingsSubcategory Subcategory { get; set; }
-
-        //todo придумать структуру
-        [DataDescription("body", "Body")]
-        [DataMember]
-        public object Body { get; set; }
 
         [DataDescription("created_by", "CreatedBy")]
         [DataMember]
