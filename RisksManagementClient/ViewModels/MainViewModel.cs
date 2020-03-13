@@ -65,9 +65,9 @@ namespace RisksManagementClient.ViewModels
         private void OnViewLoaded(object sender, EventArgs e)
         {
             //todo Убрать дефолтный логин
-            AppUser user = Client.Connect(@"ALZA/Dashi");
-            _departments = Client.GetUserDepartments();
-            _projects = Client.GetUserProjects();
+            CurrentUser = Client.Connect(@"ALZA/Dashi");
+            Departments = Client.GetUserDepartments();
+            Projects = Client.GetUserProjects();
         }
 
         #endregion

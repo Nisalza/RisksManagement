@@ -7,7 +7,7 @@ using SqlServerQueriesBuilder.General;
 
 namespace RisksManagementService.Database.SqlGenerators
 {
-    public class SqlSupport
+    public class SqlExecutor
     {
         public SqlDataReader ExecuteReader(string commandText)
         {

@@ -32,8 +32,8 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             statement.SelectBuilder.BuildWhere(where);
 
             string text = statement.GetRequest();
-            SqlSupport sqlSupport = new SqlSupport();
-            var reader = sqlSupport.ExecuteReader(text);
+            SqlExecutor sqlExecutor = new SqlExecutor();
+            var reader = sqlExecutor.ExecuteReader(text);
             UserProject[] result = ConvertAllFields(reader, user);
             return result;
         }

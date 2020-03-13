@@ -115,7 +115,8 @@
     <Compile Include="Database\SqlGenerators\ForModels\SqlForUserDepartment.cs" />
     <Compile Include="Database\SqlGenerators\ForModels\SqlForUserProject.cs" />
     <Compile Include="Database\SqlGenerators\SqlForModel.cs" />
-    <Compile Include="Database\SqlGenerators\SqlSupport.cs" />
+    <Compile Include="Database\SqlGenerators\SqlExecutor.cs" />
+    <Compile Include="Database\SqlGenerators\SqlGetData.cs" />
     <Compile Include="IServiceCallback.cs" />
     <Compile Include="Service.svc.cs">
       <DependentUpon>Service.svc</DependentUpon>

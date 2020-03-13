@@ -9,7 +9,9 @@
       <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Role" nillable="true" type="tns:Role" />
+      <xs:element minOccurs="0" name="Telegram" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
       <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
     </xs:sequence>

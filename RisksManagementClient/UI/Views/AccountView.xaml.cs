@@ -12,32 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using RisksManagementClient.ViewModels;
 
 namespace RisksManagementClient.UI.Views
 {
     /// <summary>
-    /// Логика взаимодействия для MainView.xaml
+    /// Логика взаимодействия для AccountView.xaml
     /// </summary>
-    public partial class MainView : UserControl
+    public partial class AccountView : UserControl
     {
-        private readonly MainViewModel _viewModel;
-
-        public MainView()
+        public AccountView()
         {
             InitializeComponent();
-            _viewModel = DataContext as MainViewModel;
         }
-
-        private void UserControl_Loaded(object sender, RoutedEventArgs e)
-        {
-            _viewModel?.ViewLoaded(this, EventArgs.Empty);
-        }
-
-        #region Риски
-
-        
-
-        #endregion
     }
 }

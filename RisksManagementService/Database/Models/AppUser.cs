@@ -29,9 +29,17 @@ namespace RisksManagementService.Database.Models
         [DataMember]
         public Role Role { get; set; }
 
+        [DataDescription("phone", "Phone")]
+        [DataMember]
+        public string Phone { get; set; }
+
         [DataDescription("email", "Email")]
         [DataMember]
         public string Email { get; set; }
+
+        [DataDescription("telegram", "Telegram")]
+        [DataMember]
+        public string Telegram { get; set; }
 
         [DataDescription("is_admin", "IsAdmin")]
         [DataMember]

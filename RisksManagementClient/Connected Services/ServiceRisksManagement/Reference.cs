@@ -44,7 +44,13 @@ namespace RisksManagementClient.ServiceRisksManagement {
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PhoneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private RisksManagementClient.ServiceRisksManagement.Role RoleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TelegramField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime TimeCreatedField;
@@ -154,6 +160,19 @@ namespace RisksManagementClient.ServiceRisksManagement {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Phone {
+            get {
+                return this.PhoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhoneField, value) != true)) {
+                    this.PhoneField = value;
+                    this.RaisePropertyChanged("Phone");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public RisksManagementClient.ServiceRisksManagement.Role Role {
             get {
                 return this.RoleField;
@@ -162,6 +181,19 @@ namespace RisksManagementClient.ServiceRisksManagement {
                 if ((object.ReferenceEquals(this.RoleField, value) != true)) {
                     this.RoleField = value;
                     this.RaisePropertyChanged("Role");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Telegram {
+            get {
+                return this.TelegramField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TelegramField, value) != true)) {
+                    this.TelegramField = value;
+                    this.RaisePropertyChanged("Telegram");
                 }
             }
         }

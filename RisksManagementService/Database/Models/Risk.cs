@@ -47,13 +47,13 @@ namespace RisksManagementService.Database.Models
         [DataMember]
         public Relevance IsRelevance { get; set; }
 
-        [DataDescription("damage", "Damage")]
-        [DataMember]
-        public string Damage { get; set; }
-
         [DataDescription("risk_cause", "RiskCause")]
         [DataMember]
         public RiskCause RiskCause { get; set; }
+
+        [DataDescription("damage", "Damage")]
+        [DataMember]
+        public string Damage { get; set; }
 
         [DataDescription("project", "Project")]
         [DataMember]
@@ -63,9 +63,17 @@ namespace RisksManagementService.Database.Models
         [DataMember]
         public string Deadline { get; set; }
 
+        [DataDescription("classification", "Classification")]
+        [DataMember]
+        public Classification Classification { get; set; }
+
         [DataDescription("exposure_computation", "ExposureComputation")]
         [DataMember]
         public ExposureComputation ExposureComputation { get; set; }
+
+        [DataDescription("environment", "Environment")]
+        [DataMember]
+        public Environment Environment { get; set; }
 
         [DataDescription("created_by", "CreatedBy")]
         [DataMember]

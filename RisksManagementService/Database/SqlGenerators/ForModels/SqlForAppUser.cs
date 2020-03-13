@@ -32,8 +32,8 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             statement.SelectBuilder.BuildWhere(where);
 
             string text = statement.GetRequest();
-            SqlSupport sqlSupport = new SqlSupport();
-            var reader = sqlSupport.ExecuteReader(text);
+            SqlExecutor sqlExecutor = new SqlExecutor();
+            var reader = sqlExecutor.ExecuteReader(text);
             AppUser result = ConvertAllFields(reader);
             return result;
         }
@@ -58,8 +58,8 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             statement.SelectBuilder.BuildWhere(where);
 
             string text = statement.GetRequest();
-            SqlSupport sqlSupport = new SqlSupport();
-            var reader = sqlSupport.ExecuteReader(text);
+            SqlExecutor sqlExecutor = new SqlExecutor();
+            var reader = sqlExecutor.ExecuteReader(text);
             AppUser result = ConvertAllFields(reader);
             return result;
         }
@@ -67,6 +67,7 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
         private AppUser ConvertAllFields(IDataReader reader)
         {
             AppUser result = new AppUser();
+            SqlGetData sqlGetData = new SqlGetData();
             while (reader.Read())
             {
                 result.Id = reader.GetInt32(0);
@@ -77,8 +78,10 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
                 //{
                 //    Id = reader[3] == null ? reader.GetInt32(3) : 0
                 //};
-                result.Email = reader.GetString(4);
-                result.IsAdmin = reader.GetBoolean(5);
+                result.Phone = sqlGetData.GetNullableString(reader, 4);
+                result.Email = sqlGetData.GetNullableString(reader, 5);
+                result.Telegram = sqlGetData.GetNullableString(reader, 6);
+                result.IsAdmin = reader.GetBoolean(7);
             }
 
             return result;
