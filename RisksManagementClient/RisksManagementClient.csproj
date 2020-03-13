@@ -123,6 +123,12 @@
     <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.AppUser.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.Department.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.Project.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceRisksManagement\Service.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\RisksManagementService.Database.Models.AppUser.datasource" />

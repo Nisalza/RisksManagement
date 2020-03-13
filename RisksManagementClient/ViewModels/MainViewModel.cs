@@ -18,12 +18,36 @@ namespace RisksManagementClient.ViewModels
 
         private AppUser _currentUser;
 
+        private Department[] _departments;
+
+        private Project[] _projects;
+
         public AppUser CurrentUser
         {
             get => _currentUser;
             set
             {
                 _currentUser = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public Department[] Departments
+        {
+            get => _departments;
+            set
+            {
+                _departments = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public Project[] Projects
+        {
+            get => _projects;
+            set
+            {
+                _projects = value;
                 RaisePropertyChanged();
             }
         }
@@ -42,6 +66,8 @@ namespace RisksManagementClient.ViewModels
         {
             //todo Убрать дефолтный логин
             AppUser user = Client.Connect(@"ALZA/Dashi");
+            _departments = Client.GetUserDepartments();
+            _projects = Client.GetUserProjects();
         }
 
         #endregion

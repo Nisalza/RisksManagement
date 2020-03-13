@@ -42,6 +42,18 @@
   <wsdl:message name="IService_Connect_OutputMessage">
     <wsdl:part name="parameters" element="tns:ConnectResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetUserDepartments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserDepartments" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUserDepartments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserDepartmentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUserProjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserProjects" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUserProjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserProjectsResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_Disconnect_InputMessage">
     <wsdl:part name="parameters" element="tns:Disconnect" />
   </wsdl:message>
@@ -56,6 +68,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/Connect" message="tns:IService_Connect_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/ConnectResponse" message="tns:IService_Connect_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetUserDepartments">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUserDepartments" message="tns:IService_GetUserDepartments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUserDepartmentsResponse" message="tns:IService_GetUserDepartments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUserProjects" message="tns:IService_GetUserProjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUserProjectsResponse" message="tns:IService_GetUserProjects_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="Disconnect">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/Disconnect" message="tns:IService_Disconnect_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/DisconnectResponse" message="tns:IService_Disconnect_OutputMessage" />
@@ -69,6 +89,24 @@
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
     <wsdl:operation name="Connect">
       <soap12:operation soapAction="http://tempuri.org/IService/Connect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserDepartments">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetUserDepartments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserProjects">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetUserProjects" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

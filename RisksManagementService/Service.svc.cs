@@ -23,10 +23,30 @@ namespace RisksManagementService
         {
             SingletonConnection connection = SingletonConnection.GetInstance();
             SqlForAppUser sqlForAppUser = new SqlForAppUser();
-            CurrentUser = sqlForAppUser.SelectAllByLogin(login);
+            CurrentUser = sqlForAppUser.SelectByLogin(login);
             CurrentUser.OperationContext = OperationContext.Current;
             
             return CurrentUser;
+        }
+
+        public Department[] GetUserDepartments()
+        {
+            if (CurrentUser == null) return null;
+            SingletonConnection connection = SingletonConnection.GetInstance();
+            SqlForUserDepartment sqlForUserDepartment = new SqlForUserDepartment();
+            UserDepartment[] ud = sqlForUserDepartment.SelectAllByAppUser(CurrentUser);
+            var result = ud.Select(x => x.Department);
+            return result.ToArray();
+        }
+
+        public Project[] GetUserProjects()
+        {
+            if (CurrentUser == null) return null;
+            SingletonConnection connection = SingletonConnection.GetInstance();
+            SqlForUserProject sqlForUserProject = new SqlForUserProject();
+            UserProject[] up = sqlForUserProject.SelectAllByAppUser(CurrentUser);
+            var result = up.Select(x => x.Project);
+            return result.ToArray();
         }
 
         //todo вызывать при закрытии клиента

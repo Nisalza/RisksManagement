@@ -15,6 +15,30 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetUserDepartments">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserDepartmentsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="GetUserDepartmentsResult" nillable="true" type="q2:ArrayOfDepartment" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserProjects">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserProjectsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="GetUserProjectsResult" nillable="true" type="q3:ArrayOfProject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="Disconnect">
     <xs:complexType>
       <xs:sequence />

@@ -10,6 +10,39 @@
         <vm:MainViewModel/>
     </UserControl.DataContext>
     <Grid>
-            
+        <TabControl Name="MainTabControl">
+            <TabItem Name="RisksTab">
+                <TabItem.Header>Риски</TabItem.Header>
+                <TabItem.Content>
+                    <TextBox/>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Name="ProjectsTab">
+                <TabItem.Header>Проекты</TabItem.Header>
+                <TabItem.Content>
+                    <TextBox/>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Name="DepartmentsTab">
+                <TabItem.Header>Подразделения</TabItem.Header>
+                <TabItem.Content>
+                    <TextBox/>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Name="RisksMapTab">
+                <TabItem.Header>Карта рисков</TabItem.Header>
+                <TabItem.Content>
+                    <TextBox/>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Name="AccountTab">
+                <TabItem.Header>Профиль</TabItem.Header>
+                <TabItem.Content>
+                    <Grid>
+
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
     </Grid>
 </UserControl>

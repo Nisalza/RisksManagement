@@ -99,7 +99,8 @@
     <Compile Include="Database\Models\StrategyType.cs" />
     <Compile Include="Database\Models\Team.cs" />
     <Compile Include="Database\Models\TeamUser.cs" />
-    <Compile Include="Database\Models\UserStructure.cs" />
+    <Compile Include="Database\Models\UserDepartment.cs" />
+    <Compile Include="Database\Models\UserProject.cs" />
     <Compile Include="Database\Queries\Statements\DeleteStatement.cs" />
     <Compile Include="Database\Queries\Statements\InsertStatement.cs" />
     <Compile Include="Database\Queries\Statements\SelectStatement.cs" />
@@ -109,6 +110,11 @@
     <Compile Include="Database\Queries\Statements\UpdateStatement.cs" />
     <Compile Include="Database\SingletonConnection.cs" />
     <Compile Include="Database\SqlGenerators\ForModels\SqlForAppUser.cs" />
+    <Compile Include="Database\SqlGenerators\ForModels\SqlForDepartment.cs" />
+    <Compile Include="Database\SqlGenerators\ForModels\SqlForProject.cs" />
+    <Compile Include="Database\SqlGenerators\ForModels\SqlForUserDepartment.cs" />
+    <Compile Include="Database\SqlGenerators\ForModels\SqlForUserProject.cs" />
+    <Compile Include="Database\SqlGenerators\SqlForModel.cs" />
     <Compile Include="Database\SqlGenerators\SqlSupport.cs" />
     <Compile Include="IServiceCallback.cs" />
     <Compile Include="Service.svc.cs">

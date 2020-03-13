@@ -7,9 +7,9 @@ using RisksManagementService.Attributes;
 
 namespace RisksManagementService.Database.Models
 {
-    [DataDescription("user_structure", "UserStructure", FieldType.TableName)]
+    [DataDescription("user_project", "UserProject", FieldType.TableName)]
     [DataContract]
-    public class UserStructure : IDatabaseModel
+    public class UserProject
     {
         [DataDescription("id", "Id")]
         [DataMember]
@@ -22,10 +22,6 @@ namespace RisksManagementService.Database.Models
         [DataDescription("project", "Project")]
         [DataMember]
         public Project Project { get; set; }
-
-        [DataDescription("department", "Department")]
-        [DataMember]
-        public Department Department { get; set; }
 
         [DataDescription("created_by", "CreatedBy")]
         [DataMember]

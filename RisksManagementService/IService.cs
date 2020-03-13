@@ -17,6 +17,12 @@ namespace RisksManagementService
         AppUser Connect(string login);
 
         [OperationContract]
+        Department[] GetUserDepartments();
+
+        [OperationContract]
+        Project[] GetUserProjects();
+
+        [OperationContract]
         void Disconnect();
     }
 }
