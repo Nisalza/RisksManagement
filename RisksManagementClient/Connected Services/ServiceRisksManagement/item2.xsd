@@ -43,15 +43,37 @@
   <xs:complexType name="Settings">
     <xs:sequence>
       <xs:element minOccurs="0" name="Body" nillable="true" type="xs:anyType" />
-      <xs:element minOccurs="0" name="Category" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Category" nillable="true" type="tns:SettingsCategory" />
       <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Subcategory" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Subcategory" nillable="true" type="tns:SettingsSubcategory" />
       <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
       <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Settings" nillable="true" type="tns:Settings" />
+  <xs:complexType name="SettingsCategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SettingsCategory" nillable="true" type="tns:SettingsCategory" />
+  <xs:complexType name="SettingsSubcategory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SettingsSubcategory" nillable="true" type="tns:SettingsSubcategory" />
 </xs:schema>

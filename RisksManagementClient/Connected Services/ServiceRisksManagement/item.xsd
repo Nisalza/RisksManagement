@@ -25,10 +25,10 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="AppUserCallback">
+  <xs:element name="DbModelCallback">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="result" nillable="true" type="q2:AppUser" />
+        <xs:element minOccurs="0" name="result" nillable="true" type="xs:anyType" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

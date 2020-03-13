@@ -12,15 +12,31 @@ namespace RisksManagementClient.ViewModels
 {
     public class MainViewModel : BindableBase, IServiceCallback
     {
+        #region Поля
+        
         public ServiceClient Client;
+
+        private AppUser _currentUser;
+
+        public AppUser CurrentUser
+        {
+            get => _currentUser;
+            set
+            {
+                _currentUser = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        #endregion
+
+        #region События
 
         public EventHandler ViewLoaded;
 
-        public MainViewModel()
-        {
-            ViewLoaded += OnViewLoaded;
-            Client = new ServiceClient(new InstanceContext(this));            
-        }
+        #endregion
+
+        #region Методы событий
 
         private void OnViewLoaded(object sender, EventArgs e)
         {
@@ -28,9 +44,21 @@ namespace RisksManagementClient.ViewModels
             AppUser user = Client.Connect(@"ALZA/Dashi");
         }
 
-        public void AppUserCallback(AppUser result)
+        #endregion
+
+        #region Методы клиента
+
+        public void DbModelCallback(object result)
         {
-            
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        public MainViewModel()
+        {
+            ViewLoaded += OnViewLoaded;
+            Client = SingletonClient.GetInstance(this).Client;          
         }
     }
 }

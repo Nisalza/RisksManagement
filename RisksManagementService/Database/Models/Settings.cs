@@ -27,7 +27,7 @@ namespace RisksManagementService.Database.Models
         [DataMember]
         public SettingsSubcategory Subcategory { get; set; }
 
-        //todo придумать структуру
+        //todo спроектировать структуру
         [DataDescription("body", "Body")]
         [DataMember]
         public object Body { get; set; }

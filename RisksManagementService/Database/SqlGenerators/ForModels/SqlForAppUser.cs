@@ -41,11 +41,11 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             string text = statement.GetRequest();
             SqlSupport support = new SqlSupport();
             var reader = support.ExecuteReader(text);
-            AppUser result = ConvertReaderToAppUser(reader);
+            AppUser result = ConvertAllFields(reader);
             return result;
         }
 
-        private AppUser ConvertReaderToAppUser(IDataReader reader)
+        private AppUser ConvertAllFields(IDataReader reader)
         {
             AppUser result = new AppUser();
             while (reader.Read())
@@ -53,10 +53,11 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
                 result.Id = reader.GetInt32(0);
                 result.Name = reader.GetString(1);
                 result.Login = reader.GetString(2);
-                result.Role = new Role
-                {
-                    Id = reader[3] == null ? reader.GetInt32(3) : 0
-                };
+                //todo Сделать когда будет необходимость в разделении ролей пользователей
+                //result.Role = new Role
+                //{
+                //    Id = reader[3] == null ? reader.GetInt32(3) : 0
+                //};
                 result.Email = reader.GetString(4);
                 result.IsAdmin = reader.GetBoolean(5);
             }

@@ -507,6 +507,8 @@ namespace RisksManagementClient.ServiceRisksManagement {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.AppUser))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Role))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.RolePattern))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.SettingsCategory))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.SettingsSubcategory))]
     public partial class Settings : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -516,7 +518,7 @@ namespace RisksManagementClient.ServiceRisksManagement {
         private object BodyField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CategoryField;
+        private RisksManagementClient.ServiceRisksManagement.SettingsCategory CategoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CreatedByField;
@@ -531,7 +533,7 @@ namespace RisksManagementClient.ServiceRisksManagement {
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SubcategoryField;
+        private RisksManagementClient.ServiceRisksManagement.SettingsSubcategory SubcategoryField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime TimeCreatedField;
@@ -563,7 +565,7 @@ namespace RisksManagementClient.ServiceRisksManagement {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Category {
+        public RisksManagementClient.ServiceRisksManagement.SettingsCategory Category {
             get {
                 return this.CategoryField;
             }
@@ -628,7 +630,7 @@ namespace RisksManagementClient.ServiceRisksManagement {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Subcategory {
+        public RisksManagementClient.ServiceRisksManagement.SettingsSubcategory Subcategory {
             get {
                 return this.SubcategoryField;
             }
@@ -636,6 +638,256 @@ namespace RisksManagementClient.ServiceRisksManagement {
                 if ((object.ReferenceEquals(this.SubcategoryField, value) != true)) {
                     this.SubcategoryField = value;
                     this.RaisePropertyChanged("Subcategory");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TimeCreated {
+            get {
+                return this.TimeCreatedField;
+            }
+            set {
+                if ((this.TimeCreatedField.Equals(value) != true)) {
+                    this.TimeCreatedField = value;
+                    this.RaisePropertyChanged("TimeCreated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TimeModified {
+            get {
+                return this.TimeModifiedField;
+            }
+            set {
+                if ((this.TimeModifiedField.Equals(value) != true)) {
+                    this.TimeModifiedField = value;
+                    this.RaisePropertyChanged("TimeModified");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SettingsCategory", Namespace="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models")]
+    [System.SerializableAttribute()]
+    public partial class SettingsCategory : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CreatedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModifiedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimeCreatedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimeModifiedField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CreatedByField, value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ModifiedBy {
+            get {
+                return this.ModifiedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModifiedByField, value) != true)) {
+                    this.ModifiedByField = value;
+                    this.RaisePropertyChanged("ModifiedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TimeCreated {
+            get {
+                return this.TimeCreatedField;
+            }
+            set {
+                if ((this.TimeCreatedField.Equals(value) != true)) {
+                    this.TimeCreatedField = value;
+                    this.RaisePropertyChanged("TimeCreated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TimeModified {
+            get {
+                return this.TimeModifiedField;
+            }
+            set {
+                if ((this.TimeModifiedField.Equals(value) != true)) {
+                    this.TimeModifiedField = value;
+                    this.RaisePropertyChanged("TimeModified");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SettingsSubcategory", Namespace="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models")]
+    [System.SerializableAttribute()]
+    public partial class SettingsSubcategory : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CreatedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModifiedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimeCreatedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimeModifiedField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CreatedByField, value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ModifiedBy {
+            get {
+                return this.ModifiedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModifiedByField, value) != true)) {
+                    this.ModifiedByField = value;
+                    this.RaisePropertyChanged("ModifiedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
                 }
             }
         }
@@ -696,8 +948,14 @@ namespace RisksManagementClient.ServiceRisksManagement {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IServiceCallback {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/AppUserCallback")]
-        void AppUserCallback(RisksManagementClient.ServiceRisksManagement.AppUser result);
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IService/DbModelCallback")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.AppUser))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Role))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.RolePattern))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Settings))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.SettingsCategory))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.SettingsSubcategory))]
+        void DbModelCallback(object result);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

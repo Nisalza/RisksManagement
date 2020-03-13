@@ -48,8 +48,8 @@
   <wsdl:message name="IService_Disconnect_OutputMessage">
     <wsdl:part name="parameters" element="tns:DisconnectResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_AppUserCallback_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:AppUserCallback" />
+  <wsdl:message name="IService_DbModelCallback_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:DbModelCallback" />
   </wsdl:message>
   <wsdl:portType name="IService">
     <wsdl:operation name="Connect">
@@ -60,8 +60,8 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/Disconnect" message="tns:IService_Disconnect_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/DisconnectResponse" message="tns:IService_Disconnect_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AppUserCallback">
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/AppUserCallback" message="tns:IService_AppUserCallback_OutputCallbackMessage" />
+    <wsdl:operation name="DbModelCallback">
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DbModelCallback" message="tns:IService_DbModelCallback_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="NetTcpBinding_IService" type="tns:IService">
@@ -85,8 +85,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AppUserCallback">
-      <soap12:operation soapAction="http://tempuri.org/IService/AppUserCallback" style="document" />
+    <wsdl:operation name="DbModelCallback">
+      <soap12:operation soapAction="http://tempuri.org/IService/DbModelCallback" style="document" />
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
