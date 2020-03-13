@@ -45,9 +45,7 @@
             <TabItem Name="AccountTab">
                 <TabItem.Header>Профиль</TabItem.Header>
                 <TabItem.Content>
-                    <Grid>
-                        <views:AccountView/>
-                    </Grid>
+                    <views:AccountView/>
                 </TabItem.Content>
             </TabItem>
         </TabControl>

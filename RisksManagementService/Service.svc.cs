@@ -49,7 +49,6 @@ namespace RisksManagementService
             return result.ToArray();
         }
 
-        //todo вызывать при закрытии клиента
         public void Disconnect()
         {
             var connection = SingletonConnection.GetInstance();

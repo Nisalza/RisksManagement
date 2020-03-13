@@ -2,21 +2,17 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:RisksManagementClient.UI.Views"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="30,0,30,0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Margin="5,0,5,0">
+        <!--todo Сделать нормальные картинки-->
+        <Grid Margin="5,0,5,0" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Left">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -56,5 +52,33 @@
             <Label Grid.Row="3" Grid.Column="1" Width="Auto">Телеграм</Label>
             <TextBox Name="UserTelegram" Grid.Row="3" Grid.Column="2" Text="{Binding CurrentUser.Telegram}"/>
         </Grid>
+
+        <TabControl Grid.Column="1" Margin="5,0,0,0" Width="Auto" Height="Auto" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+            <TabItem>
+                <TabItem.Header>Мои проекты</TabItem.Header>
+                <TabItem.Content>
+                    <DataGrid Name="ProjectsDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Projects}" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Подразделение" Binding="{Binding Department.Name}"/>
+                            <DataGridTextColumn Header="Руководитель" Binding="{Binding Supervisor.Name}"/>
+                            <DataGridTextColumn Header="Описание" Binding="{Binding Description}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>Мои подразделения</TabItem.Header>
+                <TabItem.Content>
+                    <DataGrid Name="DepartmentsDataGrid" AutoGenerateColumns="False" ItemsSource="{Binding Departments}" IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Руководитель" Binding="{Binding Supervisor.Name}"/>
+                            <DataGridTextColumn Header="Описание" Binding="{Binding Description}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
     </Grid>
 </UserControl>
