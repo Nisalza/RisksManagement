@@ -40,17 +40,16 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
 
         private Department ConvertAllFields(IDataReader reader)
         {
+            SqlGetData sqlGetData = new SqlGetData();
             Department result = new Department();
-            //SqlForAppUser sqlForAppUser = new SqlForAppUser();
+            SqlForAppUser sqlForAppUser = new SqlForAppUser();
             while (reader.Read())
             {
                 result.Id = reader.GetInt32(0);
                 result.Name = reader.GetString(1);
                 result.Description = reader.GetString(2);
-                result.Supervisor = new AppUser();
-                //todo Раскомментировать для руководителя подразделения
-                //int userId = reader.GetInt32(3);
-                //result.Supervisor = sqlForAppUser.SelectById(userId);
+                int? userId = sqlGetData.GetNullableInt32(reader, 3);
+                result.Supervisor = userId == null ? new AppUser() : sqlForAppUser.SelectById((int)userId);
             }
 
             return result;

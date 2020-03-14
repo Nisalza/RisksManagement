@@ -42,6 +42,12 @@
   <wsdl:message name="IService_Connect_OutputMessage">
     <wsdl:part name="parameters" element="tns:ConnectResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetAppUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppUser" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetAppUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAppUserResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_GetUserDepartments_InputMessage">
     <wsdl:part name="parameters" element="tns:GetUserDepartments" />
   </wsdl:message>
@@ -74,6 +80,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/Connect" message="tns:IService_Connect_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/ConnectResponse" message="tns:IService_Connect_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetAppUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetAppUser" message="tns:IService_GetAppUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetAppUserResponse" message="tns:IService_GetAppUser_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetUserDepartments">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUserDepartments" message="tns:IService_GetUserDepartments_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUserDepartmentsResponse" message="tns:IService_GetUserDepartments_OutputMessage" />
@@ -99,6 +109,15 @@
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
     <wsdl:operation name="Connect">
       <soap12:operation soapAction="http://tempuri.org/IService/Connect" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAppUser">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetAppUser" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

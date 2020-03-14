@@ -1304,6 +1304,12 @@ namespace RisksManagementClient.ServiceRisksManagement {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Connect", ReplyAction="http://tempuri.org/IService/ConnectResponse")]
         System.Threading.Tasks.Task<RisksManagementClient.ServiceRisksManagement.AppUser> ConnectAsync(string login);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAppUser", ReplyAction="http://tempuri.org/IService/GetAppUserResponse")]
+        RisksManagementClient.ServiceRisksManagement.AppUser GetAppUser(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetAppUser", ReplyAction="http://tempuri.org/IService/GetAppUserResponse")]
+        System.Threading.Tasks.Task<RisksManagementClient.ServiceRisksManagement.AppUser> GetAppUserAsync(int id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUserDepartments", ReplyAction="http://tempuri.org/IService/GetUserDepartmentsResponse")]
         RisksManagementClient.ServiceRisksManagement.Department[] GetUserDepartments();
         
@@ -1380,6 +1386,14 @@ namespace RisksManagementClient.ServiceRisksManagement {
         
         public System.Threading.Tasks.Task<RisksManagementClient.ServiceRisksManagement.AppUser> ConnectAsync(string login) {
             return base.Channel.ConnectAsync(login);
+        }
+        
+        public RisksManagementClient.ServiceRisksManagement.AppUser GetAppUser(int id) {
+            return base.Channel.GetAppUser(id);
+        }
+        
+        public System.Threading.Tasks.Task<RisksManagementClient.ServiceRisksManagement.AppUser> GetAppUserAsync(int id) {
+            return base.Channel.GetAppUserAsync(id);
         }
         
         public RisksManagementClient.ServiceRisksManagement.Department[] GetUserDepartments() {

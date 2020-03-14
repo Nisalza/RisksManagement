@@ -13,5 +13,11 @@ namespace RisksManagementService.Database.SqlGenerators
             if (reader.IsDBNull(colIndex)) return string.Empty;
             return reader.GetString(colIndex);
         }
+
+        public int? GetNullableInt32(IDataReader reader, int colIndex)
+        {
+            if (reader.IsDBNull(colIndex)) return null;
+            return reader.GetInt32(colIndex);
+        }
     }
 }

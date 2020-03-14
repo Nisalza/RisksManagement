@@ -10,6 +10,7 @@
     <UserControl.DataContext>
         <vm:MainViewModel/>
     </UserControl.DataContext>
+
     <Grid>
         <TabControl Name="MainTabControl">
             <TabItem Name="RisksTab">

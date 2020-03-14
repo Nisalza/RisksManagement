@@ -17,6 +17,9 @@ namespace RisksManagementService
         AppUser Connect(string login);
 
         [OperationContract]
+        AppUser GetAppUser(int id);
+
+        [OperationContract]
         Department[] GetUserDepartments();
 
         [OperationContract]

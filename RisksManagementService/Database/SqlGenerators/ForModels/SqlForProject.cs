@@ -41,17 +41,16 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
         private Project ConvertAllFields(IDataReader reader)
         {
             Project result = new Project();
-            //SqlForAppUser sqlForAppUser = new SqlForAppUser();
+            SqlForAppUser sqlForAppUser = new SqlForAppUser();
+            SqlGetData sqlGetData = new SqlGetData();
             SqlForDepartment sqlForDepartment = new SqlForDepartment();
             while (reader.Read())
             {
                 result.Id = reader.GetInt32(0);
                 result.Name = reader.GetString(1);
                 result.Description = reader.GetString(2);
-                //todo Раскомментировать руководителя проекта
-                result.Supervisor = new AppUser();
-                //int userId = reader.GetInt32(3);
-                //result.Supervisor = sqlForAppUser.SelectById(userId);
+                int? userId = sqlGetData.GetNullableInt32(reader, 3);
+                result.Supervisor = userId == null ? new AppUser() : sqlForAppUser.SelectById((int)userId);
                 int depId = reader.GetInt32(4);
                 result.Department = sqlForDepartment.SelectById(depId);
             }

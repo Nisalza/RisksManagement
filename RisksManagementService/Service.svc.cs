@@ -28,6 +28,13 @@ namespace RisksManagementService
             return CurrentUser;
         }
 
+        public AppUser GetAppUser(int id)
+        {
+            SqlForAppUser sqlForAppUser = new SqlForAppUser();
+            AppUser user = sqlForAppUser.SelectById(id);
+            return user;
+        }
+
         public Department[] GetUserDepartments()
         {
             if (CurrentUser == null) return null;
