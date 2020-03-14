@@ -19,10 +19,10 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             AttributesSupport attributesSupport = new AttributesSupport();
             string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(UserProject));
 
-            var id = attributesSupport.DataDescriptionDatabaseColumn(typeof(UserProject), "Id");
+            var appUser = attributesSupport.DataDescriptionDatabaseColumn(typeof(UserProject), "AppUser");
             ConditionClause c1 = new ConditionClause
             {
-                ColumnName = id,
+                ColumnName = appUser,
                 Values = new object[] { user.Id },
                 Operator = Dictionaries.ComparisonOperators.EqualTo
             };
