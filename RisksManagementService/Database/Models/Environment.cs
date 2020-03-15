@@ -19,17 +19,17 @@ namespace RisksManagementService.Database.Models
         [DataMember]
         public string Address { get; set; }
 
-        [DataDescription("system", "System")]
+        [DataDescription("application", "Application")]
         [DataMember]
-        public string System { get; set; }
+        public string Application { get; set; }
 
         [DataDescription("process", "Process")]
         [DataMember]
         public string Process { get; set; }
 
-        [DataDescription("level", "Level")]
+        [DataDescription("grade", "Grade")]
         [DataMember]
-        public string Level { get; set; }
+        public string Grade { get; set; }
 
         [DataDescription("description", "Description")]
         [DataMember]

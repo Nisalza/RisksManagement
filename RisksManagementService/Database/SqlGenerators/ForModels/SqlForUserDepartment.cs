@@ -41,19 +41,26 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
         private UserDepartment[] ConvertAllFields(IDataReader reader, AppUser user)
         {
             List<UserDepartment> result = new List<UserDepartment>();
-            SqlForDepartment sqlForDepartment = new SqlForDepartment();
             while (reader.Read())
             {
-                int depId = reader.GetInt32(2);
-                UserDepartment record = new UserDepartment
-                {
-                    AppUser = user,
-                    Department = sqlForDepartment.SelectById(depId)
-                };
+                var record = GetOne(reader, user);
                 result.Add(record);
             }
 
             return result.ToArray();
+        }
+
+        private UserDepartment GetOne(IDataReader reader, AppUser user)
+        {
+            SqlForDepartment sqlForDepartment = new SqlForDepartment();
+            int depId = reader.GetInt32(2);
+            UserDepartment record = new UserDepartment
+            {
+                AppUser = user,
+                Department = sqlForDepartment.SelectById(depId)
+            };
+
+            return record;
         }
     }
 }

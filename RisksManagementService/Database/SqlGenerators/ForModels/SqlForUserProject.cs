@@ -41,19 +41,26 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
         private UserProject[] ConvertAllFields(IDataReader reader, AppUser user)
         {
             List<UserProject> result = new List<UserProject>();
-            SqlForProject sqlForProject = new SqlForProject();
             while (reader.Read())
             {
-                int projectId = reader.GetInt32(2);
-                UserProject record = new UserProject
-                {
-                    AppUser = user,
-                    Project = sqlForProject.SelectById(projectId)
-                };
+                UserProject record = GetOne(reader, user);
                 result.Add(record);
             }
 
             return result.ToArray();
+        }
+
+        private UserProject GetOne(IDataReader reader, AppUser user)
+        {
+            SqlForProject sqlForProject = new SqlForProject();
+            int projectId = reader.GetInt32(2);
+            UserProject record = new UserProject
+            {
+                AppUser = user,
+                Project = sqlForProject.SelectById(projectId)
+            };
+
+            return record;
         }
     }
 }

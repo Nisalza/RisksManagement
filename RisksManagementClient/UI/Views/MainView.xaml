@@ -25,18 +25,6 @@
                     <TextBox/>
                 </TabItem.Content>
             </TabItem>
-            <TabItem Name="ProjectsTab">
-                <TabItem.Header>Проекты</TabItem.Header>
-                <TabItem.Content>
-                    <TextBox/>
-                </TabItem.Content>
-            </TabItem>
-            <TabItem Name="DepartmentsTab">
-                <TabItem.Header>Подразделения</TabItem.Header>
-                <TabItem.Content>
-                    <TextBox/>
-                </TabItem.Content>
-            </TabItem>
             <TabItem Name="RisksMapTab">
                 <TabItem.Header>Карта рисков</TabItem.Header>
                 <TabItem.Content>
@@ -47,6 +35,12 @@
                 <TabItem.Header>Профиль</TabItem.Header>
                 <TabItem.Content>
                     <views:AccountView/>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Name="ReportsTab">
+                <TabItem.Header>Отчёты</TabItem.Header>
+                <TabItem.Content>
+                    <TextBox/>
                 </TabItem.Content>
             </TabItem>
         </TabControl>

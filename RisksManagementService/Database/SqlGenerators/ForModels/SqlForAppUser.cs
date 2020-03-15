@@ -124,19 +124,30 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             SqlGetData sqlGetData = new SqlGetData();
             while (reader.Read())
             {
-                result.Id = reader.GetInt32(0);
-                result.Name = reader.GetString(1);
-                result.Login = reader.GetString(2);
+                result = GetOne(reader);
+            }
+
+            return result;
+        }
+
+        private AppUser GetOne(IDataReader reader)
+        {
+            SqlGetData sqlGetData = new SqlGetData();
+            AppUser result = new AppUser
+            {
+                Id = reader.GetInt32(0),
+                Name = reader.GetString(1),
+                Login = reader.GetString(2),
                 //todo Сделать когда будет необходимость в разделении ролей пользователей
                 //result.Role = new Role
                 //{
                 //    Id = reader[3] == null ? reader.GetInt32(3) : 0
                 //};
-                result.Phone = sqlGetData.GetNullableString(reader, 4);
-                result.Email = sqlGetData.GetNullableString(reader, 5);
-                result.Telegram = sqlGetData.GetNullableString(reader, 6);
-                result.IsAdmin = reader.GetBoolean(7);
-            }
+                Phone = sqlGetData.GetNullableString(reader, 4),
+                Email = sqlGetData.GetNullableString(reader, 5),
+                Telegram = sqlGetData.GetNullableString(reader, 6),
+                IsAdmin = reader.GetBoolean(7)
+            };
 
             return result;
         }

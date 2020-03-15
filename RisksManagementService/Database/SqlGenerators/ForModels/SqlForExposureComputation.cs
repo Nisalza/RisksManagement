@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 using RisksManagementService.Attributes;
 using RisksManagementService.Database.Models;
 using RisksManagementService.Database.Queries.Statements;
@@ -10,20 +11,20 @@ using SqlServerQueriesBuilder.General;
 
 namespace RisksManagementService.Database.SqlGenerators.ForModels
 {
-    public class SqlForDepartment : SqlForModel
+    public class SqlForExposureComputation : SqlForModel
     {
-        public Department SelectById(int depId)
+        public ExposureComputation SelectById(int ecId)
         {
             SelectStatement statement = QueryFactory.Select() as SelectStatement;
 
             AttributesSupport attributesSupport = new AttributesSupport();
-            string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(Department));
+            string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(ExposureComputation));
 
-            var id = attributesSupport.DataDescriptionDatabaseColumn(typeof(Department), "Id");
+            var id = attributesSupport.DataDescriptionDatabaseColumn(typeof(ExposureComputation), "Id");
             ConditionClause c1 = new ConditionClause
             {
                 ColumnName = id,
-                Values = new object[] { depId },
+                Values = new object[] { ecId },
                 Operator = Dictionaries.ComparisonOperators.EqualTo
             };
             var where = new (Dictionaries.LogicOperators?, bool, ConditionClause)[] { (null, false, c1) };
@@ -34,13 +35,14 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             string text = statement.GetRequest();
             SqlExecutor sqlExecutor = new SqlExecutor();
             var reader = sqlExecutor.ExecuteReader(text);
-            Department result = ConvertAllFields(reader);
+            ExposureComputation result = ConvertAllFields(reader);
             return result;
         }
-
-        private Department ConvertAllFields(IDataReader reader)
+        
+        private ExposureComputation ConvertAllFields(IDataReader reader)
         {
-            Department result = new Department();
+            ExposureComputation result = new ExposureComputation();
+            SqlForProbabilityType sqlForProbabilityType = new SqlForProbabilityType();
             while (reader.Read())
             {
                 result = GetOne(reader);
@@ -49,20 +51,27 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             return result;
         }
 
-        private Department GetOne(IDataReader reader)
+        private ExposureComputation[] ConvertAllFieldsArray(IDataReader reader)
         {
-            SqlGetData sqlGetData = new SqlGetData();
-            SqlForAppUser sqlForAppUser = new SqlForAppUser();
-            int? userId = sqlGetData.GetNullableInt32(reader, 3);
-            Department result = new Department
+            List<ExposureComputation> result = new List<ExposureComputation>();
+            while (reader.Read())
+            {
+                var t = GetOne(reader);
+                result.Add(t);
+            }
+
+            return result.ToArray();
+        }
+
+        private ExposureComputation GetOne(IDataReader reader)
+        {
+            ExposureComputation t = new ExposureComputation
             {
                 Id = reader.GetInt32(0),
-                Name = reader.GetString(1),
-                Description = sqlGetData.GetNullableString(reader, 2),
-                Supervisor = userId == null ? new AppUser() : sqlForAppUser.SelectById((int) userId)
+                Formula = reader.GetString(1)
             };
 
-            return result;
+            return t;
         }
     }
 }

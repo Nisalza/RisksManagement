@@ -22,15 +22,7 @@ namespace RisksManagementService.Database.Models
         [DataDescription("name", "Name")]
         [DataMember]
         public string Name { get; set; }
-
-        [DataDescription("interval_start", "IntervalStart")]
-        [DataMember]
-        public float IntervalStart { get; set; }
-
-        [DataDescription("interval_finish", "IntervalFinish")]
-        [DataMember]
-        public float IntervalFinish { get; set; }
-
+        
         [DataDescription("probability_type", "ProbabilityType")]
         [DataMember]
         public ProbabilityType ProbabilityType { get; set; }
