@@ -16,7 +16,24 @@
             <TabItem Name="RisksTab">
                 <TabItem.Header>Риски</TabItem.Header>
                 <TabItem.Content>
-                    <TextBox/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Name="FilterColumn" Width="Auto"/>
+                            <ColumnDefinition Name="AllRisksColumn" Width="2*"/>
+                            <ColumnDefinition Name="RiskColumn" Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <!--todo Сделать фильтр-->
+                        <Grid Column="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Button Grid.Row="0" HorizontalAlignment="Left" Margin="5" Padding="5,2,5,2">Создать</Button>
+                            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="5">
+                                <StackPanel Name="ShortRisksList" Orientation="Vertical"/>
+                            </ScrollViewer>
+                        </Grid>
+                    </Grid>
                 </TabItem.Content>
             </TabItem>
             <TabItem Name="RmpTab">

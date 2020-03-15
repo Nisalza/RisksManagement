@@ -72,6 +72,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Enums.cs" />
     <Compile Include="SingletonClient.cs" />
     <Compile Include="UI\Views\AccountView.xaml.cs">
       <DependentUpon>AccountView.xaml</DependentUpon>
@@ -81,6 +82,12 @@
     </Compile>
     <Compile Include="UI\Views\PersonInfoView.xaml.cs">
       <DependentUpon>PersonInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\RiskFullInfoView.xaml.cs">
+      <DependentUpon>RiskFullInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\RiskShortInfoView.xaml.cs">
+      <DependentUpon>RiskShortInfoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -102,6 +109,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Views\PersonInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Views\RiskFullInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Views\RiskShortInfoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -189,6 +204,12 @@
     <Resource Include="Img\mail.png" />
     <Resource Include="Img\phone.png" />
     <Resource Include="Img\telegram.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RisksManagementService\RisksManagementService.csproj">
+      <Project>{124EC2CE-A55F-47E5-9AB3-604983DE498A}</Project>
+      <Name>RisksManagementService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

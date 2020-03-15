@@ -70,7 +70,10 @@ namespace RisksManagementService.Database.Models
         [DataDescription("exposure_computation", "ExposureComputation")]
         [DataMember]
         public ExposureComputation ExposureComputation { get; set; }
-        
+
+        [DataMember]
+        public float Value { get; set; }
+
         [DataDescription("created_by", "CreatedBy")]
         [DataMember]
         public string CreatedBy { get; set; }

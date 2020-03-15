@@ -38,6 +38,32 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             return result;
         }
 
+        public Project SelectByDepartment(Department department)
+        {
+            SelectStatement statement = QueryFactory.Select() as SelectStatement;
+
+            AttributesSupport attributesSupport = new AttributesSupport();
+            string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(Project));
+
+            var depDbName = attributesSupport.DataDescriptionDatabaseColumn(typeof(Project), "Department");
+            ConditionClause c1 = new ConditionClause
+            {
+                ColumnName = depDbName,
+                Values = new object[] { department.Id },
+                Operator = Dictionaries.ComparisonOperators.EqualTo
+            };
+            var where = new (Dictionaries.LogicOperators?, bool, ConditionClause)[] { (null, false, c1) };
+
+            statement.SelectBuilder.BuildTableName(tableName);
+            statement.SelectBuilder.BuildWhere(where);
+
+            string text = statement.GetRequest();
+            SqlExecutor sqlExecutor = new SqlExecutor();
+            var reader = sqlExecutor.ExecuteReader(text);
+            Project result = ConvertAllFields(reader);
+            return result;
+        }
+
         private Project ConvertAllFields(IDataReader reader)
         {
             Project result = new Project();

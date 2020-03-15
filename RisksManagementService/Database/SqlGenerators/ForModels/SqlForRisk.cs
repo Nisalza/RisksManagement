@@ -37,6 +37,59 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             Risk result = ConvertAllFields(reader);
             return result;
         }
+
+        public Risk SelectByUser(AppUser user)
+        {
+            SelectStatement statement = QueryFactory.Select() as SelectStatement;
+
+            AttributesSupport attributesSupport = new AttributesSupport();
+            string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(Risk));
+
+            var rpDbName = attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "ResponsiblePerson");
+            ConditionClause c1 = new ConditionClause
+            {
+                ColumnName = rpDbName,
+                Values = new object[] { user.Id },
+                Operator = Dictionaries.ComparisonOperators.EqualTo
+            };
+            var where = new (Dictionaries.LogicOperators?, bool, ConditionClause)[] { (null, false, c1) };
+
+            statement.SelectBuilder.BuildTableName(tableName);
+            statement.SelectBuilder.BuildWhere(where);
+
+            string text = statement.GetRequest();
+            SqlExecutor sqlExecutor = new SqlExecutor();
+            var reader = sqlExecutor.ExecuteReader(text);
+            Risk result = ConvertAllFields(reader);
+            return result;
+        }
+
+        public Risk SelectByProject(Project project)
+        {
+            SelectStatement statement = QueryFactory.Select() as SelectStatement;
+
+            AttributesSupport attributesSupport = new AttributesSupport();
+            string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(Risk));
+
+            var projectDbName = attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "Project");
+            ConditionClause c1 = new ConditionClause
+            {
+                ColumnName = projectDbName,
+                Values = new object[] { project.Id },
+                Operator = Dictionaries.ComparisonOperators.EqualTo
+            };
+            var where = new (Dictionaries.LogicOperators?, bool, ConditionClause)[] { (null, false, c1) };
+
+            statement.SelectBuilder.BuildTableName(tableName);
+            statement.SelectBuilder.BuildWhere(where);
+
+            string text = statement.GetRequest();
+            SqlExecutor sqlExecutor = new SqlExecutor();
+            var reader = sqlExecutor.ExecuteReader(text);
+            Risk result = ConvertAllFields(reader);
+            return result;
+        }
+
         private Risk ConvertAllFields(IDataReader reader)
         {
             Risk result = new Risk();
@@ -102,6 +155,8 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
                 Classification = sqlForClassification.SelectById(classification),
                 ExposureComputation = sqlForExposureComputation.SelectById(ec)
             };
+
+            t.Value = t.Probability.Assessment * t.Impact.Assessment;
 
             return t;
         }

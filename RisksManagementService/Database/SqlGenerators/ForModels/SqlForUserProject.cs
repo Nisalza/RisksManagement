@@ -19,10 +19,10 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             AttributesSupport attributesSupport = new AttributesSupport();
             string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(UserProject));
 
-            var appUser = attributesSupport.DataDescriptionDatabaseColumn(typeof(UserProject), "AppUser");
+            var userDbName = attributesSupport.DataDescriptionDatabaseColumn(typeof(UserProject), "AppUser");
             ConditionClause c1 = new ConditionClause
             {
-                ColumnName = appUser,
+                ColumnName = userDbName,
                 Values = new object[] { user.Id },
                 Operator = Dictionaries.ComparisonOperators.EqualTo
             };
@@ -34,29 +34,57 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             string text = statement.GetRequest();
             SqlExecutor sqlExecutor = new SqlExecutor();
             var reader = sqlExecutor.ExecuteReader(text);
-            UserProject[] result = ConvertAllFields(reader, user);
+            UserProject[] result = ConvertAllFields(reader);
             return result;
         }
 
-        private UserProject[] ConvertAllFields(IDataReader reader, AppUser user)
+        public UserProject[] SelectAllByProject(Project project)
+        {
+            SelectStatement statement = QueryFactory.Select() as SelectStatement;
+
+            AttributesSupport attributesSupport = new AttributesSupport();
+            string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(UserProject));
+
+            var userDbName = attributesSupport.DataDescriptionDatabaseColumn(typeof(UserProject), "Project");
+            ConditionClause c1 = new ConditionClause
+            {
+                ColumnName = userDbName,
+                Values = new object[] { project.Id },
+                Operator = Dictionaries.ComparisonOperators.EqualTo
+            };
+            var where = new (Dictionaries.LogicOperators?, bool, ConditionClause)[] { (null, false, c1) };
+
+            statement.SelectBuilder.BuildTableName(tableName);
+            statement.SelectBuilder.BuildWhere(where);
+
+            string text = statement.GetRequest();
+            SqlExecutor sqlExecutor = new SqlExecutor();
+            var reader = sqlExecutor.ExecuteReader(text);
+            UserProject[] result = ConvertAllFields(reader);
+            return result;
+        }
+
+        private UserProject[] ConvertAllFields(IDataReader reader)
         {
             List<UserProject> result = new List<UserProject>();
             while (reader.Read())
             {
-                UserProject record = GetOne(reader, user);
+                UserProject record = GetOne(reader);
                 result.Add(record);
             }
 
             return result.ToArray();
         }
 
-        private UserProject GetOne(IDataReader reader, AppUser user)
+        private UserProject GetOne(IDataReader reader)
         {
+            SqlForAppUser sqlForAppUser = new SqlForAppUser();
+            int userId = reader.GetInt32(0);
             SqlForProject sqlForProject = new SqlForProject();
             int projectId = reader.GetInt32(2);
             UserProject record = new UserProject
             {
-                AppUser = user,
+                AppUser = sqlForAppUser.SelectById(userId),
                 Project = sqlForProject.SelectById(projectId)
             };
 
