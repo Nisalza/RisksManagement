@@ -60,6 +60,60 @@
   <wsdl:message name="IService_GetUserProjects_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUserProjectsResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetProbabilityTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProbabilityTypes" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetProbabilityTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProbabilityTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetProbabilities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProbabilities" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetProbabilities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProbabilitiesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetImpactTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImpactTypes" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetImpactTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImpactTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetImpacts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImpacts" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetImpacts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImpactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetClassifications_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClassifications" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetClassifications_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClassificationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetManagementPlans_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetManagementPlans" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetManagementPlans_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetManagementPlansResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetRelevance_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRelevance" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetRelevance_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRelevanceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCauses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCauses" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetCauses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCausesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetRisks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRisks" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetRisks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRisksResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_UpdateUser_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateUser" />
   </wsdl:message>
@@ -91,6 +145,42 @@
     <wsdl:operation name="GetUserProjects">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUserProjects" message="tns:IService_GetUserProjects_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUserProjectsResponse" message="tns:IService_GetUserProjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProbabilityTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetProbabilityTypes" message="tns:IService_GetProbabilityTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetProbabilityTypesResponse" message="tns:IService_GetProbabilityTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProbabilities">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetProbabilities" message="tns:IService_GetProbabilities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetProbabilitiesResponse" message="tns:IService_GetProbabilities_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImpactTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetImpactTypes" message="tns:IService_GetImpactTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetImpactTypesResponse" message="tns:IService_GetImpactTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImpacts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetImpacts" message="tns:IService_GetImpacts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetImpactsResponse" message="tns:IService_GetImpacts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetClassifications">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetClassifications" message="tns:IService_GetClassifications_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetClassificationsResponse" message="tns:IService_GetClassifications_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetManagementPlans">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetManagementPlans" message="tns:IService_GetManagementPlans_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetManagementPlansResponse" message="tns:IService_GetManagementPlans_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRelevance">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetRelevance" message="tns:IService_GetRelevance_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetRelevanceResponse" message="tns:IService_GetRelevance_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCauses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetCauses" message="tns:IService_GetCauses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetCausesResponse" message="tns:IService_GetCauses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRisks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetRisks" message="tns:IService_GetRisks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetRisksResponse" message="tns:IService_GetRisks_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateUser" message="tns:IService_UpdateUser_InputMessage" />
@@ -136,6 +226,87 @@
     </wsdl:operation>
     <wsdl:operation name="GetUserProjects">
       <soap12:operation soapAction="http://tempuri.org/IService/GetUserProjects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProbabilityTypes">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetProbabilityTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProbabilities">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetProbabilities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImpactTypes">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetImpactTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImpacts">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetImpacts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetClassifications">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetClassifications" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetManagementPlans">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetManagementPlans" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRelevance">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetRelevance" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCauses">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetCauses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRisks">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetRisks" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

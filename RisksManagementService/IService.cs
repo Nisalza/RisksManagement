@@ -50,6 +50,9 @@ namespace RisksManagementService
         [OperationContract]
         RiskCause[] GetCauses();
 
+        [OperationContract]
+        Risk[] GetRisks();
+
         #endregion
 
         #region Update

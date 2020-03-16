@@ -111,6 +111,12 @@ namespace RisksManagementService
             return result;
         }
 
+        public Risk[] GetRisks()
+        {
+            //todo Переделать
+            return new Risk[0];
+        }
+
         #endregion
 
         #region Update

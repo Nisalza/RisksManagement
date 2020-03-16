@@ -53,10 +53,118 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetProbabilityTypes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProbabilityTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="GetProbabilityTypesResult" nillable="true" type="q5:ArrayOfProbabilityType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProbabilities">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProbabilitiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="GetProbabilitiesResult" nillable="true" type="q6:ArrayOfProbability" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetImpactTypes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetImpactTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="GetImpactTypesResult" nillable="true" type="q7:ArrayOfImpactType" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetImpacts">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetImpactsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="GetImpactsResult" nillable="true" type="q8:ArrayOfImpact" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClassifications">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetClassificationsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="GetClassificationsResult" nillable="true" type="q9:ArrayOfClassification" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetManagementPlans">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetManagementPlansResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="GetManagementPlansResult" nillable="true" type="q10:ArrayOfRiskManagementPlan" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRelevance">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRelevanceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="GetRelevanceResult" nillable="true" type="q11:ArrayOfRelevance" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCauses">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCausesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="GetCausesResult" nillable="true" type="q12:ArrayOfRiskCause" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRisks">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRisksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="GetRisksResult" nillable="true" type="q13:ArrayOfRisk" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="UpdateUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="currentUser" nillable="true" type="q5:AppUser" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="user" nillable="true" type="q14:AppUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

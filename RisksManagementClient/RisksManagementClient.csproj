@@ -156,6 +156,42 @@
     <None Include="Connected Services\ServiceRisksManagement\item2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.AppUser1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.Classification.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.Department1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.Impact.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.ImpactType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.Probability.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.ProbabilityType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.Project1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.Relevance.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.Risk.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.RiskCause.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.RiskManagementPlan.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceRisksManagement\Service.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\RisksManagementService.Database.Models.AppUser.datasource" />
@@ -205,12 +241,6 @@
     <Resource Include="Img\mail.png" />
     <Resource Include="Img\phone.png" />
     <Resource Include="Img\telegram.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\RisksManagementService\RisksManagementService.csproj">
-      <Project>{124EC2CE-A55F-47E5-9AB3-604983DE498A}</Project>
-      <Name>RisksManagementService</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

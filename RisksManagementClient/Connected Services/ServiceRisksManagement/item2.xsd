@@ -117,4 +117,227 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Project" nillable="true" type="tns:Project" />
+  <xs:complexType name="ArrayOfProbabilityType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProbabilityType" nillable="true" type="tns:ProbabilityType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProbabilityType" nillable="true" type="tns:ArrayOfProbabilityType" />
+  <xs:complexType name="ProbabilityType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProbabilityType" nillable="true" type="tns:ProbabilityType" />
+  <xs:complexType name="ArrayOfProbability">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Probability" nillable="true" type="tns:Probability" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProbability" nillable="true" type="tns:ArrayOfProbability" />
+  <xs:complexType name="Probability">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Assessment" type="xs:float" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProbabilityType" nillable="true" type="tns:ProbabilityType" />
+      <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Probability" nillable="true" type="tns:Probability" />
+  <xs:complexType name="ArrayOfImpactType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ImpactType" nillable="true" type="tns:ImpactType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfImpactType" nillable="true" type="tns:ArrayOfImpactType" />
+  <xs:complexType name="ImpactType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ImpactType" nillable="true" type="tns:ImpactType" />
+  <xs:complexType name="ArrayOfImpact">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Impact" nillable="true" type="tns:Impact" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfImpact" nillable="true" type="tns:ArrayOfImpact" />
+  <xs:complexType name="Impact">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Assessment" type="xs:float" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ImpactType" nillable="true" type="tns:ImpactType" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Impact" nillable="true" type="tns:Impact" />
+  <xs:complexType name="ArrayOfClassification">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Classification" nillable="true" type="tns:Classification" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClassification" nillable="true" type="tns:ArrayOfClassification" />
+  <xs:complexType name="Classification">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Superclass" nillable="true" type="tns:Classification" />
+      <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Classification" nillable="true" type="tns:Classification" />
+  <xs:complexType name="ArrayOfRiskManagementPlan">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RiskManagementPlan" nillable="true" type="tns:RiskManagementPlan" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRiskManagementPlan" nillable="true" type="tns:ArrayOfRiskManagementPlan" />
+  <xs:complexType name="RiskManagementPlan">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContingencyStrategy" nillable="true" type="tns:Strategy" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="MitigationStrategy" nillable="true" type="tns:Strategy" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RiskManagementPlan" nillable="true" type="tns:RiskManagementPlan" />
+  <xs:complexType name="Strategy">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StrategyType" nillable="true" type="tns:StrategyType" />
+      <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Strategy" nillable="true" type="tns:Strategy" />
+  <xs:complexType name="StrategyType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StrategyType" nillable="true" type="tns:StrategyType" />
+  <xs:complexType name="ArrayOfRelevance">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Relevance" nillable="true" type="tns:Relevance" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRelevance" nillable="true" type="tns:ArrayOfRelevance" />
+  <xs:complexType name="Relevance">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Assessment" type="xs:float" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Relevance" nillable="true" type="tns:Relevance" />
+  <xs:complexType name="ArrayOfRiskCause">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RiskCause" nillable="true" type="tns:RiskCause" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRiskCause" nillable="true" type="tns:ArrayOfRiskCause" />
+  <xs:complexType name="RiskCause">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RiskCause" nillable="true" type="tns:RiskCause" />
+  <xs:complexType name="ArrayOfRisk">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Risk" nillable="true" type="tns:Risk" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRisk" nillable="true" type="tns:ArrayOfRisk" />
+  <xs:complexType name="Risk">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Classification" nillable="true" type="tns:Classification" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Damage" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Deadline" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ExposureComputation" nillable="true" type="tns:ExposureComputation" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Impact" nillable="true" type="tns:Impact" />
+      <xs:element minOccurs="0" name="IsRelevance" nillable="true" type="tns:Relevance" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Priority" nillable="true" type="tns:Priority" />
+      <xs:element minOccurs="0" name="Probability" nillable="true" type="tns:Probability" />
+      <xs:element minOccurs="0" name="Project" nillable="true" type="tns:Project" />
+      <xs:element minOccurs="0" name="ResponsiblePerson" nillable="true" type="tns:AppUser" />
+      <xs:element minOccurs="0" name="RiskCause" nillable="true" type="tns:RiskCause" />
+      <xs:element minOccurs="0" name="RiskManagementPlan" nillable="true" type="tns:RiskManagementPlan" />
+      <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Value" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Risk" nillable="true" type="tns:Risk" />
+  <xs:complexType name="ExposureComputation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Formula" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExposureComputation" nillable="true" type="tns:ExposureComputation" />
+  <xs:complexType name="Priority">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Assessment" type="xs:float" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Priority" nillable="true" type="tns:Priority" />
 </xs:schema>
