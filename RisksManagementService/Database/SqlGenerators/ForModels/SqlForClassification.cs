@@ -116,6 +116,11 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
                 Superclass = scId == null ? null : sqlForClassification.SelectById((int)scId)
             };
 
+            if (t.Superclass != null)
+            {
+                t.Name = $"({t.Superclass.Name}) {t.Name}";
+            }
+
             return t;
         }
     }

@@ -38,7 +38,7 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             return result;
         }
 
-        public Impact[] SelectByType(ImpactType type)
+        public Impact[] SelectAllByType(ImpactType type)
         {
             SelectStatement statement = QueryFactory.Select() as SelectStatement;
 
@@ -56,6 +56,22 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
 
             statement.SelectBuilder.BuildTableName(tableName);
             statement.SelectBuilder.BuildWhere(where);
+
+            string text = statement.GetRequest();
+            SqlExecutor sqlExecutor = new SqlExecutor();
+            var reader = sqlExecutor.ExecuteReader(text);
+            Impact[] result = ConvertAllFieldsArray(reader);
+            return result;
+        }
+
+        public Impact[] SelectAll()
+        {
+            SelectStatement statement = QueryFactory.Select() as SelectStatement;
+
+            AttributesSupport attributesSupport = new AttributesSupport();
+            string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(Probability));
+
+            statement.SelectBuilder.BuildTableName(tableName);
 
             string text = statement.GetRequest();
             SqlExecutor sqlExecutor = new SqlExecutor();

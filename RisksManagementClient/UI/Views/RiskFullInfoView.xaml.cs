@@ -25,8 +25,8 @@ namespace RisksManagementClient.UI.Views
 
         public RiskFullInfoView(Risk risk)
         {
-            InitializeComponent();
             _risk = risk;
+            InitializeComponent();
         }
     }
 }

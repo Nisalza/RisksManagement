@@ -65,6 +65,22 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             return result;
         }
 
+        public Probability[] SelectAll()
+        {
+            SelectStatement statement = QueryFactory.Select() as SelectStatement;
+
+            AttributesSupport attributesSupport = new AttributesSupport();
+            string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(Probability));
+            
+            statement.SelectBuilder.BuildTableName(tableName);
+
+            string text = statement.GetRequest();
+            SqlExecutor sqlExecutor = new SqlExecutor();
+            var reader = sqlExecutor.ExecuteReader(text);
+            Probability[] result = ConvertAllFieldsArray(reader);
+            return result;
+        }
+
         private Probability ConvertAllFields(IDataReader reader)
         {
             Probability result = new Probability();

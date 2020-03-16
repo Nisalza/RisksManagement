@@ -28,6 +28,8 @@ namespace RisksManagementService
             return CurrentUser;
         }
 
+        #region Select
+
         public AppUser GetAppUser(int id)
         {
             SqlForAppUser sqlForAppUser = new SqlForAppUser();
@@ -53,6 +55,66 @@ namespace RisksManagementService
             return result.ToArray();
         }
 
+        public ProbabilityType[] GetProbabilityTypes()
+        {
+            SqlForProbabilityType sqlForProbabilityType = new SqlForProbabilityType();
+            ProbabilityType[] result = sqlForProbabilityType.SelectAll();
+            return result;
+        }
+
+        public Probability[] GetProbabilities()
+        {
+            SqlForProbability sqlForProbability = new SqlForProbability();
+            Probability[] result = sqlForProbability.SelectAll();
+            return result;
+        }
+
+        public ImpactType[] GetImpactTypes()
+        {
+            SqlForImpactType sqlForImpactType = new SqlForImpactType();
+            ImpactType[] result = sqlForImpactType.SelectAll();
+            return result;
+        }
+
+        public Impact[] GetImpacts()
+        {
+            SqlForImpact sqlForImpact = new SqlForImpact();
+            Impact[] result = sqlForImpact.SelectAll();
+            return result;
+        }
+
+        public Classification[] GetClassifications()
+        {
+            SqlForClassification sqlForClassification = new SqlForClassification();
+            Classification[] result = sqlForClassification.SelectAll();
+            return result;
+        }
+
+        public RiskManagementPlan[] GetManagementPlans()
+        {
+            SqlForRisksManagementPlan sqlForRisksManagementPlan = new SqlForRisksManagementPlan();
+            RiskManagementPlan[] result = sqlForRisksManagementPlan.SelectAll();
+            return result;
+        }
+
+        public Relevance[] GetRelevance()
+        {
+            SqlForRelevance sqlForRelevance = new SqlForRelevance();
+            Relevance[] result = sqlForRelevance.SelectAll();
+            return result;
+        }
+
+        public RiskCause[] GetCauses()
+        {
+            SqlForRiskCause sqlForRiskCause = new SqlForRiskCause();
+            RiskCause[] result = sqlForRiskCause.SelectAll();
+            return result;
+        }
+
+        #endregion
+
+        #region Update
+
         public bool UpdateUser(AppUser user)
         {
             if (CurrentUser == null) return false;
@@ -63,6 +125,8 @@ namespace RisksManagementService
             bool result = sqlForAppUser.UpdateByUser(user);
             return result;
         }
+
+        #endregion
 
         public void Disconnect()
         {

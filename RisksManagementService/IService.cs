@@ -12,6 +12,7 @@ namespace RisksManagementService
     [ServiceContract(CallbackContract = typeof(IServiceCallback))]
     public interface IService
     {
+        #region Select
 
         [OperationContract]
         AppUser Connect(string login);
@@ -26,7 +27,37 @@ namespace RisksManagementService
         Project[] GetUserProjects();
 
         [OperationContract]
+        ProbabilityType[] GetProbabilityTypes();
+
+        [OperationContract]
+        Probability[] GetProbabilities();
+
+        [OperationContract]
+        ImpactType[] GetImpactTypes();
+
+        [OperationContract]
+        Impact[] GetImpacts();
+
+        [OperationContract]
+        Classification[] GetClassifications();
+
+        [OperationContract]
+        RiskManagementPlan[] GetManagementPlans();
+
+        [OperationContract]
+        Relevance[] GetRelevance();
+
+        [OperationContract]
+        RiskCause[] GetCauses();
+
+        #endregion
+
+        #region Update
+
+        [OperationContract]
         bool UpdateUser(AppUser user);
+
+        #endregion
 
         [OperationContract]
         void Disconnect();

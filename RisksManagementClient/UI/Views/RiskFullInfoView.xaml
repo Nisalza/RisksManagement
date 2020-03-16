@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RisksManagementClient.UI.Views">
-    <Grid>
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Top">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -25,13 +25,13 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Name="Labels" Width="Auto"/>
-            <ColumnDefinition Name="Data" Width="*"/>
+            <ColumnDefinition Width="15"/>
+            <ColumnDefinition Name="Labels" Width="180"/>
+            <ColumnDefinition Name="Data" Width="300"/>
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="1">Номер</Label>
-        <TextBox Grid.Row="0" Grid.Column="2" Name="RiskId" Text="{Binding _risk.Id}"/>
+        <TextBox Grid.Row="0" Grid.Column="2" Name="RiskId" IsReadOnly="True" Text="{Binding _risk.Id}"/>
 
         <Label Grid.Row="1" Grid.Column="0">*</Label>
         <Label Grid.Row="1" Grid.Column="1">Наименование</Label>

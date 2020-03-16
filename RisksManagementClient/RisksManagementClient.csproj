@@ -156,18 +156,19 @@
     <None Include="Connected Services\ServiceRisksManagement\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.AppUser.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.Department.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.Project.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\ServiceRisksManagement\Service.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\RisksManagementService.Database.Models.AppUser.datasource" />
+    <None Include="Properties\DataSources\RisksManagementService.Database.Models.Classification.datasource" />
+    <None Include="Properties\DataSources\RisksManagementService.Database.Models.Department.datasource" />
+    <None Include="Properties\DataSources\RisksManagementService.Database.Models.Impact.datasource" />
+    <None Include="Properties\DataSources\RisksManagementService.Database.Models.ImpactType.datasource" />
+    <None Include="Properties\DataSources\RisksManagementService.Database.Models.Probability.datasource" />
+    <None Include="Properties\DataSources\RisksManagementService.Database.Models.ProbabilityType.datasource" />
+    <None Include="Properties\DataSources\RisksManagementService.Database.Models.Project.datasource" />
+    <None Include="Properties\DataSources\RisksManagementService.Database.Models.Relevance.datasource" />
+    <None Include="Properties\DataSources\RisksManagementService.Database.Models.RiskCause.datasource" />
+    <None Include="Properties\DataSources\RisksManagementService.Database.Models.RiskManagementPlan.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

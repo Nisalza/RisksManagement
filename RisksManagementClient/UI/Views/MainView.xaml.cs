@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using RisksManagementClient.ViewModels;
+using RisksManagementService.Database.Models;
 
 namespace RisksManagementClient.UI.Views
 {
@@ -36,7 +37,11 @@ namespace RisksManagementClient.UI.Views
 
         #region Риски
 
-        
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            RiskFullInfoView riskFullInfoView = new RiskFullInfoView(new Risk() {Id = 3});
+            RiskScroll.Content = riskFullInfoView;
+        }
 
         #endregion
     }
