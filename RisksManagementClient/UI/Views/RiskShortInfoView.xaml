@@ -27,21 +27,21 @@
         </StackPanel>
 
         <Label Grid.Row="1" Grid.Column="0">Номер</Label>
-        <TextBox Name="RiskId" Grid.Row="1" Grid.Column="1" IsReadOnly="True" Text="{Binding _risk.Id}"/>
+        <TextBox Name="RiskId" Grid.Row="1" Grid.Column="1" IsReadOnly="True" Text="{Binding CurrentRisk.Id}"/>
 
         <Label Grid.Row="2" Grid.Column="0">Наименование</Label>
-        <TextBox Name="RiskName" Grid.Row="2" Grid.Column="1" IsReadOnly="True" Text="{Binding _risk.Name}"/>
+        <TextBox Name="RiskName" Grid.Row="2" Grid.Column="1" IsReadOnly="True" Text="{Binding CurrentRisk.Name}"/>
 
         <Label Grid.Row="3" Grid.Column="0">Описание</Label>
         <TextBox Name="RiskDescription" Grid.Row="3" Grid.Column="1" IsReadOnly="True" MaxWidth="{Binding ElementName=Data, Path=Width}" Height="Auto" TextWrapping="Wrap"/>
 
         <Label Grid.Row="4" Grid.Column="0">Проект</Label>
-        <TextBox Name="RiskProject" Grid.Row="4" Grid.Column="1" IsReadOnly="True" Text="{Binding _risk.Project.Name}"/>
+        <TextBox Name="RiskProject" Grid.Row="4" Grid.Column="1" IsReadOnly="True" Text="{Binding CurrentRisk.Project.Name}"/>
 
         <Label Grid.Row="5" Grid.Column="0">Ответственный</Label>
-        <TextBox Name="RiskResponsiblePerson" Grid.Row="5" Grid.Column="1" IsReadOnly="True" Text="{Binding _risk.ResponsiblePerson.Name}"/>
+        <TextBox Name="RiskResponsiblePerson" Grid.Row="5" Grid.Column="1" IsReadOnly="True" Text="{Binding CurrentRisk.ResponsiblePerson.Name}"/>
 
         <Label Grid.Row="6" Grid.Column="0">Величина</Label>
-        <TextBox Name="RiskValue" Grid.Row="6" Grid.Column="1" IsReadOnly="True" Text="{Binding _risk.Value}"/>
+        <TextBox Name="RiskValue" Grid.Row="6" Grid.Column="1" IsReadOnly="True" Text="{Binding CurrentRisk.Value}"/>
     </Grid>
 </UserControl>

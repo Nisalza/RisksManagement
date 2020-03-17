@@ -21,11 +21,8 @@ namespace RisksManagementClient.UI.Views
     /// </summary>
     public partial class RiskFullInfoView : UserControl
     {
-        private Risk _risk;
-
-        public RiskFullInfoView(Risk risk)
+        public RiskFullInfoView()
         {
-            _risk = risk;
             InitializeComponent();
         }
     }

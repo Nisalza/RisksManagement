@@ -39,7 +39,8 @@ namespace RisksManagementClient.UI.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            RiskFullInfoView riskFullInfoView = new RiskFullInfoView(new Risk() {Id = 3});
+            _viewModel.CurrentRisk = new Risk {Id = 3};
+            RiskFullInfoView riskFullInfoView = new RiskFullInfoView();
             RiskScroll.Content = riskFullInfoView;
         }
 

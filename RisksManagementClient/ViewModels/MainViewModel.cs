@@ -35,6 +35,8 @@ namespace RisksManagementClient.ViewModels
 
         private Project[] _projects;
 
+        private Risk _currentRisk;
+
         public AppUser CurrentUser
         {
             get => _currentUser;
@@ -61,6 +63,16 @@ namespace RisksManagementClient.ViewModels
             set
             {
                 _projects = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public Risk CurrentRisk
+        {
+            get => _currentRisk;
+            set
+            {
+                _currentRisk = value;
                 RaisePropertyChanged();
             }
         }
