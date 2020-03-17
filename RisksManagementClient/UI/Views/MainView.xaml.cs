@@ -37,11 +37,31 @@ namespace RisksManagementClient.UI.Views
 
         #region Риски
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void CreateRisk_Click(object sender, RoutedEventArgs e)
         {
-            _viewModel.CurrentRisk = new Risk {Id = 3};
+            _viewModel.CurrentRisk = new Risk();
             RiskFullInfoView riskFullInfoView = new RiskFullInfoView();
             RiskScroll.Content = riskFullInfoView;
+            ShowSaveDeleteButtons();
+        }
+
+        private void CloseCurrentRisk_Click(object sender, RoutedEventArgs e)
+        {
+            _viewModel.CurrentRisk = null;
+            RiskScroll.Content = null;
+            CollapseSaveDeleteButtons();
+        }
+
+        private void CollapseSaveDeleteButtons()
+        {
+            SaveCurrentRisk.Visibility = Visibility.Collapsed;
+            CloseCurrentRisk.Visibility = Visibility.Collapsed;
+        }
+
+        private void ShowSaveDeleteButtons()
+        {
+            SaveCurrentRisk.Visibility = Visibility.Visible;
+            CloseCurrentRisk.Visibility = Visibility.Visible;
         }
 
         #endregion

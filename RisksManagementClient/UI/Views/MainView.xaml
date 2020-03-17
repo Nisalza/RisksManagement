@@ -28,12 +28,16 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <Button Grid.Row="0" HorizontalAlignment="Left" Margin="5" Padding="5,2,5,2" Click="Button_Click">Создать</Button>
+                            <Button Name="CreateRisk" Grid.Row="0" HorizontalAlignment="Left" Margin="5" Padding="5,2,5,2" Click="CreateRisk_Click">Создать</Button>
                             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="5">
                                 <StackPanel Name="ShortRisksList" Orientation="Vertical"/>
                             </ScrollViewer>
                         </Grid>
-                        <ScrollViewer Name="RiskScroll" Grid.Column="2" HorizontalScrollBarVisibility="Auto"/>
+                        <StackPanel Grid.Column="2" VerticalAlignment="Top" Orientation="Horizontal">
+                            <Button Name="SaveCurrentRisk" Margin="0,0,10,0" Visibility="Collapsed">Сохранить</Button>
+                            <Button Name="CloseCurrentRisk" Visibility="Collapsed" Click="CloseCurrentRisk_Click">Закрыть</Button>
+                        </StackPanel>
+                        <ScrollViewer Name="RiskScroll" Grid.Column="2" Margin="0,30,0,0" HorizontalScrollBarVisibility="Auto"/>
                     </Grid>
                 </TabItem.Content>
             </TabItem>

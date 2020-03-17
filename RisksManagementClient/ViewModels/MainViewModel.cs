@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Prism.Mvvm;
 using RisksManagementClient.ServiceRisksManagement;
+using RisksManagementClient.Strategies;
 
 namespace RisksManagementClient.ViewModels
 {
@@ -18,11 +19,6 @@ namespace RisksManagementClient.ViewModels
             ViewLoaded += OnViewLoaded;
             UserSaving += OnUserSaving;
             Client = SingletonClient.GetInstance(this).Client;
-        }
-
-        private void OnUserSaving(object sender, EventArgs e)
-        {
-            bool ok = Client.UpdateUser(CurrentUser);
         }
 
         #region Поля
@@ -64,6 +60,8 @@ namespace RisksManagementClient.ViewModels
         private UserProject[] _userProjects;
 
         private AppUser[] _responsiblePersons;
+
+        private IStrategy _currentStrategy;
         
         #endregion
 
@@ -247,14 +245,18 @@ namespace RisksManagementClient.ViewModels
             RiskCauses = Client.GetCauses();
             Priorities = Client.GetPriorities();
             Risks = Client.GetRisks();
-            //ResponsiblePersons = Client.GetUsers();
             _userProjects = Client.GetUsersWithProjects();
+        }
+        
+        private void OnUserSaving(object sender, EventArgs e)
+        {
+            bool ok = Client.UpdateUser(CurrentUser);
         }
 
         #endregion
 
         #region Фильтрация свойств
-        
+
         public void UpdateProbabilities()
         {
             Probabilities = _probabilities?.Where(x => x.ProbabilityType.Id == CurrentRisk.ProbabilityType?.Id)
@@ -269,9 +271,6 @@ namespace RisksManagementClient.ViewModels
 
         public void UpdateRp()
         {
-            var t = _userProjects?.Where(x => x.Project.Id == CurrentRisk.Project?.Id);
-            var tt = t.Select(x => x.AppUser);
-            var ttt = tt.Distinct();
             ResponsiblePersons = _userProjects?.Where(x => x.Project.Id == CurrentRisk.Project?.Id)
                 .Select(x => x.AppUser)
                 .Distinct()

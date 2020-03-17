@@ -9,6 +9,7 @@ namespace RisksManagementClient
     public enum RiskAction : byte
     {
         Show,
+        Create,
         Duplicate,
         Edit,
         Delete

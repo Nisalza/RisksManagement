@@ -74,6 +74,10 @@
     </Compile>
     <Compile Include="Enums.cs" />
     <Compile Include="SingletonClient.cs" />
+    <Compile Include="Strategies\IStrategy.cs" />
+    <Compile Include="Strategies\RiskStrategies\CreateRiskStrategy.cs" />
+    <Compile Include="Strategies\RiskStrategies\DeleteRiskStrategy.cs" />
+    <Compile Include="Strategies\RiskStrategies\UpdateRiskStrategy.cs" />
     <Compile Include="UI\Views\AccountView.xaml.cs">
       <DependentUpon>AccountView.xaml</DependentUpon>
     </Compile>

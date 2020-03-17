@@ -144,7 +144,9 @@ namespace RisksManagementService
 
         public bool InsertRisk(Risk risk)
         {
-            throw new NotImplementedException();
+            SqlForRisk sqlForRisk = new SqlForRisk();
+            bool ok = sqlForRisk.InsertRisk(risk, CurrentUser);
+            return ok;
         }
 
         #endregion
@@ -164,7 +166,9 @@ namespace RisksManagementService
 
         public bool UpdateRisk(Risk risk)
         {
-            throw new NotImplementedException();
+            SqlForRisk sqlForRisk = new SqlForRisk();
+            bool ok = sqlForRisk.UpdateRisk(risk, CurrentUser);
+            return ok;
         }
 
         #endregion
@@ -173,7 +177,9 @@ namespace RisksManagementService
 
         public bool DeleteRisk(Risk risk)
         {
-            throw new NotImplementedException();
+            SqlForRisk sqlForRisk = new SqlForRisk();
+            bool ok = sqlForRisk.DeleteRisk(risk);
+            return ok;
         }
 
         #endregion

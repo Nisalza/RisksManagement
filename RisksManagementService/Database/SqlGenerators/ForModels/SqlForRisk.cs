@@ -12,6 +12,43 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
 {
     public class SqlForRisk : SqlForModel
     {
+        private string[] GetCols()
+        {
+            AttributesSupport attributesSupport = new AttributesSupport();
+            string[] cols =
+            {
+                attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "Name"),
+                attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "Description"),
+                attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "Probability"),
+                attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "Impact"),
+                attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "Priority"),
+                attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "ResponsiblePerson"),
+                attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "RiskManagementPlan"),
+                attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "Relevance"),
+                attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "RiskCause"),
+                attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "Damage"),
+                attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "Project"),
+                attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "Deadline"),
+                attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "Classification"),
+                //todo формула
+            };
+
+            return cols;
+        }
+
+        private object[] GetVals(Risk risk)
+        {
+            object[] values =
+            {
+                risk.Name, risk.Description, risk.Probability.Id, risk.Impact.Id, risk.Priority.Id,
+                risk.ResponsiblePerson.Id, risk.RiskManagementPlan.Id, risk.IsRelevance.Id,
+                risk.Damage, risk.Project.Id, risk.Deadline, risk.Classification.Id, 
+                /*todo формула*/ 
+            };
+
+            return values;
+        }
+
         public Risk SelectById(int riskId)
         {
             SelectStatement statement = QueryFactory.Select() as SelectStatement;
@@ -88,6 +125,134 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             var reader = sqlExecutor.ExecuteReader(text);
             Risk result = ConvertAllFields(reader);
             return result;
+        }
+
+        public bool InsertRisk(Risk risk, AppUser user)
+        {
+            bool ok = true;
+
+            try
+            {
+                InsertStatement statement = QueryFactory.Insert() as InsertStatement;
+
+                AttributesSupport attributesSupport = new AttributesSupport();
+                string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(Risk));
+
+                string[] createdCols =
+                {
+                    attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "TimeCreated"),
+                    attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "CreatedBy")
+                };
+                string[] cols = GetCols();
+                cols = cols.Union(createdCols).ToArray();
+
+                object[] createdValues = {DateTime.Now, user.Login};
+                object[] values = GetVals(risk);
+                values = values.Union(createdValues).ToArray();
+
+                statement.InsertBuilder.BuildTableName(tableName);
+                statement.InsertBuilder.BuildColumns(cols);
+                statement.InsertBuilder.BuildValues(values);
+
+                string text = statement.GetRequest();
+                SqlExecutor sqlExecutor = new SqlExecutor();
+                sqlExecutor.ExecuteReader(text);
+            }
+            catch (Exception)
+            {
+                ok = false;
+            }
+
+            return ok;
+        }
+
+        public bool UpdateRisk(Risk risk, AppUser user)
+        {
+            bool ok = true;
+
+            try
+            {
+                UpdateStatement statement = QueryFactory.Update() as UpdateStatement;
+
+                AttributesSupport attributesSupport = new AttributesSupport();
+                string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(Risk));
+
+                string[] createdCols =
+                {
+                    attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "TimeModified"),
+                    attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "ModifiedBy")
+                };
+                string[] cols = GetCols();
+                cols = cols.Union(createdCols).ToArray();
+
+                object[] createdValues = { DateTime.Now, user.Login };
+                object[] values = GetVals(risk);
+                values = values.Union(createdValues).ToArray();
+
+                List<(string, object)> v = new List<(string, object)>();
+                for (int i = 0; i < values.Length && i < cols.Length; ++i)
+                {
+                    v.Add((cols[i], values[i]));
+                }
+
+                var id = attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "Id");
+                ConditionClause c1 = new ConditionClause
+                {
+                    ColumnName = id,
+                    Values = new object[] { risk.Id },
+                    Operator = Dictionaries.ComparisonOperators.EqualTo
+                };
+                var where = new (Dictionaries.LogicOperators?, bool, ConditionClause)[] { (null, false, c1) };
+
+                statement.UpdateBuilder.BuildTableName(tableName);
+                statement.UpdateBuilder.BuildValues(v.ToArray());
+                statement.UpdateBuilder.BuildWhere(where);
+
+                string text = statement.GetRequest();
+                SqlExecutor sqlExecutor = new SqlExecutor();
+                sqlExecutor.ExecuteReader(text);
+            }
+            catch (Exception)
+            {
+                ok = false;
+            }
+
+            return ok;
+        }
+
+        public bool DeleteRisk(Risk risk)
+        {
+            bool ok = true;
+
+            try
+            {
+                DeleteStatement statement = QueryFactory.Delete() as DeleteStatement;
+
+                AttributesSupport attributesSupport = new AttributesSupport();
+                string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(Risk));
+
+                var id = attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "Id");
+                ConditionClause c1 = new ConditionClause
+                {
+                    ColumnName = id,
+                    Values = new object[] { risk.Id },
+                    Operator = Dictionaries.ComparisonOperators.EqualTo
+                };
+                var where = new (Dictionaries.LogicOperators?, bool, ConditionClause)[] { (null, false, c1) };
+
+                statement.DeleteBuilder.BuildTableName(tableName);
+                statement.DeleteBuilder.BuildWhere(where);
+
+                string text = statement.GetRequest();
+                SqlExecutor sqlExecutor = new SqlExecutor();
+                sqlExecutor.ExecuteReader(text);
+            }
+            catch (Exception)
+            {
+                ok = false;
+            }
+
+            return ok;
         }
 
         private Risk ConvertAllFields(IDataReader reader)
