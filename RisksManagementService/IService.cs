@@ -51,7 +51,23 @@ namespace RisksManagementService
         RiskCause[] GetCauses();
 
         [OperationContract]
+        Priority[] GetPriorities();
+
+        [OperationContract]
         Risk[] GetRisks();
+
+        [OperationContract]
+        AppUser[] GetUsers();
+
+        [OperationContract]
+        UserProject[] GetUsersWithProjects();
+
+        #endregion
+
+        #region Insert
+
+        [OperationContract]
+        bool InsertRisk(Risk risk);
 
         #endregion
 
@@ -59,6 +75,16 @@ namespace RisksManagementService
 
         [OperationContract]
         bool UpdateUser(AppUser user);
+
+        [OperationContract]
+        bool UpdateRisk(Risk risk);
+
+        #endregion
+
+        #region Delete
+
+        [OperationContract]
+        bool DeleteRisk(Risk risk);
 
         #endregion
 

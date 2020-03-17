@@ -149,6 +149,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetPriorities">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPrioritiesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="GetPrioritiesResult" nillable="true" type="q13:ArrayOfPriority" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetRisks">
     <xs:complexType>
       <xs:sequence />
@@ -157,14 +169,52 @@
   <xs:element name="GetRisksResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="GetRisksResult" nillable="true" type="q13:ArrayOfRisk" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="GetRisksResult" nillable="true" type="q14:ArrayOfRisk" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsers">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="GetUsersResult" nillable="true" type="q15:ArrayOfAppUser" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersWithProjects">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersWithProjectsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="GetUsersWithProjectsResult" nillable="true" type="q16:ArrayOfUserProject" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertRisk">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="risk" nillable="true" type="q17:Risk" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertRiskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertRiskResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UpdateUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="user" nillable="true" type="q14:AppUser" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="user" nillable="true" type="q18:AppUser" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -172,6 +222,34 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="UpdateUserResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRisk">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="risk" nillable="true" type="q19:Risk" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRiskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateRiskResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRisk">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="risk" nillable="true" type="q20:Risk" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteRiskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteRiskResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -65,6 +65,22 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             return result;
         }
 
+        public AppUser[] SelectAll()
+        {
+            SelectStatement statement = QueryFactory.Select() as SelectStatement;
+
+            AttributesSupport attributesSupport = new AttributesSupport();
+            string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(AppUser));
+
+            statement.SelectBuilder.BuildTableName(tableName);
+
+            string text = statement.GetRequest();
+            SqlExecutor sqlExecutor = new SqlExecutor();
+            var reader = sqlExecutor.ExecuteReader(text);
+            AppUser[] result = ConvertAllFieldsArray(reader);
+            return result;
+        }
+
         public bool UpdateByUser(AppUser user)
         {
             bool ok = true;
@@ -116,6 +132,18 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
 
             (string, object)[] result = { (modifiedBy, login), (timeModified, DateTime.Now) };
             return result;
+        }
+
+        private AppUser[] ConvertAllFieldsArray(IDataReader reader)
+        {
+            List<AppUser> result = new List<AppUser>();
+            while (reader.Read())
+            {
+                AppUser t = GetOne(reader);
+                result.Add(t);
+            }
+
+            return result.ToArray();
         }
 
         private AppUser ConvertAllFields(IDataReader reader)

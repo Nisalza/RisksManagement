@@ -286,6 +286,24 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="RiskCause" nillable="true" type="tns:RiskCause" />
+  <xs:complexType name="ArrayOfPriority">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Priority" nillable="true" type="tns:Priority" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPriority" nillable="true" type="tns:ArrayOfPriority" />
+  <xs:complexType name="Priority">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Assessment" type="xs:float" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Priority" nillable="true" type="tns:Priority" />
   <xs:complexType name="ArrayOfRisk">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Risk" nillable="true" type="tns:Risk" />
@@ -302,11 +320,13 @@
       <xs:element minOccurs="0" name="ExposureComputation" nillable="true" type="tns:ExposureComputation" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Impact" nillable="true" type="tns:Impact" />
+      <xs:element minOccurs="0" name="ImpactType" nillable="true" type="tns:ImpactType" />
       <xs:element minOccurs="0" name="IsRelevance" nillable="true" type="tns:Relevance" />
       <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Priority" nillable="true" type="tns:Priority" />
       <xs:element minOccurs="0" name="Probability" nillable="true" type="tns:Probability" />
+      <xs:element minOccurs="0" name="ProbabilityType" nillable="true" type="tns:ProbabilityType" />
       <xs:element minOccurs="0" name="Project" nillable="true" type="tns:Project" />
       <xs:element minOccurs="0" name="ResponsiblePerson" nillable="true" type="tns:AppUser" />
       <xs:element minOccurs="0" name="RiskCause" nillable="true" type="tns:RiskCause" />
@@ -328,16 +348,28 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ExposureComputation" nillable="true" type="tns:ExposureComputation" />
-  <xs:complexType name="Priority">
+  <xs:complexType name="ArrayOfAppUser">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Assessment" type="xs:float" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AppUser" nillable="true" type="tns:AppUser" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAppUser" nillable="true" type="tns:ArrayOfAppUser" />
+  <xs:complexType name="ArrayOfUserProject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserProject" nillable="true" type="tns:UserProject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserProject" nillable="true" type="tns:ArrayOfUserProject" />
+  <xs:complexType name="UserProject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppUser" nillable="true" type="tns:AppUser" />
       <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Project" nillable="true" type="tns:Project" />
       <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
       <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Priority" nillable="true" type="tns:Priority" />
+  <xs:element name="UserProject" nillable="true" type="tns:UserProject" />
 </xs:schema>

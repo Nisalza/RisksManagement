@@ -64,6 +64,22 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             return result;
         }
 
+        public UserProject[] SelectAll()
+        {
+            SelectStatement statement = QueryFactory.Select() as SelectStatement;
+
+            AttributesSupport attributesSupport = new AttributesSupport();
+            string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(UserProject));
+
+            statement.SelectBuilder.BuildTableName(tableName);
+
+            string text = statement.GetRequest();
+            SqlExecutor sqlExecutor = new SqlExecutor();
+            var reader = sqlExecutor.ExecuteReader(text);
+            UserProject[] result = ConvertAllFields(reader);
+            return result;
+        }
+
         private UserProject[] ConvertAllFields(IDataReader reader)
         {
             List<UserProject> result = new List<UserProject>();
@@ -79,7 +95,7 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
         private UserProject GetOne(IDataReader reader)
         {
             SqlForAppUser sqlForAppUser = new SqlForAppUser();
-            int userId = reader.GetInt32(0);
+            int userId = reader.GetInt32(1);
             SqlForProject sqlForProject = new SqlForProject();
             int projectId = reader.GetInt32(2);
             UserProject record = new UserProject

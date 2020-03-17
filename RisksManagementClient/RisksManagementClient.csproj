@@ -171,6 +171,9 @@
     <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.ImpactType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.Priority.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.Probability.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -190,6 +193,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.RiskManagementPlan.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.UserProject.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceRisksManagement\Service.wsdl" />

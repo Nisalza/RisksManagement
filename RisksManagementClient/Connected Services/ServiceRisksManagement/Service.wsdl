@@ -108,17 +108,53 @@
   <wsdl:message name="IService_GetCauses_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCausesResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetPriorities_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriorities" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetPriorities_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPrioritiesResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_GetRisks_InputMessage">
     <wsdl:part name="parameters" element="tns:GetRisks" />
   </wsdl:message>
   <wsdl:message name="IService_GetRisks_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetRisksResponse" />
   </wsdl:message>
+  <wsdl:message name="IService_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUsersWithProjects_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersWithProjects" />
+  </wsdl:message>
+  <wsdl:message name="IService_GetUsersWithProjects_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersWithProjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertRisk_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRisk" />
+  </wsdl:message>
+  <wsdl:message name="IService_InsertRisk_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertRiskResponse" />
+  </wsdl:message>
   <wsdl:message name="IService_UpdateUser_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateUser" />
   </wsdl:message>
   <wsdl:message name="IService_UpdateUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateRisk_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRisk" />
+  </wsdl:message>
+  <wsdl:message name="IService_UpdateRisk_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRiskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteRisk_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRisk" />
+  </wsdl:message>
+  <wsdl:message name="IService_DeleteRisk_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteRiskResponse" />
   </wsdl:message>
   <wsdl:message name="IService_Disconnect_InputMessage">
     <wsdl:part name="parameters" element="tns:Disconnect" />
@@ -178,13 +214,37 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetCauses" message="tns:IService_GetCauses_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetCausesResponse" message="tns:IService_GetCauses_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetPriorities">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetPriorities" message="tns:IService_GetPriorities_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetPrioritiesResponse" message="tns:IService_GetPriorities_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetRisks">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetRisks" message="tns:IService_GetRisks_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetRisksResponse" message="tns:IService_GetRisks_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUsers" message="tns:IService_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUsersResponse" message="tns:IService_GetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersWithProjects">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetUsersWithProjects" message="tns:IService_GetUsersWithProjects_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetUsersWithProjectsResponse" message="tns:IService_GetUsersWithProjects_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertRisk">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/InsertRisk" message="tns:IService_InsertRisk_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/InsertRiskResponse" message="tns:IService_InsertRisk_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="UpdateUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateUser" message="tns:IService_UpdateUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateUserResponse" message="tns:IService_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRisk">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/UpdateRisk" message="tns:IService_UpdateRisk_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/UpdateRiskResponse" message="tns:IService_UpdateRisk_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRisk">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/DeleteRisk" message="tns:IService_DeleteRisk_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/DeleteRiskResponse" message="tns:IService_DeleteRisk_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="Disconnect">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/Disconnect" message="tns:IService_Disconnect_InputMessage" />
@@ -305,6 +365,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetPriorities">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetPriorities" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetRisks">
       <soap12:operation soapAction="http://tempuri.org/IService/GetRisks" style="document" />
       <wsdl:input>
@@ -314,8 +383,53 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsersWithProjects">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetUsersWithProjects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRisk">
+      <soap12:operation soapAction="http://tempuri.org/IService/InsertRisk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="UpdateUser">
       <soap12:operation soapAction="http://tempuri.org/IService/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRisk">
+      <soap12:operation soapAction="http://tempuri.org/IService/UpdateRisk" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRisk">
+      <soap12:operation soapAction="http://tempuri.org/IService/DeleteRisk" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

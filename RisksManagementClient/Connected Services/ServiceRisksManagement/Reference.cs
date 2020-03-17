@@ -563,10 +563,14 @@ namespace RisksManagementClient.ServiceRisksManagement {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Relevance))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.RiskCause[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.RiskCause))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Priority[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Priority))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Risk[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Risk))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.ExposureComputation))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Priority))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.AppUser[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.UserProject[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.UserProject))]
     public partial class Settings : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -2744,511 +2748,6 @@ namespace RisksManagementClient.ServiceRisksManagement {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Risk", Namespace="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models")]
-    [System.SerializableAttribute()]
-    public partial class Risk : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RisksManagementClient.ServiceRisksManagement.Classification ClassificationField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CreatedByField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DamageField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DeadlineField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RisksManagementClient.ServiceRisksManagement.ExposureComputation ExposureComputationField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RisksManagementClient.ServiceRisksManagement.Impact ImpactField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RisksManagementClient.ServiceRisksManagement.Relevance IsRelevanceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ModifiedByField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RisksManagementClient.ServiceRisksManagement.Priority PriorityField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RisksManagementClient.ServiceRisksManagement.Probability ProbabilityField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RisksManagementClient.ServiceRisksManagement.Project ProjectField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RisksManagementClient.ServiceRisksManagement.AppUser ResponsiblePersonField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RisksManagementClient.ServiceRisksManagement.RiskCause RiskCauseField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RisksManagementClient.ServiceRisksManagement.RiskManagementPlan RiskManagementPlanField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime TimeCreatedField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime TimeModifiedField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private float ValueField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public RisksManagementClient.ServiceRisksManagement.Classification Classification {
-            get {
-                return this.ClassificationField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ClassificationField, value) != true)) {
-                    this.ClassificationField = value;
-                    this.RaisePropertyChanged("Classification");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CreatedBy {
-            get {
-                return this.CreatedByField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CreatedByField, value) != true)) {
-                    this.CreatedByField = value;
-                    this.RaisePropertyChanged("CreatedBy");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Damage {
-            get {
-                return this.DamageField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DamageField, value) != true)) {
-                    this.DamageField = value;
-                    this.RaisePropertyChanged("Damage");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Deadline {
-            get {
-                return this.DeadlineField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DeadlineField, value) != true)) {
-                    this.DeadlineField = value;
-                    this.RaisePropertyChanged("Deadline");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public RisksManagementClient.ServiceRisksManagement.ExposureComputation ExposureComputation {
-            get {
-                return this.ExposureComputationField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ExposureComputationField, value) != true)) {
-                    this.ExposureComputationField = value;
-                    this.RaisePropertyChanged("ExposureComputation");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public RisksManagementClient.ServiceRisksManagement.Impact Impact {
-            get {
-                return this.ImpactField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ImpactField, value) != true)) {
-                    this.ImpactField = value;
-                    this.RaisePropertyChanged("Impact");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public RisksManagementClient.ServiceRisksManagement.Relevance IsRelevance {
-            get {
-                return this.IsRelevanceField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IsRelevanceField, value) != true)) {
-                    this.IsRelevanceField = value;
-                    this.RaisePropertyChanged("IsRelevance");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ModifiedBy {
-            get {
-                return this.ModifiedByField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ModifiedByField, value) != true)) {
-                    this.ModifiedByField = value;
-                    this.RaisePropertyChanged("ModifiedBy");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public RisksManagementClient.ServiceRisksManagement.Priority Priority {
-            get {
-                return this.PriorityField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PriorityField, value) != true)) {
-                    this.PriorityField = value;
-                    this.RaisePropertyChanged("Priority");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public RisksManagementClient.ServiceRisksManagement.Probability Probability {
-            get {
-                return this.ProbabilityField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProbabilityField, value) != true)) {
-                    this.ProbabilityField = value;
-                    this.RaisePropertyChanged("Probability");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public RisksManagementClient.ServiceRisksManagement.Project Project {
-            get {
-                return this.ProjectField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ProjectField, value) != true)) {
-                    this.ProjectField = value;
-                    this.RaisePropertyChanged("Project");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public RisksManagementClient.ServiceRisksManagement.AppUser ResponsiblePerson {
-            get {
-                return this.ResponsiblePersonField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ResponsiblePersonField, value) != true)) {
-                    this.ResponsiblePersonField = value;
-                    this.RaisePropertyChanged("ResponsiblePerson");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public RisksManagementClient.ServiceRisksManagement.RiskCause RiskCause {
-            get {
-                return this.RiskCauseField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RiskCauseField, value) != true)) {
-                    this.RiskCauseField = value;
-                    this.RaisePropertyChanged("RiskCause");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public RisksManagementClient.ServiceRisksManagement.RiskManagementPlan RiskManagementPlan {
-            get {
-                return this.RiskManagementPlanField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RiskManagementPlanField, value) != true)) {
-                    this.RiskManagementPlanField = value;
-                    this.RaisePropertyChanged("RiskManagementPlan");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime TimeCreated {
-            get {
-                return this.TimeCreatedField;
-            }
-            set {
-                if ((this.TimeCreatedField.Equals(value) != true)) {
-                    this.TimeCreatedField = value;
-                    this.RaisePropertyChanged("TimeCreated");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime TimeModified {
-            get {
-                return this.TimeModifiedField;
-            }
-            set {
-                if ((this.TimeModifiedField.Equals(value) != true)) {
-                    this.TimeModifiedField = value;
-                    this.RaisePropertyChanged("TimeModified");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public float Value {
-            get {
-                return this.ValueField;
-            }
-            set {
-                if ((this.ValueField.Equals(value) != true)) {
-                    this.ValueField = value;
-                    this.RaisePropertyChanged("Value");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ExposureComputation", Namespace="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.AppUser))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Role))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.RolePattern))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Settings))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.SettingsCategory))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.SettingsSubcategory))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Department[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Department))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Project[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Project))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.ProbabilityType[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.ProbabilityType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Probability[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Probability))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.ImpactType[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.ImpactType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Impact[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Impact))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Classification[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Classification))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.RiskManagementPlan[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.RiskManagementPlan))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Strategy))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.StrategyType))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Relevance[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Relevance))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.RiskCause[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.RiskCause))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Risk[]))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Risk))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Priority))]
-    public partial class ExposureComputation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CreatedByField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private object FormulaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ModifiedByField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime TimeCreatedField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime TimeModifiedField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CreatedBy {
-            get {
-                return this.CreatedByField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CreatedByField, value) != true)) {
-                    this.CreatedByField = value;
-                    this.RaisePropertyChanged("CreatedBy");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public object Formula {
-            get {
-                return this.FormulaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.FormulaField, value) != true)) {
-                    this.FormulaField = value;
-                    this.RaisePropertyChanged("Formula");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ModifiedBy {
-            get {
-                return this.ModifiedByField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ModifiedByField, value) != true)) {
-                    this.ModifiedByField = value;
-                    this.RaisePropertyChanged("ModifiedBy");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime TimeCreated {
-            get {
-                return this.TimeCreatedField;
-            }
-            set {
-                if ((this.TimeCreatedField.Equals(value) != true)) {
-                    this.TimeCreatedField = value;
-                    this.RaisePropertyChanged("TimeCreated");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime TimeModified {
-            get {
-                return this.TimeModifiedField;
-            }
-            set {
-                if ((this.TimeModifiedField.Equals(value) != true)) {
-                    this.TimeModifiedField = value;
-                    this.RaisePropertyChanged("TimeModified");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Priority", Namespace="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models")]
     [System.SerializableAttribute()]
     public partial class Priority : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -3388,6 +2887,688 @@ namespace RisksManagementClient.ServiceRisksManagement {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Risk", Namespace="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models")]
+    [System.SerializableAttribute()]
+    public partial class Risk : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RisksManagementClient.ServiceRisksManagement.Classification ClassificationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CreatedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DamageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DeadlineField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RisksManagementClient.ServiceRisksManagement.ExposureComputation ExposureComputationField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RisksManagementClient.ServiceRisksManagement.Impact ImpactField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RisksManagementClient.ServiceRisksManagement.ImpactType ImpactTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RisksManagementClient.ServiceRisksManagement.Relevance IsRelevanceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModifiedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RisksManagementClient.ServiceRisksManagement.Priority PriorityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RisksManagementClient.ServiceRisksManagement.Probability ProbabilityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RisksManagementClient.ServiceRisksManagement.ProbabilityType ProbabilityTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RisksManagementClient.ServiceRisksManagement.Project ProjectField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RisksManagementClient.ServiceRisksManagement.AppUser ResponsiblePersonField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RisksManagementClient.ServiceRisksManagement.RiskCause RiskCauseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RisksManagementClient.ServiceRisksManagement.RiskManagementPlan RiskManagementPlanField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimeCreatedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimeModifiedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private float ValueField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RisksManagementClient.ServiceRisksManagement.Classification Classification {
+            get {
+                return this.ClassificationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ClassificationField, value) != true)) {
+                    this.ClassificationField = value;
+                    this.RaisePropertyChanged("Classification");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CreatedByField, value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Damage {
+            get {
+                return this.DamageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DamageField, value) != true)) {
+                    this.DamageField = value;
+                    this.RaisePropertyChanged("Damage");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Deadline {
+            get {
+                return this.DeadlineField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DeadlineField, value) != true)) {
+                    this.DeadlineField = value;
+                    this.RaisePropertyChanged("Deadline");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RisksManagementClient.ServiceRisksManagement.ExposureComputation ExposureComputation {
+            get {
+                return this.ExposureComputationField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ExposureComputationField, value) != true)) {
+                    this.ExposureComputationField = value;
+                    this.RaisePropertyChanged("ExposureComputation");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RisksManagementClient.ServiceRisksManagement.Impact Impact {
+            get {
+                return this.ImpactField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImpactField, value) != true)) {
+                    this.ImpactField = value;
+                    this.RaisePropertyChanged("Impact");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RisksManagementClient.ServiceRisksManagement.ImpactType ImpactType {
+            get {
+                return this.ImpactTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImpactTypeField, value) != true)) {
+                    this.ImpactTypeField = value;
+                    this.RaisePropertyChanged("ImpactType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RisksManagementClient.ServiceRisksManagement.Relevance IsRelevance {
+            get {
+                return this.IsRelevanceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IsRelevanceField, value) != true)) {
+                    this.IsRelevanceField = value;
+                    this.RaisePropertyChanged("IsRelevance");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ModifiedBy {
+            get {
+                return this.ModifiedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModifiedByField, value) != true)) {
+                    this.ModifiedByField = value;
+                    this.RaisePropertyChanged("ModifiedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RisksManagementClient.ServiceRisksManagement.Priority Priority {
+            get {
+                return this.PriorityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PriorityField, value) != true)) {
+                    this.PriorityField = value;
+                    this.RaisePropertyChanged("Priority");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RisksManagementClient.ServiceRisksManagement.Probability Probability {
+            get {
+                return this.ProbabilityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProbabilityField, value) != true)) {
+                    this.ProbabilityField = value;
+                    this.RaisePropertyChanged("Probability");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RisksManagementClient.ServiceRisksManagement.ProbabilityType ProbabilityType {
+            get {
+                return this.ProbabilityTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProbabilityTypeField, value) != true)) {
+                    this.ProbabilityTypeField = value;
+                    this.RaisePropertyChanged("ProbabilityType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RisksManagementClient.ServiceRisksManagement.Project Project {
+            get {
+                return this.ProjectField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProjectField, value) != true)) {
+                    this.ProjectField = value;
+                    this.RaisePropertyChanged("Project");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RisksManagementClient.ServiceRisksManagement.AppUser ResponsiblePerson {
+            get {
+                return this.ResponsiblePersonField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ResponsiblePersonField, value) != true)) {
+                    this.ResponsiblePersonField = value;
+                    this.RaisePropertyChanged("ResponsiblePerson");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RisksManagementClient.ServiceRisksManagement.RiskCause RiskCause {
+            get {
+                return this.RiskCauseField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RiskCauseField, value) != true)) {
+                    this.RiskCauseField = value;
+                    this.RaisePropertyChanged("RiskCause");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RisksManagementClient.ServiceRisksManagement.RiskManagementPlan RiskManagementPlan {
+            get {
+                return this.RiskManagementPlanField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RiskManagementPlanField, value) != true)) {
+                    this.RiskManagementPlanField = value;
+                    this.RaisePropertyChanged("RiskManagementPlan");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TimeCreated {
+            get {
+                return this.TimeCreatedField;
+            }
+            set {
+                if ((this.TimeCreatedField.Equals(value) != true)) {
+                    this.TimeCreatedField = value;
+                    this.RaisePropertyChanged("TimeCreated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TimeModified {
+            get {
+                return this.TimeModifiedField;
+            }
+            set {
+                if ((this.TimeModifiedField.Equals(value) != true)) {
+                    this.TimeModifiedField = value;
+                    this.RaisePropertyChanged("TimeModified");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public float Value {
+            get {
+                return this.ValueField;
+            }
+            set {
+                if ((this.ValueField.Equals(value) != true)) {
+                    this.ValueField = value;
+                    this.RaisePropertyChanged("Value");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ExposureComputation", Namespace="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.AppUser))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Role))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.RolePattern))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Settings))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.SettingsCategory))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.SettingsSubcategory))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Department[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Department))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Project[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Project))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.ProbabilityType[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.ProbabilityType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Probability[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Probability))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.ImpactType[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.ImpactType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Impact[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Impact))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Classification[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Classification))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.RiskManagementPlan[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.RiskManagementPlan))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Strategy))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.StrategyType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Relevance[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Relevance))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.RiskCause[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.RiskCause))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Priority[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Priority))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Risk[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Risk))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.AppUser[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.UserProject[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.UserProject))]
+    public partial class ExposureComputation : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CreatedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private object FormulaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModifiedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimeCreatedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimeModifiedField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CreatedByField, value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public object Formula {
+            get {
+                return this.FormulaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FormulaField, value) != true)) {
+                    this.FormulaField = value;
+                    this.RaisePropertyChanged("Formula");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ModifiedBy {
+            get {
+                return this.ModifiedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModifiedByField, value) != true)) {
+                    this.ModifiedByField = value;
+                    this.RaisePropertyChanged("ModifiedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TimeCreated {
+            get {
+                return this.TimeCreatedField;
+            }
+            set {
+                if ((this.TimeCreatedField.Equals(value) != true)) {
+                    this.TimeCreatedField = value;
+                    this.RaisePropertyChanged("TimeCreated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TimeModified {
+            get {
+                return this.TimeModifiedField;
+            }
+            set {
+                if ((this.TimeModifiedField.Equals(value) != true)) {
+                    this.TimeModifiedField = value;
+                    this.RaisePropertyChanged("TimeModified");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserProject", Namespace="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models")]
+    [System.SerializableAttribute()]
+    public partial class UserProject : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RisksManagementClient.ServiceRisksManagement.AppUser AppUserField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CreatedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModifiedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RisksManagementClient.ServiceRisksManagement.Project ProjectField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimeCreatedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimeModifiedField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RisksManagementClient.ServiceRisksManagement.AppUser AppUser {
+            get {
+                return this.AppUserField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.AppUserField, value) != true)) {
+                    this.AppUserField = value;
+                    this.RaisePropertyChanged("AppUser");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CreatedByField, value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ModifiedBy {
+            get {
+                return this.ModifiedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModifiedByField, value) != true)) {
+                    this.ModifiedByField = value;
+                    this.RaisePropertyChanged("ModifiedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RisksManagementClient.ServiceRisksManagement.Project Project {
+            get {
+                return this.ProjectField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProjectField, value) != true)) {
+                    this.ProjectField = value;
+                    this.RaisePropertyChanged("Project");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TimeCreated {
+            get {
+                return this.TimeCreatedField;
+            }
+            set {
+                if ((this.TimeCreatedField.Equals(value) != true)) {
+                    this.TimeCreatedField = value;
+                    this.RaisePropertyChanged("TimeCreated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TimeModified {
+            get {
+                return this.TimeModifiedField;
+            }
+            set {
+                if ((this.TimeModifiedField.Equals(value) != true)) {
+                    this.TimeModifiedField = value;
+                    this.RaisePropertyChanged("TimeModified");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceRisksManagement.IService", CallbackContract=typeof(RisksManagementClient.ServiceRisksManagement.IServiceCallback))]
     public interface IService {
@@ -3464,17 +3645,53 @@ namespace RisksManagementClient.ServiceRisksManagement {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetCauses", ReplyAction="http://tempuri.org/IService/GetCausesResponse")]
         System.Threading.Tasks.Task<RisksManagementClient.ServiceRisksManagement.RiskCause[]> GetCausesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetPriorities", ReplyAction="http://tempuri.org/IService/GetPrioritiesResponse")]
+        RisksManagementClient.ServiceRisksManagement.Priority[] GetPriorities();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetPriorities", ReplyAction="http://tempuri.org/IService/GetPrioritiesResponse")]
+        System.Threading.Tasks.Task<RisksManagementClient.ServiceRisksManagement.Priority[]> GetPrioritiesAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetRisks", ReplyAction="http://tempuri.org/IService/GetRisksResponse")]
         RisksManagementClient.ServiceRisksManagement.Risk[] GetRisks();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetRisks", ReplyAction="http://tempuri.org/IService/GetRisksResponse")]
         System.Threading.Tasks.Task<RisksManagementClient.ServiceRisksManagement.Risk[]> GetRisksAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUsers", ReplyAction="http://tempuri.org/IService/GetUsersResponse")]
+        RisksManagementClient.ServiceRisksManagement.AppUser[] GetUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUsers", ReplyAction="http://tempuri.org/IService/GetUsersResponse")]
+        System.Threading.Tasks.Task<RisksManagementClient.ServiceRisksManagement.AppUser[]> GetUsersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUsersWithProjects", ReplyAction="http://tempuri.org/IService/GetUsersWithProjectsResponse")]
+        RisksManagementClient.ServiceRisksManagement.UserProject[] GetUsersWithProjects();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetUsersWithProjects", ReplyAction="http://tempuri.org/IService/GetUsersWithProjectsResponse")]
+        System.Threading.Tasks.Task<RisksManagementClient.ServiceRisksManagement.UserProject[]> GetUsersWithProjectsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertRisk", ReplyAction="http://tempuri.org/IService/InsertRiskResponse")]
+        bool InsertRisk(RisksManagementClient.ServiceRisksManagement.Risk risk);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertRisk", ReplyAction="http://tempuri.org/IService/InsertRiskResponse")]
+        System.Threading.Tasks.Task<bool> InsertRiskAsync(RisksManagementClient.ServiceRisksManagement.Risk risk);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateUser", ReplyAction="http://tempuri.org/IService/UpdateUserResponse")]
         bool UpdateUser(RisksManagementClient.ServiceRisksManagement.AppUser user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateUser", ReplyAction="http://tempuri.org/IService/UpdateUserResponse")]
         System.Threading.Tasks.Task<bool> UpdateUserAsync(RisksManagementClient.ServiceRisksManagement.AppUser user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateRisk", ReplyAction="http://tempuri.org/IService/UpdateRiskResponse")]
+        bool UpdateRisk(RisksManagementClient.ServiceRisksManagement.Risk risk);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateRisk", ReplyAction="http://tempuri.org/IService/UpdateRiskResponse")]
+        System.Threading.Tasks.Task<bool> UpdateRiskAsync(RisksManagementClient.ServiceRisksManagement.Risk risk);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteRisk", ReplyAction="http://tempuri.org/IService/DeleteRiskResponse")]
+        bool DeleteRisk(RisksManagementClient.ServiceRisksManagement.Risk risk);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteRisk", ReplyAction="http://tempuri.org/IService/DeleteRiskResponse")]
+        System.Threading.Tasks.Task<bool> DeleteRiskAsync(RisksManagementClient.ServiceRisksManagement.Risk risk);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Disconnect", ReplyAction="http://tempuri.org/IService/DisconnectResponse")]
         void Disconnect();
@@ -3515,10 +3732,14 @@ namespace RisksManagementClient.ServiceRisksManagement {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Relevance))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.RiskCause[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.RiskCause))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Priority[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Priority))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Risk[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Risk))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.ExposureComputation))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Priority))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.AppUser[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.UserProject[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.UserProject))]
         void DbModelCallback(object result);
     }
     
@@ -3646,6 +3867,14 @@ namespace RisksManagementClient.ServiceRisksManagement {
             return base.Channel.GetCausesAsync();
         }
         
+        public RisksManagementClient.ServiceRisksManagement.Priority[] GetPriorities() {
+            return base.Channel.GetPriorities();
+        }
+        
+        public System.Threading.Tasks.Task<RisksManagementClient.ServiceRisksManagement.Priority[]> GetPrioritiesAsync() {
+            return base.Channel.GetPrioritiesAsync();
+        }
+        
         public RisksManagementClient.ServiceRisksManagement.Risk[] GetRisks() {
             return base.Channel.GetRisks();
         }
@@ -3654,12 +3883,52 @@ namespace RisksManagementClient.ServiceRisksManagement {
             return base.Channel.GetRisksAsync();
         }
         
+        public RisksManagementClient.ServiceRisksManagement.AppUser[] GetUsers() {
+            return base.Channel.GetUsers();
+        }
+        
+        public System.Threading.Tasks.Task<RisksManagementClient.ServiceRisksManagement.AppUser[]> GetUsersAsync() {
+            return base.Channel.GetUsersAsync();
+        }
+        
+        public RisksManagementClient.ServiceRisksManagement.UserProject[] GetUsersWithProjects() {
+            return base.Channel.GetUsersWithProjects();
+        }
+        
+        public System.Threading.Tasks.Task<RisksManagementClient.ServiceRisksManagement.UserProject[]> GetUsersWithProjectsAsync() {
+            return base.Channel.GetUsersWithProjectsAsync();
+        }
+        
+        public bool InsertRisk(RisksManagementClient.ServiceRisksManagement.Risk risk) {
+            return base.Channel.InsertRisk(risk);
+        }
+        
+        public System.Threading.Tasks.Task<bool> InsertRiskAsync(RisksManagementClient.ServiceRisksManagement.Risk risk) {
+            return base.Channel.InsertRiskAsync(risk);
+        }
+        
         public bool UpdateUser(RisksManagementClient.ServiceRisksManagement.AppUser user) {
             return base.Channel.UpdateUser(user);
         }
         
         public System.Threading.Tasks.Task<bool> UpdateUserAsync(RisksManagementClient.ServiceRisksManagement.AppUser user) {
             return base.Channel.UpdateUserAsync(user);
+        }
+        
+        public bool UpdateRisk(RisksManagementClient.ServiceRisksManagement.Risk risk) {
+            return base.Channel.UpdateRisk(risk);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateRiskAsync(RisksManagementClient.ServiceRisksManagement.Risk risk) {
+            return base.Channel.UpdateRiskAsync(risk);
+        }
+        
+        public bool DeleteRisk(RisksManagementClient.ServiceRisksManagement.Risk risk) {
+            return base.Channel.DeleteRisk(risk);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteRiskAsync(RisksManagementClient.ServiceRisksManagement.Risk risk) {
+            return base.Channel.DeleteRiskAsync(risk);
         }
         
         public void Disconnect() {

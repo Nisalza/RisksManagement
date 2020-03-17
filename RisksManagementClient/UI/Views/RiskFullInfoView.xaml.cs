@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using RisksManagementClient.ServiceRisksManagement;
+using RisksManagementClient.ViewModels;
 
 namespace RisksManagementClient.UI.Views
 {
@@ -21,9 +22,31 @@ namespace RisksManagementClient.UI.Views
     /// </summary>
     public partial class RiskFullInfoView : UserControl
     {
+        private MainViewModel _viewModel;
+
         public RiskFullInfoView()
         {
             InitializeComponent();
+        }
+
+        private void RiskFullInfoView_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            _viewModel = DataContext as MainViewModel;
+        }
+
+        private void RiskPt_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _viewModel.UpdateProbabilities();
+        }
+
+        private void RiskIt_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _viewModel.UpdateImpacts();
+        }
+
+        private void RiskProject_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _viewModel.UpdateRp();
         }
     }
 }

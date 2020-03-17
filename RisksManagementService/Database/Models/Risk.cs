@@ -89,5 +89,11 @@ namespace RisksManagementService.Database.Models
         [DataDescription("time_modified", "TimeModified")]
         [DataMember]
         public DateTime TimeModified { get; set; }
+
+        [DataMember]
+        public ProbabilityType ProbabilityType { get; set; }
+
+        [DataMember]
+        public ImpactType ImpactType { get; set; }
     }
 }

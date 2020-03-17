@@ -111,10 +111,40 @@ namespace RisksManagementService
             return result;
         }
 
+        public Priority[] GetPriorities()
+        {
+            SqlForPriority sqlForPriority = new SqlForPriority();
+            Priority[] result = sqlForPriority.SelectAll();
+            return result;
+        }
+
         public Risk[] GetRisks()
         {
             //todo Переделать
             return new Risk[0];
+        }
+
+        public AppUser[] GetUsers()
+        {
+            SqlForAppUser sqlForAppUser = new SqlForAppUser();
+            AppUser[] result = sqlForAppUser.SelectAll();
+            return result;
+        }
+
+        public UserProject[] GetUsersWithProjects()
+        {
+            SqlForUserProject sqlForUserProject = new SqlForUserProject();
+            var result = sqlForUserProject.SelectAll();
+            return result;
+        }
+
+        #endregion
+
+        #region Insert
+
+        public bool InsertRisk(Risk risk)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -130,6 +160,20 @@ namespace RisksManagementService
             SqlForAppUser sqlForAppUser = new SqlForAppUser();
             bool result = sqlForAppUser.UpdateByUser(user);
             return result;
+        }
+
+        public bool UpdateRisk(Risk risk)
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+        #region Delete
+
+        public bool DeleteRisk(Risk risk)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
