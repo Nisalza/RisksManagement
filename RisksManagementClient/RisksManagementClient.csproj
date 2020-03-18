@@ -83,6 +83,7 @@
     <Compile Include="Strategies\StrategyStrategies\DeleteStrategyStrategy.cs" />
     <Compile Include="Strategies\StrategyStrategies\StrategyContext.cs" />
     <Compile Include="Strategies\StrategyStrategies\UpdateStrategyStrategy.cs" />
+    <Compile Include="UI\MessageBoxes.cs" />
     <Compile Include="UI\Views\AccountView.xaml.cs">
       <DependentUpon>AccountView.xaml</DependentUpon>
     </Compile>

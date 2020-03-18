@@ -8,6 +8,6 @@
         mc:Ignorable="d"
         Title="Управление рисками" MinHeight="450" MinWidth="800">
     <Grid Unloaded="Grid_Unloaded">
-        <v:MainView/>
+        <v:MainView x:Name="MainView"/>
     </Grid>
 </Window>

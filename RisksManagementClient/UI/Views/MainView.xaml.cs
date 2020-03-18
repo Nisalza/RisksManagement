@@ -37,6 +37,7 @@ namespace RisksManagementClient.UI.Views
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             _viewModel?.ViewLoaded(this, EventArgs.Empty);
+            LoadStrategies();
         }
 
         #region Риски
@@ -57,8 +58,9 @@ namespace RisksManagementClient.UI.Views
             _viewModel.RiskSaving?.Invoke(null, EventArgs.Empty);
             bool ok = _viewModel.RiskContext.Result;
 
-            if (ok) { ShowOkResult("Риск успешно создан.");}
-            else { ShowErrorResult("Риск не был создан.");}
+            MessageBoxes mb = new MessageBoxes();
+            if (ok) { mb.ShowOkResult("Риск успешно создан.");}
+            else { mb.ShowErrorResult("Риск не был создан.");}
         }
 
         private void CloseCurrentRisk_Click(object sender, RoutedEventArgs e)
@@ -96,23 +98,32 @@ namespace RisksManagementClient.UI.Views
                 _viewModel.StrategySaving?.Invoke(window.StrategyFullInfo.Strategy, EventArgs.Empty);
 
                 bool ok = _viewModel.StrategyContext.Result;
-                if (ok) { ShowOkResult("Стратегия успешно создана."); }
-                else { ShowErrorResult("Стратегия не была создана."); }
+                MessageBoxes mb = new MessageBoxes();
+                if (ok)
+                {
+                    mb.ShowOkResult("Стратегия успешно создана.");
+                    LoadStrategies();
+                }
+                else { mb.ShowErrorResult("Стратегия не была создана."); }
+            }
+        }
+
+        public void LoadStrategies()
+        {
+            AllStrategies.Children.Clear();
+            foreach (Strategy s in _viewModel.MitigationStrategies)
+            {
+                StrategyShortInfo uc = new StrategyShortInfo(s);
+                AllStrategies.Children.Add(uc);
+            }
+
+            foreach (Strategy s in _viewModel.ContingencyStrategies)
+            {
+                StrategyShortInfo uc = new StrategyShortInfo(s);
+                AllStrategies.Children.Add(uc);
             }
         }
 
         #endregion
-
-        private void ShowOkResult(string msg, string caption = "Результат выполнения операции")
-        {
-            MessageBox.Show(msg, caption, MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-
-        private void ShowErrorResult(string msg, string caption = "Результат выполнения операции")
-        {
-            MessageBox.Show(msg, caption, MessageBoxButton.OK, MessageBoxImage.Error);
-        }
-
-        
     }
 }

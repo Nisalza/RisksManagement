@@ -269,27 +269,23 @@ namespace RisksManagementClient.ViewModels
 
         private void OnViewLoaded(object sender, EventArgs e)
         {
-            //todo Убрать дефолтный логин
-            CurrentUser = Client.Connect(@"ALZA/Dashi");
-            Departments = Client.GetUserDepartments();
-            Projects = Client.GetUserProjects();
-            ProbabilityTypes = Client.GetProbabilityTypes();
-            _probabilities = Client.GetProbabilities();
-            ImpactTypes = Client.GetImpactTypes();
-            _impacts = Client.GetImpacts();
-            Classifications = Client.GetClassifications();
-            StrategyTypes = Client.GetStrategyTypes();
-            _strategies = Client.GetStrategies();
-            //todo Перенести константы в конфиги
-            MitigationStrategies = _strategies.Where(x => x.StrategyType.Id == 1).ToArray();
-            ContingencyStrategies = _strategies.Where(x => x.StrategyType.Id == 2).ToArray();
-            Relevances = Client.GetRelevance();
-            RiskCauses = Client.GetCauses();
-            Priorities = Client.GetPriorities();
-            Risks = Client.GetRisks();
-            _userProjects = Client.GetUsersWithProjects();
+            GetCurrentUser();
+            GetDepartments();
+            GetProjects();
+            GetProbabilityTypes();
+            GetProbabilities();
+            GetImpactTypes();
+            GetImpacts();
+            GetClassifications();
+            GetStrategyTypes();
+            GetStrategies();
+            GetRelevance();
+            GetCauses();
+            GetPriorities();
+            GetRisks();
+            GetUsersWithProjects();
         }
-        
+
         private void OnUserSaving(object sender, EventArgs e)
         {
             bool ok = Client.UpdateUser(CurrentUser);
@@ -298,11 +294,13 @@ namespace RisksManagementClient.ViewModels
         private void OnRiskSaving(object sender, EventArgs e)
         {
             RiskContext.ExecuteStrategy(CurrentRisk);
+            GetRisks();
         }
 
         private void OnStrategySaving(object sender, EventArgs e)
         {
             StrategyContext.ExecuteStrategy(sender);
+            GetStrategies();
         }
 
         #endregion
@@ -327,6 +325,89 @@ namespace RisksManagementClient.ViewModels
                 .Select(x => x.AppUser)
                 .Distinct()
                 .ToArray();
+        }
+
+        #endregion
+
+        #region Загрузка данных с сервера
+
+        private void GetUsersWithProjects()
+        {
+            _userProjects = Client.GetUsersWithProjects();
+        }
+
+        private void GetRisks()
+        {
+            Risks = Client.GetRisks();
+        }
+
+        private void GetPriorities()
+        {
+            Priorities = Client.GetPriorities();
+        }
+
+        private void GetCauses()
+        {
+            RiskCauses = Client.GetCauses();
+        }
+
+        private void GetRelevance()
+        {
+            Relevances = Client.GetRelevance();
+        }
+
+        private void GetStrategies()
+        {
+            _strategies = Client.GetStrategies();
+            //todo Перенести константы в конфиги
+            MitigationStrategies = _strategies.Where(x => x.StrategyType.Id == 1).ToArray();
+            ContingencyStrategies = _strategies.Where(x => x.StrategyType.Id == 2).ToArray();
+        }
+
+        private void GetStrategyTypes()
+        {
+            StrategyTypes = Client.GetStrategyTypes();
+        }
+
+        private void GetClassifications()
+        {
+            Classifications = Client.GetClassifications();
+        }
+
+        private void GetImpacts()
+        {
+            _impacts = Client.GetImpacts();
+        }
+
+        private void GetImpactTypes()
+        {
+            ImpactTypes = Client.GetImpactTypes();
+        }
+
+        private void GetProbabilities()
+        {
+            _probabilities = Client.GetProbabilities();
+        }
+
+        private void GetProbabilityTypes()
+        {
+            ProbabilityTypes = Client.GetProbabilityTypes();
+        }
+
+        private void GetProjects()
+        {
+            Projects = Client.GetUserProjects();
+        }
+
+        private void GetDepartments()
+        {
+            Departments = Client.GetUserDepartments();
+        }
+
+        private void GetCurrentUser()
+        {
+            //todo Убрать дефолтный логин
+            CurrentUser = Client.Connect(@"ALZA/Dashi");
         }
 
         #endregion

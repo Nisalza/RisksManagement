@@ -41,7 +41,18 @@ namespace RisksManagementClient.UI.Views
         private void StrategyFullInfo_OnLoaded(object sender, RoutedEventArgs e)
         {
             StrategyDescription.Text = Strategy.Description;
-            StrategyTypes.SelectedItem = Strategy.StrategyType;
+            var items = StrategyTypes.Items;
+            int index = -1;
+            for (int i = 0; i < items.Count; ++i)
+            {
+                if (((StrategyType)items[i]).Id == Strategy.StrategyType.Id)
+                {
+                    index = i;
+                    break;
+                }
+            }
+
+            StrategyTypes.SelectedIndex = index;
         }
     }
 }

@@ -7,7 +7,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" MaxWidth="500"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -15,16 +15,16 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Right" Orientation="Horizontal">
-            <Button Name="DuplicateButton" Content="Дублировать" Margin="0,0,5,0"/>
-            <Button Name="EditButton" Content="Редактировать" Margin="0,0,5,0"/>
-            <Button Name="DeleteButton" Content="Удалить"/>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Orientation="Horizontal">
+            <Button Name="DuplicateButton" Content="Дублировать" Margin="0,0,5,0" Click="DuplicateButton_Click"/>
+            <Button Name="EditButton" Content="Редактировать" Margin="0,0,5,0" Click="EditButton_Click"/>
+            <Button Name="DeleteButton" Content="Удалить" Click="DeleteButton_Click"/>
         </StackPanel>
 
         <Label Grid.Row="1" Grid.Column="0">Тип стратегии</Label>
-        <TextBox Grid.Row="1" Grid.Column="1" Name="StrategyDescription" IsReadOnly="True"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Name="StrategyType" IsReadOnly="True"/>
 
         <Label Grid.Row="2" Grid.Column="0">Описание стратегии</Label>
-        <TextBox Grid.Row="2" Grid.Column="1" Name="StrategyType" TextWrapping="Wrap" IsReadOnly="True"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Name="StrategyDescription" TextWrapping="Wrap" IsReadOnly="True"/>
     </Grid>
 </UserControl>
