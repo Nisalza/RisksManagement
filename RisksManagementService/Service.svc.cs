@@ -151,7 +151,9 @@ namespace RisksManagementService
                 risks.AddRange(t);
             }
 
-            return risks.Distinct().ToArray();
+            IEqualityComparer<Risk> comparer = new ModelsComparer();
+            risks = risks.Distinct(comparer).ToList();
+            return risks.ToArray();
         }
 
         public AppUser[] GetUsers()

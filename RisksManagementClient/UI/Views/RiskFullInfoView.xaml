@@ -89,6 +89,6 @@
         <TextBox Grid.Row="15" Grid.Column="2" Name="RiskDeadline" Text="{Binding CurrentRisk.Deadline, Mode=TwoWay}"/>
 
         <Label Grid.Row="16" Grid.Column="1">Классификация</Label>
-        <ComboBox Grid.Row="16" Grid.Column="2" Name="Name" DisplayMemberPath="Name" ItemsSource="{Binding Classifications}" SelectedItem="{Binding CurrentRisk.Classification, Mode=TwoWay}"/>
+        <ComboBox Grid.Row="16" Grid.Column="2" Name="RiskClassification" DisplayMemberPath="Name" ItemsSource="{Binding Classifications}" SelectedItem="{Binding CurrentRisk.Classification, Mode=TwoWay}"/>
     </Grid>
 </UserControl>

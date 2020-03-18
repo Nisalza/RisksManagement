@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Prism.Mvvm;
+using RisksManagementClient.Comparators;
 using RisksManagementClient.ServiceRisksManagement;
 using RisksManagementClient.Strategies;
 using RisksManagementClient.Strategies.RiskStrategies;
@@ -117,6 +118,7 @@ namespace RisksManagementClient.ViewModels
             set
             {
                 _currentRisk = value;
+                UpdateRp();
                 RaisePropertyChanged();
             }
         }
@@ -309,21 +311,22 @@ namespace RisksManagementClient.ViewModels
 
         public void UpdateProbabilities()
         {
-            Probabilities = _probabilities?.Where(x => x.ProbabilityType.Id == CurrentRisk.ProbabilityType?.Id)
+            Probabilities = _probabilities?.Where(x => x.ProbabilityType.Id == CurrentRisk?.ProbabilityType?.Id)
                 .ToArray();
         }
 
         public void UpdateImpacts()
         {
-            Impacts = _impacts?.Where(x => x.ImpactType.Id == CurrentRisk.ImpactType?.Id)
+            Impacts = _impacts?.Where(x => x.ImpactType.Id == CurrentRisk?.ImpactType?.Id)
                 .ToArray();
         }
 
         public void UpdateRp()
         {
-            ResponsiblePersons = _userProjects?.Where(x => x.Project.Id == CurrentRisk.Project?.Id)
+            AppUserComparer comparer = new AppUserComparer();
+            ResponsiblePersons = _userProjects?.Where(x => x.Project.Id == CurrentRisk?.Project?.Id)
                 .Select(x => x.AppUser)
-                .Distinct()
+                .Distinct(comparer)
                 .ToArray();
         }
 

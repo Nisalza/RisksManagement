@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:RisksManagementClient.UI.Views">
+             xmlns:local="clr-namespace:RisksManagementClient.UI.Views"
+             Loaded="RiskShortInfoView_OnLoaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -15,33 +16,32 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Name="Labels" Width="1*"/>
-            <ColumnDefinition Name="Data" Width="2*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Name="Data" Width="*" MaxWidth="500"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Right" Orientation="Horizontal">
-            <Button Name="ShowButton" Content="Открыть" Margin="0,0,5,0"/>
-            <Button Name="DuplicateButton" Content="Дублировать" Margin="0,0,5,0"/>
-            <Button Name="EditButton" Content="Редактировать" Margin="0,0,5,0"/>
-            <Button Name="DeleteButton" Content="Удалить"/>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Orientation="Horizontal">
+            <Button Name="ShowButton" Content="Открыть" Margin="0,0,5,0" Click="ShowButton_Click"/>
+            <Button Name="DuplicateButton" Content="Дублировать" Margin="0,0,5,0" Click="DuplicateButton_Click"/>
+            <Button Name="DeleteButton" Content="Удалить" Click="DeleteButton_Click"/>
         </StackPanel>
 
         <Label Grid.Row="1" Grid.Column="0">Номер</Label>
-        <TextBox Name="RiskId" Grid.Row="1" Grid.Column="1" IsReadOnly="True" Text="{Binding CurrentRisk.Id}"/>
+        <TextBox Name="RiskId" Grid.Row="1" Grid.Column="1" IsReadOnly="True"/>
 
         <Label Grid.Row="2" Grid.Column="0">Наименование</Label>
-        <TextBox Name="RiskName" Grid.Row="2" Grid.Column="1" IsReadOnly="True" Text="{Binding CurrentRisk.Name}"/>
+        <TextBox Name="RiskName" Grid.Row="2" Grid.Column="1" IsReadOnly="True"/>
 
         <Label Grid.Row="3" Grid.Column="0">Описание</Label>
-        <TextBox Name="RiskDescription" Grid.Row="3" Grid.Column="1" IsReadOnly="True" MaxWidth="{Binding ElementName=Data, Path=Width}" Height="Auto" TextWrapping="Wrap"/>
+        <TextBox Name="RiskDescription" Grid.Row="3" Grid.Column="1" IsReadOnly="True" TextWrapping="Wrap"/>
 
         <Label Grid.Row="4" Grid.Column="0">Проект</Label>
-        <TextBox Name="RiskProject" Grid.Row="4" Grid.Column="1" IsReadOnly="True" Text="{Binding CurrentRisk.Project.Name}"/>
+        <TextBox Name="RiskProject" Grid.Row="4" Grid.Column="1" IsReadOnly="True"/>
 
         <Label Grid.Row="5" Grid.Column="0">Ответственный</Label>
-        <TextBox Name="RiskResponsiblePerson" Grid.Row="5" Grid.Column="1" IsReadOnly="True" Text="{Binding CurrentRisk.ResponsiblePerson.Name}"/>
+        <TextBox Name="RiskResponsiblePerson" Grid.Row="5" Grid.Column="1" IsReadOnly="True"/>
 
         <Label Grid.Row="6" Grid.Column="0">Величина</Label>
-        <TextBox Name="RiskValue" Grid.Row="6" Grid.Column="1" IsReadOnly="True" Text="{Binding CurrentRisk.Value}"/>
+        <TextBox Name="RiskValue" Grid.Row="6" Grid.Column="1" IsReadOnly="True"/>
     </Grid>
 </UserControl>

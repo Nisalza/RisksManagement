@@ -37,6 +37,7 @@ namespace RisksManagementClient.UI.Views
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             _viewModel?.ViewLoaded(this, EventArgs.Empty);
+            LoadRisks();
             LoadStrategies();
         }
 
@@ -59,8 +60,14 @@ namespace RisksManagementClient.UI.Views
             bool ok = _viewModel.RiskContext.Result;
 
             MessageBoxes mb = new MessageBoxes();
-            if (ok) { mb.ShowOkResult("Риск успешно создан.");}
-            else { mb.ShowErrorResult("Риск не был создан.");}
+            if (ok)
+            {
+                mb.ShowOkResult("Операция выполнена.");
+                LoadRisks();
+                RiskScroll.Content = null;
+                CollapseSaveDeleteButtonsRisk();
+            }
+            else { mb.ShowErrorResult("Операция не была выполнена.");}
         }
 
         private void CloseCurrentRisk_Click(object sender, RoutedEventArgs e)
@@ -69,14 +76,24 @@ namespace RisksManagementClient.UI.Views
             RiskScroll.Content = null;
             CollapseSaveDeleteButtonsRisk();
         }
-        
-        private void ShowSaveDeleteButtonsRisk()
+
+        public void LoadRisks()
+        {
+            AllRisks.Children.Clear();
+            foreach (Risk r in _viewModel.Risks)
+            {
+                RiskShortInfoView uc = new RiskShortInfoView(r);
+                AllRisks.Children.Add(uc);
+            }
+        }
+
+        public void ShowSaveDeleteButtonsRisk()
         {
             SaveCurrentRisk.Visibility = Visibility.Visible;
             CloseCurrentRisk.Visibility = Visibility.Visible;
         }
 
-        private void CollapseSaveDeleteButtonsRisk()
+        public void CollapseSaveDeleteButtonsRisk()
         {
             SaveCurrentRisk.Visibility = Visibility.Collapsed;
             CloseCurrentRisk.Visibility = Visibility.Collapsed;
@@ -101,10 +118,10 @@ namespace RisksManagementClient.UI.Views
                 MessageBoxes mb = new MessageBoxes();
                 if (ok)
                 {
-                    mb.ShowOkResult("Стратегия успешно создана.");
+                    mb.ShowOkResult("Операция выполнена.");
                     LoadStrategies();
                 }
-                else { mb.ShowErrorResult("Стратегия не была создана."); }
+                else { mb.ShowErrorResult("Операция не была выполнена."); }
             }
         }
 

@@ -45,31 +45,31 @@ namespace RisksManagementClient.UI.Views
         private void DuplicateButton_Click(object sender, RoutedEventArgs e)
         {
             _strategy.Id = 0;
-            ShowStrategyInfoWindow(new CreateStrategyStrategy(), "создана");
+            ShowStrategyInfoWindow(new CreateStrategyStrategy());
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowStrategyInfoWindow(new UpdateStrategyStrategy(), "обновлена");
+            ShowStrategyInfoWindow(new UpdateStrategyStrategy());
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            ExecuteOperation(new DeleteStrategyStrategy(), "удалена");
+            ExecuteOperation(new DeleteStrategyStrategy());
         }
 
-        private void ShowStrategyInfoWindow(IStrategy strategy, string action)
+        private void ShowStrategyInfoWindow(IStrategy strategy)
         {
             StrategyInfoWindow window = new StrategyInfoWindow(_strategy, _viewModel.StrategyTypes);
             window.ShowDialog();
             if (window.DialogResult == true)
             {
                 _strategy = window.StrategyFullInfo.Strategy;
-                ExecuteOperation(strategy, action);
+                ExecuteOperation(strategy);
             }
         }
 
-        private void ExecuteOperation(IStrategy strategy, string action)
+        private void ExecuteOperation(IStrategy strategy)
         {
             _viewModel.StrategyContext.SetStrategy(strategy);
             _viewModel.StrategySaving?.Invoke(_strategy, EventArgs.Empty);
@@ -78,13 +78,13 @@ namespace RisksManagementClient.UI.Views
             MessageBoxes mb = new MessageBoxes();
             if (ok)
             {
-                mb.ShowOkResult($"Стратегия успешно {action}.");
+                mb.ShowOkResult("Операция выполена.");
                 MainWindow w = (MainWindow) Window.GetWindow(this);
                 w.MainView.LoadStrategies();
             }
             else
             {
-                mb.ShowErrorResult($"Стратегия не была {action}.");
+                mb.ShowErrorResult("Операция не была выполнена");
             }
         }
     }

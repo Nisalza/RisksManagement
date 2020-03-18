@@ -184,11 +184,11 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
                     attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "ModifiedBy")
                 };
                 string[] cols = GetCols();
-                cols = cols.Union(createdCols).ToArray();
+                cols = cols.Concat(createdCols).ToArray();
 
                 object[] createdValues = { DateTime.Now, user.Login };
                 object[] values = GetVals(risk);
-                values = values.Union(createdValues).ToArray();
+                values = values.Concat(createdValues).ToArray();
 
                 List<(string, object)> v = new List<(string, object)>();
                 for (int i = 0; i < values.Length && i < cols.Length; ++i)
@@ -213,7 +213,7 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
                 SqlExecutor sqlExecutor = new SqlExecutor();
                 sqlExecutor.ExecuteReader(text);
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 ok = false;
             }
@@ -324,6 +324,8 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
                 ExposureComputation = sqlForExposureComputation.SelectById(ec)
             };
 
+            t.ProbabilityType = t.Probability.ProbabilityType;
+            t.ImpactType = t.Impact.ImpactType;
             t.Value = t.Probability.Assessment * t.Impact.Assessment;
 
             return t;

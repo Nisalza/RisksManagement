@@ -30,7 +30,7 @@
                             </Grid.RowDefinitions>
                             <Button Name="CreateRisk" Grid.Row="0" HorizontalAlignment="Left" Margin="5" Padding="5,2,5,2" Click="CreateRisk_Click">Создать</Button>
                             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="5">
-                                <StackPanel Name="ShortRisksList" Orientation="Vertical"/>
+                                <StackPanel Name="AllRisks" Orientation="Vertical"/>
                             </ScrollViewer>
                         </Grid>
                         <StackPanel Grid.Column="2" VerticalAlignment="Top" Orientation="Horizontal">
