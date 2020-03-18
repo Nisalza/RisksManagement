@@ -42,6 +42,9 @@ namespace RisksManagementService
         Classification[] GetClassifications();
 
         [OperationContract]
+        StrategyType[] GetStrategyTypes();
+
+        [OperationContract]
         Strategy[] GetStrategies();
 
         [OperationContract]
@@ -69,6 +72,9 @@ namespace RisksManagementService
         [OperationContract]
         bool InsertRisk(Risk risk);
 
+        [OperationContract]
+        bool InsertStrategy(Strategy strategy);
+
         #endregion
 
         #region Update
@@ -79,12 +85,18 @@ namespace RisksManagementService
         [OperationContract]
         bool UpdateRisk(Risk risk);
 
+        [OperationContract]
+        bool UpdateStrategy(Strategy strategy);
+
         #endregion
 
         #region Delete
 
         [OperationContract]
         bool DeleteRisk(Risk risk);
+
+        [OperationContract]
+        bool DeleteStrategy(Strategy strategy);
 
         #endregion
 

@@ -41,16 +41,28 @@
                     </Grid>
                 </TabItem.Content>
             </TabItem>
-            <TabItem Name="RmpTab">
-                <TabItem.Header>Планы управления</TabItem.Header>
-                <TabItem.Content>
-                    <TextBox/>
-                </TabItem.Content>
-            </TabItem>
             <TabItem Name="RisksMapTab">
                 <TabItem.Header>Карта рисков</TabItem.Header>
                 <TabItem.Content>
                     <TextBox/>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem Name="RmpTab">
+                <TabItem.Header>Стратегии</TabItem.Header>
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Button Grid.Row="0" Grid.Column="1" Name="CreateStrategy" HorizontalAlignment="Left" Margin="5" Padding="5,2,5,2" Click="CreateStrategy_OnClick">Создать</Button>
+                        <StackPanel Grid.Row="1" Grid.Column="1" Name="AllStrategies" />
+                    </Grid>
                 </TabItem.Content>
             </TabItem>
             <TabItem Name="AccountTab">

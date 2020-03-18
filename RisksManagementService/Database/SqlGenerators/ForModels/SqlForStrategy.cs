@@ -12,6 +12,31 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
 {
     public class SqlForStrategy : SqlForModel
     {
+
+        private string[] GetCols()
+        {
+            AttributesSupport attributesSupport = new AttributesSupport();
+            string[] cols =
+            {
+                attributesSupport.DataDescriptionDatabaseColumn(typeof(Strategy), "Description"),
+                attributesSupport.DataDescriptionDatabaseColumn(typeof(Strategy), "StrategyType")
+            };
+
+            return cols;
+        }
+
+        private object[] GetVals(Strategy strategy)
+        {
+            AttributesSupport attributesSupport = new AttributesSupport();
+            object[] vals =
+            {
+                strategy.Description,
+                strategy.StrategyType.Id
+            };
+
+            return vals;
+        }
+
         public Strategy SelectById(int strategyId)
         {
             SelectStatement statement = QueryFactory.Select() as SelectStatement;
@@ -80,6 +105,134 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             return result;
         }
 
+        public bool InsertStrategy(Strategy strategy, AppUser user)
+        {
+            bool ok = true;
+
+            try
+            {
+                InsertStatement statement = QueryFactory.Insert() as InsertStatement;
+
+                AttributesSupport attributesSupport = new AttributesSupport();
+                string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(Strategy));
+
+                string[] createdCols =
+                {
+                    attributesSupport.DataDescriptionDatabaseColumn(typeof(Strategy), "TimeCreated"),
+                    attributesSupport.DataDescriptionDatabaseColumn(typeof(Strategy), "CreatedBy")
+                };
+                string[] cols = GetCols();
+                cols = cols.Concat(createdCols).ToArray();
+
+                object[] createdValues = { DateTime.Now, user.Login };
+                object[] values = GetVals(strategy);
+                values = values.Concat(createdValues).ToArray();
+
+                statement.InsertBuilder.BuildTableName(tableName);
+                statement.InsertBuilder.BuildColumns(cols);
+                statement.InsertBuilder.BuildValues(values);
+
+                string text = statement.GetRequest();
+                SqlExecutor sqlExecutor = new SqlExecutor();
+                sqlExecutor.ExecuteReader(text);
+            }
+            catch (Exception)
+            {
+                ok = false;
+            }
+
+            return ok;
+        }
+
+        public bool UpdateStrategy(Strategy strategy, AppUser user)
+        {
+            bool ok = true;
+
+            try
+            {
+                UpdateStatement statement = QueryFactory.Update() as UpdateStatement;
+
+                AttributesSupport attributesSupport = new AttributesSupport();
+                string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(Strategy));
+
+                string[] createdCols =
+                {
+                    attributesSupport.DataDescriptionDatabaseColumn(typeof(Strategy), "TimeModified"),
+                    attributesSupport.DataDescriptionDatabaseColumn(typeof(Strategy), "ModifiedBy")
+                };
+                string[] cols = GetCols();
+                cols = cols.Union(createdCols).ToArray();
+
+                object[] createdValues = { DateTime.Now, user.Login };
+                object[] values = GetVals(strategy);
+                values = values.Union(createdValues).ToArray();
+
+                List<(string, object)> v = new List<(string, object)>();
+                for (int i = 0; i < values.Length && i < cols.Length; ++i)
+                {
+                    v.Add((cols[i], values[i]));
+                }
+
+                var id = attributesSupport.DataDescriptionDatabaseColumn(typeof(Strategy), "Id");
+                ConditionClause c1 = new ConditionClause
+                {
+                    ColumnName = id,
+                    Values = new object[] { strategy.Id },
+                    Operator = Dictionaries.ComparisonOperators.EqualTo
+                };
+                var where = new (Dictionaries.LogicOperators?, bool, ConditionClause)[] { (null, false, c1) };
+
+                statement.UpdateBuilder.BuildTableName(tableName);
+                statement.UpdateBuilder.BuildValues(v.ToArray());
+                statement.UpdateBuilder.BuildWhere(where);
+
+                string text = statement.GetRequest();
+                SqlExecutor sqlExecutor = new SqlExecutor();
+                sqlExecutor.ExecuteReader(text);
+            }
+            catch (Exception)
+            {
+                ok = false;
+            }
+
+            return ok;
+        }
+
+        public bool DeleteStrategy(Strategy strategy)
+        {
+            bool ok = true;
+
+            try
+            {
+                DeleteStatement statement = QueryFactory.Delete() as DeleteStatement;
+
+                AttributesSupport attributesSupport = new AttributesSupport();
+                string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(Strategy));
+
+                var id = attributesSupport.DataDescriptionDatabaseColumn(typeof(Strategy), "Id");
+                ConditionClause c1 = new ConditionClause
+                {
+                    ColumnName = id,
+                    Values = new object[] { strategy.Id },
+                    Operator = Dictionaries.ComparisonOperators.EqualTo
+                };
+                var where = new (Dictionaries.LogicOperators?, bool, ConditionClause)[] { (null, false, c1) };
+
+                statement.DeleteBuilder.BuildTableName(tableName);
+                statement.DeleteBuilder.BuildWhere(where);
+
+                string text = statement.GetRequest();
+                SqlExecutor sqlExecutor = new SqlExecutor();
+                sqlExecutor.ExecuteReader(text);
+            }
+            catch (Exception)
+            {
+                ok = false;
+            }
+
+            return ok;
+        }
+
         private Strategy ConvertAllFields(IDataReader reader)
         {
             Strategy result = new Strategy();
@@ -96,7 +249,7 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             List<Strategy> result = new List<Strategy>();
             while (reader.Read())
             {
-                var t = GetOne(reader);   
+                var t = GetOne(reader);
                 result.Add(t);
             }
 

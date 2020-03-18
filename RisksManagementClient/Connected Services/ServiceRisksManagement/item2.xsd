@@ -208,6 +208,24 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Classification" nillable="true" type="tns:Classification" />
+  <xs:complexType name="ArrayOfStrategyType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="StrategyType" nillable="true" type="tns:StrategyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfStrategyType" nillable="true" type="tns:ArrayOfStrategyType" />
+  <xs:complexType name="StrategyType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="StrategyType" nillable="true" type="tns:StrategyType" />
   <xs:complexType name="ArrayOfStrategy">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Strategy" nillable="true" type="tns:Strategy" />
@@ -226,18 +244,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Strategy" nillable="true" type="tns:Strategy" />
-  <xs:complexType name="StrategyType">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="ModifiedBy" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="TimeCreated" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="TimeModified" type="xs:dateTime" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="StrategyType" nillable="true" type="tns:StrategyType" />
   <xs:complexType name="ArrayOfRelevance">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Relevance" nillable="true" type="tns:Relevance" />

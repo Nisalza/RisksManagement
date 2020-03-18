@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using RisksManagementClient.ServiceRisksManagement;
 using RisksManagementClient.Strategies;
 using RisksManagementClient.Strategies.RiskStrategies;
+using RisksManagementClient.Strategies.StrategyStrategies;
+using RisksManagementClient.UI.Windows;
 using RisksManagementClient.ViewModels;
 
 namespace RisksManagementClient.UI.Views
@@ -44,7 +46,7 @@ namespace RisksManagementClient.UI.Views
             _viewModel.CurrentRisk = new Risk();
             RiskFullInfoView riskFullInfoView = new RiskFullInfoView();
             RiskScroll.Content = riskFullInfoView;
-            ShowSaveDeleteButtons();
+            ShowSaveDeleteButtonsRisk();
 
             IStrategy strategy = new CreateRiskStrategy();
             _viewModel.RiskContext.SetStrategy(strategy);
@@ -52,7 +54,8 @@ namespace RisksManagementClient.UI.Views
 
         private void SaveCurrentRisk_OnClick(object sender, RoutedEventArgs e)
         {
-            bool ok = _viewModel.RiskContext.ExecuteStrategy(_viewModel.CurrentRisk);
+            _viewModel.RiskSaving?.Invoke(null, EventArgs.Empty);
+            bool ok = _viewModel.RiskContext.Result;
 
             if (ok) { ShowOkResult("Риск успешно создан.");}
             else { ShowErrorResult("Риск не был создан.");}
@@ -62,19 +65,40 @@ namespace RisksManagementClient.UI.Views
         {
             _viewModel.CurrentRisk = null;
             RiskScroll.Content = null;
-            CollapseSaveDeleteButtons();
+            CollapseSaveDeleteButtonsRisk();
+        }
+        
+        private void ShowSaveDeleteButtonsRisk()
+        {
+            SaveCurrentRisk.Visibility = Visibility.Visible;
+            CloseCurrentRisk.Visibility = Visibility.Visible;
         }
 
-        private void CollapseSaveDeleteButtons()
+        private void CollapseSaveDeleteButtonsRisk()
         {
             SaveCurrentRisk.Visibility = Visibility.Collapsed;
             CloseCurrentRisk.Visibility = Visibility.Collapsed;
         }
 
-        private void ShowSaveDeleteButtons()
+        #endregion
+
+        #region Стратегии
+
+        private void CreateStrategy_OnClick(object sender, RoutedEventArgs e)
         {
-            SaveCurrentRisk.Visibility = Visibility.Visible;
-            CloseCurrentRisk.Visibility = Visibility.Visible;
+            Strategy s = new Strategy();
+            StrategyInfoWindow window = new StrategyInfoWindow(s, _viewModel.StrategyTypes);
+            window.ShowDialog();
+            if (window.DialogResult == true)
+            {
+                IStrategy strategy = new CreateStrategyStrategy();
+                _viewModel.StrategyContext.SetStrategy(strategy);
+                _viewModel.StrategySaving?.Invoke(window.StrategyFullInfo.Strategy, EventArgs.Empty);
+
+                bool ok = _viewModel.StrategyContext.Result;
+                if (ok) { ShowOkResult("Стратегия успешно создана."); }
+                else { ShowErrorResult("Стратегия не была создана."); }
+            }
         }
 
         #endregion
@@ -88,5 +112,7 @@ namespace RisksManagementClient.UI.Views
         {
             MessageBox.Show(msg, caption, MessageBoxButton.OK, MessageBoxImage.Error);
         }
+
+        
     }
 }

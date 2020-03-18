@@ -90,6 +90,13 @@ namespace RisksManagementService
             return result;
         }
 
+        public StrategyType[] GetStrategyTypes()
+        {
+            SqlForStrategyType sqlForStrategyType = new SqlForStrategyType();
+            StrategyType[] result = sqlForStrategyType.SelectAll();
+            return result;
+        }
+
         public Strategy[] GetStrategies()
         {
             SqlForStrategy sqlForStrategy = new SqlForStrategy();
@@ -172,6 +179,13 @@ namespace RisksManagementService
             return ok;
         }
 
+        public bool InsertStrategy(Strategy strategy)
+        {
+            SqlForStrategy sqlForStrategy = new SqlForStrategy();
+            bool ok = sqlForStrategy.InsertStrategy(strategy, CurrentUser);
+            return ok;
+        }
+
         #endregion
 
         #region Update
@@ -194,6 +208,13 @@ namespace RisksManagementService
             return ok;
         }
 
+        public bool UpdateStrategy(Strategy strategy)
+        {
+            SqlForStrategy sqlForStrategy = new SqlForStrategy();
+            bool ok = sqlForStrategy.UpdateStrategy(strategy, CurrentUser);
+            return ok;
+        }
+
         #endregion
 
         #region Delete
@@ -202,6 +223,13 @@ namespace RisksManagementService
         {
             SqlForRisk sqlForRisk = new SqlForRisk();
             bool ok = sqlForRisk.DeleteRisk(risk);
+            return ok;
+        }
+
+        public bool DeleteStrategy(Strategy strategy)
+        {
+            SqlForStrategy sqlForStrategy = new SqlForStrategy();
+            bool ok = sqlForStrategy.DeleteStrategy(strategy);
             return ok;
         }
 

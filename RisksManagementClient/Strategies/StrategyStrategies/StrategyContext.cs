@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RisksManagementClient.Strategies.RiskStrategies
+namespace RisksManagementClient.Strategies.StrategyStrategies
 {
-    public class RiskContext : IContext
+    public class StrategyContext : IContext
     {
         private IStrategy _strategy;
 
@@ -24,7 +24,6 @@ namespace RisksManagementClient.Strategies.RiskStrategies
                 Result = false;
                 return;
             }
-
             Result = _strategy.Execute(dbModel);
         }
     }

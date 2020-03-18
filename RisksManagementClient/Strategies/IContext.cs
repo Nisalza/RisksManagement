@@ -8,8 +8,10 @@ namespace RisksManagementClient.Strategies
 {
     public interface IContext
     {
+        bool Result { get; set; }
+
         void SetStrategy(IStrategy strategy);
 
-        bool ExecuteStrategy(object dbModel);
+        void ExecuteStrategy(object dbModel);
     }
 }

@@ -79,6 +79,10 @@
     <Compile Include="Strategies\RiskStrategies\DeleteRiskStrategy.cs" />
     <Compile Include="Strategies\RiskStrategies\RiskContext.cs" />
     <Compile Include="Strategies\RiskStrategies\UpdateRiskStrategy.cs" />
+    <Compile Include="Strategies\StrategyStrategies\CreateStrategyStrategy.cs" />
+    <Compile Include="Strategies\StrategyStrategies\DeleteStrategyStrategy.cs" />
+    <Compile Include="Strategies\StrategyStrategies\StrategyContext.cs" />
+    <Compile Include="Strategies\StrategyStrategies\UpdateStrategyStrategy.cs" />
     <Compile Include="UI\Views\AccountView.xaml.cs">
       <DependentUpon>AccountView.xaml</DependentUpon>
     </Compile>
@@ -94,11 +98,20 @@
     <Compile Include="UI\Views\RiskShortInfoView.xaml.cs">
       <DependentUpon>RiskShortInfoView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Views\StrategyFullInfo.xaml.cs">
+      <DependentUpon>StrategyFullInfo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Views\StrategyShortInfo.xaml.cs">
+      <DependentUpon>StrategyShortInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="UI\Windows\PersonInfoWindow.xaml.cs">
       <DependentUpon>PersonInfoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Windows\StrategyInfoWindow.xaml.cs">
+      <DependentUpon>StrategyInfoWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="App.xaml.cs">
@@ -125,11 +138,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UI\Views\StrategyFullInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Views\StrategyShortInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UI\Windows\PersonInfoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Windows\StrategyInfoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -198,6 +223,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.Strategy.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.StrategyType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.UserProject.datasource">

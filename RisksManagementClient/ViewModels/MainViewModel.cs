@@ -10,6 +10,7 @@ using Prism.Mvvm;
 using RisksManagementClient.ServiceRisksManagement;
 using RisksManagementClient.Strategies;
 using RisksManagementClient.Strategies.RiskStrategies;
+using RisksManagementClient.Strategies.StrategyStrategies;
 
 namespace RisksManagementClient.ViewModels
 {
@@ -19,8 +20,11 @@ namespace RisksManagementClient.ViewModels
         {
             ViewLoaded += OnViewLoaded;
             UserSaving += OnUserSaving;
+            RiskSaving += OnRiskSaving;
+            StrategySaving += OnStrategySaving;
             Client = SingletonClient.GetInstance(this).Client;
             RiskContext = new RiskContext();
+            StrategyContext = new StrategyContext();
         }
 
         #region Поля
@@ -49,6 +53,8 @@ namespace RisksManagementClient.ViewModels
 
         private Classification[] _classifications;
 
+        private StrategyType[] _strategyTypes;
+
         private Strategy[] _strategies;
 
         private Strategy[] _mitigationStrategies;
@@ -68,7 +74,9 @@ namespace RisksManagementClient.ViewModels
         private AppUser[] _responsiblePersons;
 
         public IContext RiskContext;
-        
+
+        public IContext StrategyContext;
+
         #endregion
 
         #region Свойства
@@ -163,6 +171,16 @@ namespace RisksManagementClient.ViewModels
             }
         }
 
+        public StrategyType[] StrategyTypes
+        {
+            get => _strategyTypes;
+            set
+            {
+                _strategyTypes = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public Strategy[] MitigationStrategies
         {
             get => _mitigationStrategies;
@@ -241,6 +259,10 @@ namespace RisksManagementClient.ViewModels
 
         public EventHandler UserSaving;
 
+        public EventHandler RiskSaving;
+
+        public EventHandler StrategySaving;
+
         #endregion
 
         #region Методы событий
@@ -256,6 +278,7 @@ namespace RisksManagementClient.ViewModels
             ImpactTypes = Client.GetImpactTypes();
             _impacts = Client.GetImpacts();
             Classifications = Client.GetClassifications();
+            StrategyTypes = Client.GetStrategyTypes();
             _strategies = Client.GetStrategies();
             //todo Перенести константы в конфиги
             MitigationStrategies = _strategies.Where(x => x.StrategyType.Id == 1).ToArray();
@@ -270,6 +293,16 @@ namespace RisksManagementClient.ViewModels
         private void OnUserSaving(object sender, EventArgs e)
         {
             bool ok = Client.UpdateUser(CurrentUser);
+        }
+        
+        private void OnRiskSaving(object sender, EventArgs e)
+        {
+            RiskContext.ExecuteStrategy(CurrentRisk);
+        }
+
+        private void OnStrategySaving(object sender, EventArgs e)
+        {
+            StrategyContext.ExecuteStrategy(sender);
         }
 
         #endregion

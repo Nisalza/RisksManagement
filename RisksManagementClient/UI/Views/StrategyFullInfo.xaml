@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="RisksManagementClient.UI.Views.StrategyFullInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RisksManagementClient.UI.Views"
+             Loaded="StrategyFullInfo_OnLoaded" Margin="5">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0">Тип стратегии</Label>
+        <ComboBox Grid.Row="0" Grid.Column="1" Name="StrategyTypes" DisplayMemberPath="Name"/>
+
+        <Label Grid.Row="1" Grid.Column="0">Описание стратегии</Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Name="StrategyDescription" TextWrapping="Wrap"/>
+
+        <Button Name="SaveStrategy"  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,5,0,0" Click="SaveStrategy_Click">Сохранить</Button>
+    </Grid>
+</UserControl>

@@ -555,9 +555,10 @@ namespace RisksManagementClient.ServiceRisksManagement {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Impact))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Classification[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Classification))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.StrategyType[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.StrategyType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Strategy[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Strategy))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.StrategyType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Relevance[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Relevance))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.RiskCause[]))]
@@ -2042,147 +2043,6 @@ namespace RisksManagementClient.ServiceRisksManagement {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Strategy", Namespace="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models")]
-    [System.SerializableAttribute()]
-    public partial class Strategy : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CreatedByField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ModifiedByField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RisksManagementClient.ServiceRisksManagement.StrategyType StrategyTypeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime TimeCreatedField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime TimeModifiedField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CreatedBy {
-            get {
-                return this.CreatedByField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.CreatedByField, value) != true)) {
-                    this.CreatedByField = value;
-                    this.RaisePropertyChanged("CreatedBy");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ModifiedBy {
-            get {
-                return this.ModifiedByField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ModifiedByField, value) != true)) {
-                    this.ModifiedByField = value;
-                    this.RaisePropertyChanged("ModifiedBy");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public RisksManagementClient.ServiceRisksManagement.StrategyType StrategyType {
-            get {
-                return this.StrategyTypeField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StrategyTypeField, value) != true)) {
-                    this.StrategyTypeField = value;
-                    this.RaisePropertyChanged("StrategyType");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime TimeCreated {
-            get {
-                return this.TimeCreatedField;
-            }
-            set {
-                if ((this.TimeCreatedField.Equals(value) != true)) {
-                    this.TimeCreatedField = value;
-                    this.RaisePropertyChanged("TimeCreated");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime TimeModified {
-            get {
-                return this.TimeModifiedField;
-            }
-            set {
-                if ((this.TimeModifiedField.Equals(value) != true)) {
-                    this.TimeModifiedField = value;
-                    this.RaisePropertyChanged("TimeModified");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="StrategyType", Namespace="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models")]
     [System.SerializableAttribute()]
     public partial class StrategyType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -2282,6 +2142,147 @@ namespace RisksManagementClient.ServiceRisksManagement {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TimeCreated {
+            get {
+                return this.TimeCreatedField;
+            }
+            set {
+                if ((this.TimeCreatedField.Equals(value) != true)) {
+                    this.TimeCreatedField = value;
+                    this.RaisePropertyChanged("TimeCreated");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime TimeModified {
+            get {
+                return this.TimeModifiedField;
+            }
+            set {
+                if ((this.TimeModifiedField.Equals(value) != true)) {
+                    this.TimeModifiedField = value;
+                    this.RaisePropertyChanged("TimeModified");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Strategy", Namespace="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models")]
+    [System.SerializableAttribute()]
+    public partial class Strategy : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CreatedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ModifiedByField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private RisksManagementClient.ServiceRisksManagement.StrategyType StrategyTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimeCreatedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime TimeModifiedField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string CreatedBy {
+            get {
+                return this.CreatedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CreatedByField, value) != true)) {
+                    this.CreatedByField = value;
+                    this.RaisePropertyChanged("CreatedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ModifiedBy {
+            get {
+                return this.ModifiedByField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ModifiedByField, value) != true)) {
+                    this.ModifiedByField = value;
+                    this.RaisePropertyChanged("ModifiedBy");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public RisksManagementClient.ServiceRisksManagement.StrategyType StrategyType {
+            get {
+                return this.StrategyTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StrategyTypeField, value) != true)) {
+                    this.StrategyTypeField = value;
+                    this.RaisePropertyChanged("StrategyType");
                 }
             }
         }
@@ -3166,9 +3167,10 @@ namespace RisksManagementClient.ServiceRisksManagement {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Impact))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Classification[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Classification))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.StrategyType[]))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.StrategyType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Strategy[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Strategy))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.StrategyType))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Relevance[]))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Relevance))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.RiskCause[]))]
@@ -3500,6 +3502,12 @@ namespace RisksManagementClient.ServiceRisksManagement {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetClassifications", ReplyAction="http://tempuri.org/IService/GetClassificationsResponse")]
         System.Threading.Tasks.Task<RisksManagementClient.ServiceRisksManagement.Classification[]> GetClassificationsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetStrategyTypes", ReplyAction="http://tempuri.org/IService/GetStrategyTypesResponse")]
+        RisksManagementClient.ServiceRisksManagement.StrategyType[] GetStrategyTypes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetStrategyTypes", ReplyAction="http://tempuri.org/IService/GetStrategyTypesResponse")]
+        System.Threading.Tasks.Task<RisksManagementClient.ServiceRisksManagement.StrategyType[]> GetStrategyTypesAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetStrategies", ReplyAction="http://tempuri.org/IService/GetStrategiesResponse")]
         RisksManagementClient.ServiceRisksManagement.Strategy[] GetStrategies();
         
@@ -3548,6 +3556,12 @@ namespace RisksManagementClient.ServiceRisksManagement {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertRisk", ReplyAction="http://tempuri.org/IService/InsertRiskResponse")]
         System.Threading.Tasks.Task<bool> InsertRiskAsync(RisksManagementClient.ServiceRisksManagement.Risk risk);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertStrategy", ReplyAction="http://tempuri.org/IService/InsertStrategyResponse")]
+        bool InsertStrategy(RisksManagementClient.ServiceRisksManagement.Strategy strategy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/InsertStrategy", ReplyAction="http://tempuri.org/IService/InsertStrategyResponse")]
+        System.Threading.Tasks.Task<bool> InsertStrategyAsync(RisksManagementClient.ServiceRisksManagement.Strategy strategy);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateUser", ReplyAction="http://tempuri.org/IService/UpdateUserResponse")]
         bool UpdateUser(RisksManagementClient.ServiceRisksManagement.AppUser user);
         
@@ -3560,11 +3574,23 @@ namespace RisksManagementClient.ServiceRisksManagement {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateRisk", ReplyAction="http://tempuri.org/IService/UpdateRiskResponse")]
         System.Threading.Tasks.Task<bool> UpdateRiskAsync(RisksManagementClient.ServiceRisksManagement.Risk risk);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateStrategy", ReplyAction="http://tempuri.org/IService/UpdateStrategyResponse")]
+        bool UpdateStrategy(RisksManagementClient.ServiceRisksManagement.Strategy strategy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/UpdateStrategy", ReplyAction="http://tempuri.org/IService/UpdateStrategyResponse")]
+        System.Threading.Tasks.Task<bool> UpdateStrategyAsync(RisksManagementClient.ServiceRisksManagement.Strategy strategy);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteRisk", ReplyAction="http://tempuri.org/IService/DeleteRiskResponse")]
         bool DeleteRisk(RisksManagementClient.ServiceRisksManagement.Risk risk);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteRisk", ReplyAction="http://tempuri.org/IService/DeleteRiskResponse")]
         System.Threading.Tasks.Task<bool> DeleteRiskAsync(RisksManagementClient.ServiceRisksManagement.Risk risk);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteStrategy", ReplyAction="http://tempuri.org/IService/DeleteStrategyResponse")]
+        bool DeleteStrategy(RisksManagementClient.ServiceRisksManagement.Strategy strategy);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/DeleteStrategy", ReplyAction="http://tempuri.org/IService/DeleteStrategyResponse")]
+        System.Threading.Tasks.Task<bool> DeleteStrategyAsync(RisksManagementClient.ServiceRisksManagement.Strategy strategy);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Disconnect", ReplyAction="http://tempuri.org/IService/DisconnectResponse")]
         void Disconnect();
@@ -3597,9 +3623,10 @@ namespace RisksManagementClient.ServiceRisksManagement {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Impact))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Classification[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Classification))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.StrategyType[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.StrategyType))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Strategy[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Strategy))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.StrategyType))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Relevance[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.Relevance))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(RisksManagementClient.ServiceRisksManagement.RiskCause[]))]
@@ -3715,6 +3742,14 @@ namespace RisksManagementClient.ServiceRisksManagement {
             return base.Channel.GetClassificationsAsync();
         }
         
+        public RisksManagementClient.ServiceRisksManagement.StrategyType[] GetStrategyTypes() {
+            return base.Channel.GetStrategyTypes();
+        }
+        
+        public System.Threading.Tasks.Task<RisksManagementClient.ServiceRisksManagement.StrategyType[]> GetStrategyTypesAsync() {
+            return base.Channel.GetStrategyTypesAsync();
+        }
+        
         public RisksManagementClient.ServiceRisksManagement.Strategy[] GetStrategies() {
             return base.Channel.GetStrategies();
         }
@@ -3779,6 +3814,14 @@ namespace RisksManagementClient.ServiceRisksManagement {
             return base.Channel.InsertRiskAsync(risk);
         }
         
+        public bool InsertStrategy(RisksManagementClient.ServiceRisksManagement.Strategy strategy) {
+            return base.Channel.InsertStrategy(strategy);
+        }
+        
+        public System.Threading.Tasks.Task<bool> InsertStrategyAsync(RisksManagementClient.ServiceRisksManagement.Strategy strategy) {
+            return base.Channel.InsertStrategyAsync(strategy);
+        }
+        
         public bool UpdateUser(RisksManagementClient.ServiceRisksManagement.AppUser user) {
             return base.Channel.UpdateUser(user);
         }
@@ -3795,12 +3838,28 @@ namespace RisksManagementClient.ServiceRisksManagement {
             return base.Channel.UpdateRiskAsync(risk);
         }
         
+        public bool UpdateStrategy(RisksManagementClient.ServiceRisksManagement.Strategy strategy) {
+            return base.Channel.UpdateStrategy(strategy);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateStrategyAsync(RisksManagementClient.ServiceRisksManagement.Strategy strategy) {
+            return base.Channel.UpdateStrategyAsync(strategy);
+        }
+        
         public bool DeleteRisk(RisksManagementClient.ServiceRisksManagement.Risk risk) {
             return base.Channel.DeleteRisk(risk);
         }
         
         public System.Threading.Tasks.Task<bool> DeleteRiskAsync(RisksManagementClient.ServiceRisksManagement.Risk risk) {
             return base.Channel.DeleteRiskAsync(risk);
+        }
+        
+        public bool DeleteStrategy(RisksManagementClient.ServiceRisksManagement.Strategy strategy) {
+            return base.Channel.DeleteStrategy(strategy);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteStrategyAsync(RisksManagementClient.ServiceRisksManagement.Strategy strategy) {
+            return base.Channel.DeleteStrategyAsync(strategy);
         }
         
         public void Disconnect() {
