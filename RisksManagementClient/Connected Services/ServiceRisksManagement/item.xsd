@@ -113,15 +113,15 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetManagementPlans">
+  <xs:element name="GetStrategies">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetManagementPlansResponse">
+  <xs:element name="GetStrategiesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="GetManagementPlansResult" nillable="true" type="q10:ArrayOfRiskManagementPlan" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/RisksManagementService.Database.Models" minOccurs="0" name="GetStrategiesResult" nillable="true" type="q10:ArrayOfStrategy" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

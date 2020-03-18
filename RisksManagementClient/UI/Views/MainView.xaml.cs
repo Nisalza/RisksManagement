@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using RisksManagementClient.ServiceRisksManagement;
+using RisksManagementClient.Strategies;
+using RisksManagementClient.Strategies.RiskStrategies;
 using RisksManagementClient.ViewModels;
 
 namespace RisksManagementClient.UI.Views
@@ -43,6 +45,17 @@ namespace RisksManagementClient.UI.Views
             RiskFullInfoView riskFullInfoView = new RiskFullInfoView();
             RiskScroll.Content = riskFullInfoView;
             ShowSaveDeleteButtons();
+
+            IStrategy strategy = new CreateRiskStrategy();
+            _viewModel.RiskContext.SetStrategy(strategy);
+        }
+
+        private void SaveCurrentRisk_OnClick(object sender, RoutedEventArgs e)
+        {
+            bool ok = _viewModel.RiskContext.ExecuteStrategy(_viewModel.CurrentRisk);
+
+            if (ok) { ShowOkResult("Риск успешно создан.");}
+            else { ShowErrorResult("Риск не был создан.");}
         }
 
         private void CloseCurrentRisk_Click(object sender, RoutedEventArgs e)
@@ -65,5 +78,15 @@ namespace RisksManagementClient.UI.Views
         }
 
         #endregion
+
+        private void ShowOkResult(string msg, string caption = "Результат выполнения операции")
+        {
+            MessageBox.Show(msg, caption, MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void ShowErrorResult(string msg, string caption = "Результат выполнения операции")
+        {
+            MessageBox.Show(msg, caption, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
     }
 }

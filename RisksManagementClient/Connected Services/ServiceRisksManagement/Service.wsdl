@@ -90,11 +90,11 @@
   <wsdl:message name="IService_GetClassifications_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetClassificationsResponse" />
   </wsdl:message>
-  <wsdl:message name="IService_GetManagementPlans_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetManagementPlans" />
+  <wsdl:message name="IService_GetStrategies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStrategies" />
   </wsdl:message>
-  <wsdl:message name="IService_GetManagementPlans_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetManagementPlansResponse" />
+  <wsdl:message name="IService_GetStrategies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStrategiesResponse" />
   </wsdl:message>
   <wsdl:message name="IService_GetRelevance_InputMessage">
     <wsdl:part name="parameters" element="tns:GetRelevance" />
@@ -202,9 +202,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetClassifications" message="tns:IService_GetClassifications_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService/GetClassificationsResponse" message="tns:IService_GetClassifications_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetManagementPlans">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetManagementPlans" message="tns:IService_GetManagementPlans_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetManagementPlansResponse" message="tns:IService_GetManagementPlans_OutputMessage" />
+    <wsdl:operation name="GetStrategies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService/GetStrategies" message="tns:IService_GetStrategies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService/GetStrategiesResponse" message="tns:IService_GetStrategies_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetRelevance">
       <wsdl:input wsaw:Action="http://tempuri.org/IService/GetRelevance" message="tns:IService_GetRelevance_InputMessage" />
@@ -338,8 +338,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetManagementPlans">
-      <soap12:operation soapAction="http://tempuri.org/IService/GetManagementPlans" style="document" />
+    <wsdl:operation name="GetStrategies">
+      <soap12:operation soapAction="http://tempuri.org/IService/GetStrategies" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

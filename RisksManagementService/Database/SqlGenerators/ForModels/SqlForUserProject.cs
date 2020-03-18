@@ -34,7 +34,7 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             string text = statement.GetRequest();
             SqlExecutor sqlExecutor = new SqlExecutor();
             var reader = sqlExecutor.ExecuteReader(text);
-            UserProject[] result = ConvertAllFields(reader);
+            UserProject[] result = ConvertAllFieldsArray(reader);
             return result;
         }
 
@@ -60,7 +60,7 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             string text = statement.GetRequest();
             SqlExecutor sqlExecutor = new SqlExecutor();
             var reader = sqlExecutor.ExecuteReader(text);
-            UserProject[] result = ConvertAllFields(reader);
+            UserProject[] result = ConvertAllFieldsArray(reader);
             return result;
         }
 
@@ -76,11 +76,22 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             string text = statement.GetRequest();
             SqlExecutor sqlExecutor = new SqlExecutor();
             var reader = sqlExecutor.ExecuteReader(text);
-            UserProject[] result = ConvertAllFields(reader);
+            UserProject[] result = ConvertAllFieldsArray(reader);
             return result;
         }
 
-        private UserProject[] ConvertAllFields(IDataReader reader)
+        private UserProject ConvertAllFields(IDataReader reader)
+        {
+            UserProject result = new UserProject();
+            while (reader.Read())
+            {
+                result = GetOne(reader);
+            }
+
+            return result;
+        }
+
+        private UserProject[] ConvertAllFieldsArray(IDataReader reader)
         {
             List<UserProject> result = new List<UserProject>();
             while (reader.Read())

@@ -38,7 +38,7 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             return result;
         }
 
-        public Project SelectByDepartment(Department department)
+        public Project[] SelectByDepartment(Department department)
         {
             SelectStatement statement = QueryFactory.Select() as SelectStatement;
 
@@ -60,7 +60,7 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             string text = statement.GetRequest();
             SqlExecutor sqlExecutor = new SqlExecutor();
             var reader = sqlExecutor.ExecuteReader(text);
-            Project result = ConvertAllFields(reader);
+            Project[] result = ConvertAllFieldsArray(reader);
             return result;
         }
 
@@ -73,6 +73,18 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             }
 
             return result;
+        }
+
+        private Project[] ConvertAllFieldsArray(IDataReader reader)
+        {
+            List<Project> result = new List<Project>();
+            while (reader.Read())
+            {
+                Project t = GetOne(reader);
+                result.Add(t);
+            }
+
+            return result.ToArray();
         }
 
         private Project GetOne(IDataReader reader)

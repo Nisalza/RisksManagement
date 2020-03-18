@@ -90,10 +90,10 @@ namespace RisksManagementService
             return result;
         }
 
-        public RiskManagementPlan[] GetManagementPlans()
+        public Strategy[] GetStrategies()
         {
-            SqlForRisksManagementPlan sqlForRisksManagementPlan = new SqlForRisksManagementPlan();
-            RiskManagementPlan[] result = sqlForRisksManagementPlan.SelectAll();
+            SqlForStrategy sqlForStrategy = new SqlForStrategy();
+            Strategy[] result = sqlForStrategy.SelectAll();
             return result;
         }
 
@@ -120,8 +120,31 @@ namespace RisksManagementService
 
         public Risk[] GetRisks()
         {
-            //todo Переделать
-            return new Risk[0];
+            SqlForUserDepartment sqlForUserDepartment = new SqlForUserDepartment();
+            var departments = sqlForUserDepartment.SelectAllByAppUser(CurrentUser);
+
+            var projects = new List<Project>();
+            SqlForProject sqlForProject = new SqlForProject();
+            foreach (UserDepartment department in departments)
+            {
+                var t = sqlForProject.SelectByDepartment(department.Department);
+                projects.AddRange(t);
+            }
+
+            SqlForUserProject sqlForUserProject = new SqlForUserProject();
+            projects.AddRange(sqlForUserProject.SelectAllByAppUser(CurrentUser).Select(x => x.Project));
+
+            projects = projects.Distinct().ToList();
+
+            var risks = new List<Risk>();
+            SqlForRisk sqlForRisk = new SqlForRisk();
+            foreach (Project project in projects)
+            {
+                var t = sqlForRisk.SelectByProject(project);
+                risks.AddRange(t);
+            }
+
+            return risks.Distinct().ToArray();
         }
 
         public AppUser[] GetUsers()

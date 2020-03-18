@@ -64,6 +64,22 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             return result;
         }
 
+        public Strategy[] SelectAll()
+        {
+            SelectStatement statement = QueryFactory.Select() as SelectStatement;
+
+            AttributesSupport attributesSupport = new AttributesSupport();
+            string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(Strategy));
+
+            statement.SelectBuilder.BuildTableName(tableName);
+
+            string text = statement.GetRequest();
+            SqlExecutor sqlExecutor = new SqlExecutor();
+            var reader = sqlExecutor.ExecuteReader(text);
+            Strategy[] result = ConvertAllFieldsArray(reader);
+            return result;
+        }
+
         private Strategy ConvertAllFields(IDataReader reader)
         {
             Strategy result = new Strategy();
@@ -90,7 +106,7 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
         private Strategy GetOne(IDataReader reader)
         {
             SqlForStrategyType sqlForStrategyType = new SqlForStrategyType();
-            int ptId = reader.GetInt32(3);
+            int ptId = reader.GetInt32(2);
             Strategy t = new Strategy
             {
                 Id = reader.GetInt32(0),

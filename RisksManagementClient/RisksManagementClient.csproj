@@ -72,11 +72,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Enums.cs" />
     <Compile Include="SingletonClient.cs" />
+    <Compile Include="Strategies\IContext.cs" />
     <Compile Include="Strategies\IStrategy.cs" />
     <Compile Include="Strategies\RiskStrategies\CreateRiskStrategy.cs" />
     <Compile Include="Strategies\RiskStrategies\DeleteRiskStrategy.cs" />
+    <Compile Include="Strategies\RiskStrategies\RiskContext.cs" />
     <Compile Include="Strategies\RiskStrategies\UpdateRiskStrategy.cs" />
     <Compile Include="UI\Views\AccountView.xaml.cs">
       <DependentUpon>AccountView.xaml</DependentUpon>
@@ -196,7 +197,7 @@
     <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.RiskCause.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.RiskManagementPlan.datasource">
+    <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.Strategy.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceRisksManagement\RisksManagementClient.ServiceRisksManagement.UserProject.datasource">

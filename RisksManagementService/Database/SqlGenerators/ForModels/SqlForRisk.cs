@@ -23,8 +23,9 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
                 attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "Impact"),
                 attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "Priority"),
                 attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "ResponsiblePerson"),
-                attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "RiskManagementPlan"),
-                attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "Relevance"),
+                attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "MitigationStrategy"),
+                attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "ContingencyStrategy"),
+                attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "IsRelevance"),
                 attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "RiskCause"),
                 attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "Damage"),
                 attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "Project"),
@@ -41,7 +42,7 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             object[] values =
             {
                 risk.Name, risk.Description, risk.Probability.Id, risk.Impact.Id, risk.Priority.Id,
-                risk.ResponsiblePerson.Id, risk.RiskManagementPlan.Id, risk.IsRelevance.Id,
+                risk.ResponsiblePerson.Id, risk.MitigationStrategy.Id, risk.ContingencyStrategy.Id, risk.IsRelevance.Id, risk.RiskCause.Id,
                 risk.Damage, risk.Project.Id, risk.Deadline, risk.Classification.Id, 
                 /*todo формула*/ 
             };
@@ -101,7 +102,7 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             return result;
         }
 
-        public Risk SelectByProject(Project project)
+        public Risk[] SelectByProject(Project project)
         {
             SelectStatement statement = QueryFactory.Select() as SelectStatement;
 
@@ -123,7 +124,7 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             string text = statement.GetRequest();
             SqlExecutor sqlExecutor = new SqlExecutor();
             var reader = sqlExecutor.ExecuteReader(text);
-            Risk result = ConvertAllFields(reader);
+            Risk[] result = ConvertAllFieldsArray(reader);
             return result;
         }
 
@@ -144,11 +145,11 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
                     attributesSupport.DataDescriptionDatabaseColumn(typeof(Risk), "CreatedBy")
                 };
                 string[] cols = GetCols();
-                cols = cols.Union(createdCols).ToArray();
+                cols = cols.Concat(createdCols).ToArray();
 
                 object[] createdValues = {DateTime.Now, user.Login};
                 object[] values = GetVals(risk);
-                values = values.Union(createdValues).ToArray();
+                values = values.Concat(createdValues).ToArray();
 
                 statement.InsertBuilder.BuildTableName(tableName);
                 statement.InsertBuilder.BuildColumns(cols);
@@ -289,18 +290,19 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             int priority = reader.GetInt32(5);
             SqlForAppUser sqlForAppUser = new SqlForAppUser();
             int appUser = reader.GetInt32(6);
-            SqlForRisksManagementPlan sqlForRisksManagementPlan = new SqlForRisksManagementPlan();
-            int? mngPlan = sqlGetData.GetNullableInt32(reader, 7);
+            SqlForStrategy sqlForStrategy = new SqlForStrategy();
+            int? ms = sqlGetData.GetNullableInt32(reader, 7);
+            int? cs = sqlGetData.GetNullableInt32(reader, 8);
             SqlForRelevance sqlForRelevance = new SqlForRelevance();
-            int relevance = reader.GetInt32(8);
+            int relevance = reader.GetInt32(9);
             SqlForRiskCause sqlForRiskCause = new SqlForRiskCause();
-            int? cause = sqlGetData.GetNullableInt32(reader, 9);
+            int? cause = sqlGetData.GetNullableInt32(reader, 10);
             SqlForProject sqlForProject = new SqlForProject();
-            int project = reader.GetInt32(11);
+            int project = reader.GetInt32(12);
             SqlForClassification sqlForClassification = new SqlForClassification();
-            int classification = reader.GetInt32(13);
+            int classification = reader.GetInt32(14);
             SqlForExposureComputation sqlForExposureComputation = new SqlForExposureComputation();
-            int ec = reader.GetInt32(14);
+            int ec = reader.GetInt32(15);
 
             Risk t = new Risk
             {
@@ -311,12 +313,13 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
                 Impact = sqlForImpact.SelectById(impact),
                 Priority = sqlForPriority.SelectById(priority),
                 ResponsiblePerson = sqlForAppUser.SelectById(appUser),
-                RiskManagementPlan = mngPlan == null ? new RiskManagementPlan() : sqlForRisksManagementPlan.SelectById((int)mngPlan),
+                MitigationStrategy = ms == null ? new Strategy() : sqlForStrategy.SelectById((int)ms),
+                ContingencyStrategy = cs == null ? new Strategy() : sqlForStrategy.SelectById((int)cs),
                 IsRelevance = sqlForRelevance.SelectById(relevance),
                 RiskCause = cause == null ? new RiskCause() : sqlForRiskCause.SelectById((int)cause),
-                Damage = sqlGetData.GetNullableString(reader, 10),
+                Damage = sqlGetData.GetNullableString(reader, 11),
                 Project = sqlForProject.SelectById(project),
-                Deadline = sqlGetData.GetNullableString(reader, 12),
+                Deadline = sqlGetData.GetNullableString(reader, 13),
                 Classification = sqlForClassification.SelectById(classification),
                 ExposureComputation = sqlForExposureComputation.SelectById(ec)
             };

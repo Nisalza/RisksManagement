@@ -9,6 +9,7 @@ using System.Windows;
 using Prism.Mvvm;
 using RisksManagementClient.ServiceRisksManagement;
 using RisksManagementClient.Strategies;
+using RisksManagementClient.Strategies.RiskStrategies;
 
 namespace RisksManagementClient.ViewModels
 {
@@ -19,6 +20,7 @@ namespace RisksManagementClient.ViewModels
             ViewLoaded += OnViewLoaded;
             UserSaving += OnUserSaving;
             Client = SingletonClient.GetInstance(this).Client;
+            RiskContext = new RiskContext();
         }
 
         #region Поля
@@ -47,7 +49,11 @@ namespace RisksManagementClient.ViewModels
 
         private Classification[] _classifications;
 
-        private RiskManagementPlan[] _managementPlans;
+        private Strategy[] _strategies;
+
+        private Strategy[] _mitigationStrategies;
+
+        private Strategy[] _contingencyStrategies;
 
         private Relevance[] _relevances;
 
@@ -61,7 +67,7 @@ namespace RisksManagementClient.ViewModels
 
         private AppUser[] _responsiblePersons;
 
-        private IStrategy _currentStrategy;
+        public IContext RiskContext;
         
         #endregion
 
@@ -157,12 +163,22 @@ namespace RisksManagementClient.ViewModels
             }
         }
 
-        public RiskManagementPlan[] ManagementPlans
+        public Strategy[] MitigationStrategies
         {
-            get => _managementPlans;
+            get => _mitigationStrategies;
             set
             {
-                _managementPlans = value;
+                _mitigationStrategies = value;
+                RaisePropertyChanged();
+            }
+        }
+
+        public Strategy[] ContingencyStrategies
+        {
+            get => _contingencyStrategies;
+            set
+            {
+                _contingencyStrategies = value;
                 RaisePropertyChanged();
             }
         }
@@ -240,7 +256,10 @@ namespace RisksManagementClient.ViewModels
             ImpactTypes = Client.GetImpactTypes();
             _impacts = Client.GetImpacts();
             Classifications = Client.GetClassifications();
-            ManagementPlans = Client.GetManagementPlans();
+            _strategies = Client.GetStrategies();
+            //todo Перенести константы в конфиги
+            MitigationStrategies = _strategies.Where(x => x.StrategyType.Id == 1).ToArray();
+            ContingencyStrategies = _strategies.Where(x => x.StrategyType.Id == 2).ToArray();
             Relevances = Client.GetRelevance();
             RiskCauses = Client.GetCauses();
             Priorities = Client.GetPriorities();

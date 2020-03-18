@@ -66,14 +66,14 @@
         <ComboBox Grid.Row="8" Grid.Column="2" Name="RiskRp" DisplayMemberPath="Name" ItemsSource="{Binding ResponsiblePersons}" SelectedItem="{Binding CurrentRisk.ResponsiblePerson, Mode=TwoWay}"/>
 
         <Label Grid.Row="9" Grid.Column="1">План смягчения последствий</Label>
-        <TextBox Grid.Row="9" Grid.Column="2" Name="RiskMs" TextWrapping="Wrap" Text="{Binding CurrentRisk.RiskManagementPlan.MitigationStrategy, Mode=TwoWay}"/>
+        <ComboBox Grid.Row="9" Grid.Column="2" Name="RiskMs" DisplayMemberPath="Description" ItemsSource="{Binding MitigationStrategies}" SelectedItem="{Binding CurrentRisk.MitigationStrategy, Mode=TwoWay}"/>
 
         <Label Grid.Row="10" Grid.Column="1">План предотвращения</Label>
-        <TextBox Grid.Row="10" Grid.Column="2" Name="RiskCs" TextWrapping="Wrap" Text="{Binding CurrentRisk.RiskManagementPlan.ContingencyStrategy, Mode=TwoWay}"/>
+        <ComboBox Grid.Row="10" Grid.Column="2" Name="RiskCs" DisplayMemberPath="Description" ItemsSource="{Binding ContingencyStrategies}" SelectedItem="{Binding CurrentRisk.ContingencyStrategy, Mode=TwoWay}"/>
 
         <Label Grid.Row="11" Grid.Column="0">*</Label>
         <Label Grid.Row="11" Grid.Column="1">Актуальность</Label>
-        <ComboBox Grid.Row="11" Grid.Column="2" Name="RiskRelevance" DisplayMemberPath="Name" ItemsSource="{Binding Relevances}" SelectedItem="{Binding CurrentRisk.Relevance, Mode=TwoWay}"/>
+        <ComboBox Grid.Row="11" Grid.Column="2" Name="RiskRelevance" DisplayMemberPath="Name" ItemsSource="{Binding Relevances}" SelectedItem="{Binding CurrentRisk.IsRelevance, Mode=TwoWay}"/>
 
         <Label Grid.Row="12" Grid.Column="1">Причина</Label>
         <ComboBox Grid.Row="12" Grid.Column="2" Name="RiskCause" DisplayMemberPath="Name" ItemsSource="{Binding RiskCauses}" SelectedItem="{Binding CurrentRisk.RiskCause, Mode=TwoWay}"/>

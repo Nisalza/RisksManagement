@@ -39,9 +39,13 @@ namespace RisksManagementService.Database.Models
         [DataMember]
         public AppUser ResponsiblePerson { get; set; }
 
-        [DataDescription("risk_management_plan", "RiskManagementPlan")]
+        [DataDescription("mitigation_strategy", "MitigationStrategy")]
         [DataMember]
-        public RiskManagementPlan RiskManagementPlan { get; set; }
+        public Strategy MitigationStrategy { get; set; }
+
+        [DataDescription("contingency_strategy", "ContingencyStrategy")]
+        [DataMember]
+        public Strategy ContingencyStrategy { get; set; }
 
         [DataDescription("is_relevance", "IsRelevance")]
         [DataMember]

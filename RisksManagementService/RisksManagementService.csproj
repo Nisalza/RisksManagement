@@ -94,7 +94,6 @@
     <Compile Include="Database\Models\Relevance.cs" />
     <Compile Include="Database\Models\Risk.cs" />
     <Compile Include="Database\Models\RiskCause.cs" />
-    <Compile Include="Database\Models\RiskManagementPlan.cs" />
     <Compile Include="Database\Models\RiskTrigger.cs" />
     <Compile Include="Database\Models\Role.cs" />
     <Compile Include="Database\Models\RolePattern.cs" />
@@ -129,7 +128,6 @@
     <Compile Include="Database\SqlGenerators\ForModels\SqlForRelevance.cs" />
     <Compile Include="Database\SqlGenerators\ForModels\SqlForRisk.cs" />
     <Compile Include="Database\SqlGenerators\ForModels\SqlForRiskCause.cs" />
-    <Compile Include="Database\SqlGenerators\ForModels\SqlForRisksManagementPlan.cs" />
     <Compile Include="Database\SqlGenerators\ForModels\SqlForStrategy.cs" />
     <Compile Include="Database\SqlGenerators\ForModels\SqlForStrategyType.cs" />
     <Compile Include="Database\SqlGenerators\ForModels\SqlForUserDepartment.cs" />

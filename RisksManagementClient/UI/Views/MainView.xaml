@@ -34,7 +34,7 @@
                             </ScrollViewer>
                         </Grid>
                         <StackPanel Grid.Column="2" VerticalAlignment="Top" Orientation="Horizontal">
-                            <Button Name="SaveCurrentRisk" Margin="0,0,10,0" Visibility="Collapsed">Сохранить</Button>
+                            <Button Name="SaveCurrentRisk" Margin="0,0,10,0" Visibility="Collapsed" Click="SaveCurrentRisk_OnClick">Сохранить</Button>
                             <Button Name="CloseCurrentRisk" Visibility="Collapsed" Click="CloseCurrentRisk_Click">Закрыть</Button>
                         </StackPanel>
                         <ScrollViewer Name="RiskScroll" Grid.Column="2" Margin="0,30,0,0" HorizontalScrollBarVisibility="Auto"/>

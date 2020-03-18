@@ -42,7 +42,7 @@ namespace RisksManagementService
         Classification[] GetClassifications();
 
         [OperationContract]
-        RiskManagementPlan[] GetManagementPlans();
+        Strategy[] GetStrategies();
 
         [OperationContract]
         Relevance[] GetRelevance();
