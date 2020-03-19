@@ -25,7 +25,7 @@ namespace RisksManagementClient.UI.Views
     /// </summary>
     public partial class RiskShortInfoView : UserControl
     {
-        private Risk _risk;
+        private readonly Risk _risk;
 
         private MainViewModel _viewModel;
 

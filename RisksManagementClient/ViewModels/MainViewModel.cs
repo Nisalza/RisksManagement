@@ -6,6 +6,9 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using LiveCharts;
+using LiveCharts.Defaults;
+using LiveCharts.Wpf;
 using Prism.Mvvm;
 using RisksManagementClient.Comparators;
 using RisksManagementClient.ServiceRisksManagement;
@@ -73,6 +76,8 @@ namespace RisksManagementClient.ViewModels
         private UserProject[] _userProjects;
 
         private AppUser[] _responsiblePersons;
+
+        private SeriesCollection _points;
 
         public IContext RiskContext;
 
@@ -253,6 +258,16 @@ namespace RisksManagementClient.ViewModels
             }
         }
 
+        public SeriesCollection Points
+        {
+            get => _points;
+            set
+            {
+                _points = value;
+                RaisePropertyChanged();
+            }
+        }
+
         #endregion
 
         #region События
@@ -286,6 +301,7 @@ namespace RisksManagementClient.ViewModels
             GetPriorities();
             GetRisks();
             GetUsersWithProjects();
+            GetPoints();
         }
 
         private void OnUserSaving(object sender, EventArgs e)
@@ -342,6 +358,7 @@ namespace RisksManagementClient.ViewModels
         private void GetRisks()
         {
             Risks = Client.GetRisks();
+            GetPoints();
         }
 
         private void GetPriorities()
@@ -411,6 +428,40 @@ namespace RisksManagementClient.ViewModels
         {
             //todo Убрать дефолтный логин
             CurrentUser = Client.Connect(@"ALZA/Dashi");
+        }
+
+        private void GetPoints()
+        {
+            Points = new SeriesCollection
+            {
+                new ScatterSeries
+                {
+                    Values = new ChartValues<ScatterPoint>(),
+                    MinPointShapeDiameter = 20,
+                    MaxPointShapeDiameter = 20,
+                    DataLabels = true,
+                    LabelPoint = p => p.Weight.ToString()
+                }
+            };
+
+            LoadPoints();
+        }
+
+        private void LoadPoints()
+        {
+            var xMax = _probabilities.Select(t => new {key = t.ProbabilityType.Id, a = t.Assessment}).GroupBy(t => t.key);
+            var yMax = _impacts.Select(t => new { key = t.ImpactType.Id, a = t.Assessment }).GroupBy(t => t.key);
+
+            var x = _risks.Select(t => t.Probability.Assessment / yMax.First(q => q.Key == t.ProbabilityType.Id).Max(r => r.a)).ToArray();
+            var y = _risks.Select(t => t.Impact.Assessment / xMax.First(q => q.Key == t.ImpactType.Id).Max(q => q.a)).ToArray();
+            var labels = _risks.Select(t => t.Id).ToArray();
+
+            var bubbles = Points[0];
+            for (int i = 0; i < Math.Min(x.Length, y.Length); ++i)
+            {
+                ScatterPoint point = new ScatterPoint(x[i], y[i], labels[i]);
+                bubbles.Values.Add(point);
+            }
         }
 
         #endregion
