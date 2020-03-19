@@ -307,7 +307,7 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             Risk t = new Risk
             {
                 Id = reader.GetInt32(0),
-                Name = reader.GetName(1),
+                Name = reader.GetString(1),
                 Description = sqlGetData.GetNullableString(reader, 2),
                 Probability = sqlForProbability.SelectById(probability),
                 Impact = sqlForImpact.SelectById(impact),

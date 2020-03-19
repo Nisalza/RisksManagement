@@ -39,6 +39,7 @@ namespace RisksManagementClient.UI.Views
             _viewModel?.ViewLoaded(this, EventArgs.Empty);
             LoadRisks();
             LoadStrategies();
+            LoadRisksForMap();
         }
 
         #region Риски
@@ -138,6 +139,24 @@ namespace RisksManagementClient.UI.Views
             {
                 StrategyShortInfo uc = new StrategyShortInfo(s);
                 AllStrategies.Children.Add(uc);
+            }
+        }
+
+        #endregion
+
+        #region Карта рисков
+
+        private void LoadRisksForMap()
+        {
+            RisksForMap.Children.Clear();
+            foreach (Risk r in _viewModel.Risks)
+            {
+                TextBox t = new TextBox
+                {
+                    Text = $"({r.Id}) {r.Name}",
+                    IsReadOnly = true
+                };
+                RisksForMap.Children.Add(t);
             }
         }
 

@@ -54,7 +54,6 @@ namespace RisksManagementClient.UI.Views
 
         private void DuplicateButton_Click(object sender, RoutedEventArgs e)
         {
-            _risk.Id = 0;
             _viewModel.CurrentRisk = _risk;
             ShowRiskFullInfoView(new CreateRiskStrategy());
         }

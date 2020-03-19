@@ -44,7 +44,13 @@
             <TabItem Name="RisksMapTab">
                 <TabItem.Header>Карта рисков</TabItem.Header>
                 <TabItem.Content>
-                    <TextBox/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" MaxWidth="350"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Name="RisksForMap" Orientation="Vertical"/>
+                    </Grid>
                 </TabItem.Content>
             </TabItem>
             <TabItem Name="RmpTab">

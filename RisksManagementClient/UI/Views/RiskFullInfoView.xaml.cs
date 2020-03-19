@@ -61,17 +61,17 @@ namespace RisksManagementClient.UI.Views
 
         private void RiskPt_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _viewModel.UpdateProbabilities();
+            _viewModel?.UpdateProbabilities();
         }
 
         private void RiskIt_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _viewModel.UpdateImpacts();
+            _viewModel?.UpdateImpacts();
         }
 
         private void RiskProject_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _viewModel.UpdateRp();
+            _viewModel?.UpdateRp();
         }
     }
 }
