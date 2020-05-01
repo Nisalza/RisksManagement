@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using LiveCharts.Wpf;
 using RisksManagementClient.ServiceRisksManagement;
 using RisksManagementClient.Strategies;
 using RisksManagementClient.Strategies.RiskStrategies;
@@ -40,6 +41,10 @@ namespace RisksManagementClient.UI.Views
             LoadRisks();
             LoadStrategies();
             LoadRisksForMap();
+            CartesianChart.AxisX.Clear();
+            CartesianChart.AxisX.Add(new Axis{MinValue = 0, MaxValue = 1});
+            CartesianChart.AxisY.Clear();
+            CartesianChart.AxisY.Add(new Axis { MinValue = 0, MaxValue = 1 });
         }
 
         #region Риски

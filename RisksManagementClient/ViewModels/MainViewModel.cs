@@ -470,9 +470,16 @@ namespace RisksManagementClient.ViewModels
             var labels = _risks.Select(t => t.Id).ToArray();
 
             var bubbles = Points[0];
+            double xi, yi;
             for (int i = 0; i < Math.Min(x.Length, y.Length); ++i)
             {
-                ScatterPoint point = new ScatterPoint(x[i], y[i], labels[i]);
+                xi = x[i];
+                xi = Math.Max(0.01, xi);
+                xi = Math.Min(0.99, xi);
+                yi = y[i];
+                yi = Math.Max(0.01, yi);
+                yi = Math.Min(0.99, yi);
+                ScatterPoint point = new ScatterPoint(xi, yi, labels[i]);
                 bubbles.Values.Add(point);
             }
         }

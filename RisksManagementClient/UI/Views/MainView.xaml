@@ -52,7 +52,7 @@
                         <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
                             <StackPanel Name="RisksForMap" Orientation="Vertical"/>
                         </ScrollViewer>
-                        <wpf:CartesianChart Grid.Column="1" Series="{Binding Points}" Margin="15"/>
+                        <wpf:CartesianChart Name="CartesianChart" Grid.Column="1" Series="{Binding Points}" Margin="15"/>
                     </Grid>
                 </TabItem.Content>
             </TabItem>
