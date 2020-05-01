@@ -52,7 +52,29 @@
                         <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
                             <StackPanel Name="RisksForMap" Orientation="Vertical"/>
                         </ScrollViewer>
-                        <wpf:CartesianChart Name="CartesianChart" Grid.Column="1" Series="{Binding Points}" Margin="15"/>
+                        <wpf:CartesianChart Name="CartesianChart" Grid.Column="1" Series="{Binding Points}" Margin="15" RenderTransformOrigin="0,1" ScrollMode="None">
+                            <wpf:CartesianChart.AxisX>
+                                <wpf:Axis MinValue="0" MaxValue="1" Foreground="Black" FontSize="16">
+                                    <wpf:Axis.Separator>
+                                        <wpf:Separator Stroke="DimGray" Step="0.2"/>
+                                    </wpf:Axis.Separator>
+                                </wpf:Axis>
+                            </wpf:CartesianChart.AxisX>
+                            <wpf:CartesianChart.AxisY>
+                                <wpf:Axis MinValue="0" MaxValue="1" Foreground="Black" FontSize="16">
+                                    <wpf:Axis.Separator>
+                                        <wpf:Separator Stroke="DimGray" Step="0.2"/>
+                                    </wpf:Axis.Separator>
+                                </wpf:Axis>
+                            </wpf:CartesianChart.AxisY>
+                            <wpf:CartesianChart.Background>
+                                <RadialGradientBrush Center="0,1" RadiusX="1.5" RadiusY="1.5" GradientOrigin="0,1">
+                                    <GradientStop Color="#B200FF0C" Offset="0"/>
+                                    <GradientStop Color="#B2F3FF00" Offset="0.4"/>
+                                    <GradientStop Color="#B2FF0000" Offset="0.9"/>
+                                </RadialGradientBrush>
+                            </wpf:CartesianChart.Background>
+                        </wpf:CartesianChart>
                     </Grid>
                 </TabItem.Content>
             </TabItem>

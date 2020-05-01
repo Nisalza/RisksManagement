@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media;
 using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;
@@ -445,17 +446,21 @@ namespace RisksManagementClient.ViewModels
         //todo вынести в представление
         private void GetPoints()
         {
-            Points = new SeriesCollection
+            double pointSize = 30;
+
+            var ss = new ScatterSeries
             {
-                new ScatterSeries
-                {
-                    Values = new ChartValues<ScatterPoint>(),
-                    MinPointShapeDiameter = 20,
-                    MaxPointShapeDiameter = 20,
-                    DataLabels = true,
-                    LabelPoint = p => p.Weight.ToString()
-                }
+                Values = new ChartValues<ScatterPoint>(),
+                MinPointShapeDiameter = pointSize,
+                MaxPointShapeDiameter = pointSize,
+                DataLabels = true,
+                LabelPoint = p => $"{p.Weight}",
+                Fill = Brushes.White,
+                FontSize = 16,
+                ToolTip = Risks.Select(x => x.Name)
             };
+
+            Points = new SeriesCollection {ss};
 
             LoadPoints();
         }
@@ -471,14 +476,15 @@ namespace RisksManagementClient.ViewModels
 
             var bubbles = Points[0];
             double xi, yi;
+            double min = 0.01, max = 0.99;
             for (int i = 0; i < Math.Min(x.Length, y.Length); ++i)
             {
                 xi = x[i];
-                xi = Math.Max(0.01, xi);
-                xi = Math.Min(0.99, xi);
+                xi = Math.Max(min, xi);
+                xi = Math.Min(max, xi);
                 yi = y[i];
-                yi = Math.Max(0.01, yi);
-                yi = Math.Min(0.99, yi);
+                yi = Math.Max(min, yi);
+                yi = Math.Min(max, yi);
                 ScatterPoint point = new ScatterPoint(xi, yi, labels[i]);
                 bubbles.Values.Add(point);
             }
