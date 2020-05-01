@@ -83,6 +83,8 @@ namespace RisksManagementClient.ViewModels
 
         public IContext StrategyContext;
 
+        private Strategy _currentStrategy;
+
         #endregion
 
         #region Свойства
@@ -268,6 +270,16 @@ namespace RisksManagementClient.ViewModels
             }
         }
 
+        public Strategy CurrentStrategy
+        {
+            get => _currentStrategy;
+            set
+            {
+                _currentStrategy = value;
+                RaisePropertyChanged();
+            }
+        }
+
         #endregion
 
         #region События
@@ -430,6 +442,7 @@ namespace RisksManagementClient.ViewModels
             CurrentUser = Client.Connect(@"ALZA/Dashi");
         }
 
+        //todo вынести в представление
         private void GetPoints()
         {
             Points = new SeriesCollection

@@ -12,7 +12,7 @@ namespace RisksManagementClient
     {
         private static SingletonClient _instance;
 
-        public ServiceClient Client { get; private set; }
+        public ServiceClient Client { get; }
 
         public static SingletonClient GetInstance(IServiceCallback cb)
         {

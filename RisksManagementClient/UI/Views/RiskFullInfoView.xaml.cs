@@ -33,17 +33,24 @@ namespace RisksManagementClient.UI.Views
         {
             _viewModel = DataContext as MainViewModel;
 
+            //todo сделать красиво
             RiskPt.SelectedIndex = Array.IndexOf(_viewModel.ProbabilityTypes, _viewModel.ProbabilityTypes.FirstOrDefault(x =>
                 x.Id == _viewModel.CurrentRisk?.ProbabilityType?.Id));
-            RiskProb.SelectedIndex = Array.IndexOf(_viewModel.Probabilities, _viewModel.Probabilities.FirstOrDefault(x =>
-                x.Id == _viewModel.CurrentRisk?.Probability?.Id));
+            if (_viewModel.Probabilities != null)
+            {
+                RiskProb.SelectedIndex = Array.IndexOf(_viewModel.Probabilities, _viewModel.Probabilities?.FirstOrDefault(x =>
+                  x.Id == _viewModel.CurrentRisk?.Probability?.Id));
+            }
             RiskIt.SelectedIndex = Array.IndexOf(_viewModel.ImpactTypes, _viewModel.ImpactTypes.FirstOrDefault(x =>
                 x.Id == _viewModel.CurrentRisk?.ImpactType?.Id));
-            RiskImpact.SelectedIndex = Array.IndexOf(_viewModel.Impacts, _viewModel.Impacts.FirstOrDefault(x =>
-                x.Id == _viewModel.CurrentRisk?.Impact?.Id));
+            if (_viewModel.Impacts != null)
+            {
+                RiskImpact.SelectedIndex = Array.IndexOf(_viewModel.Impacts, _viewModel.Impacts?.FirstOrDefault(x =>
+                  x.Id == _viewModel.CurrentRisk?.Impact?.Id));
+            }
             RiskPriority.SelectedIndex = Array.IndexOf(_viewModel.Priorities, _viewModel.Priorities.FirstOrDefault(x =>
                 x.Id == _viewModel.CurrentRisk?.Priority?.Id));
-            RiskRp.SelectedIndex = Array.IndexOf(_viewModel.ResponsiblePersons, _viewModel.ResponsiblePersons.FirstOrDefault(x =>
+            RiskRp.SelectedIndex = Array.IndexOf(_viewModel.ResponsiblePersons, _viewModel.ResponsiblePersons?.FirstOrDefault(x =>
                 x.Id == _viewModel.CurrentRisk?.ResponsiblePerson?.Id));
             RiskMs.SelectedIndex = Array.IndexOf(_viewModel.MitigationStrategies, _viewModel.MitigationStrategies.FirstOrDefault(x =>
                 x.Id == _viewModel.CurrentRisk?.MitigationStrategy?.Id));

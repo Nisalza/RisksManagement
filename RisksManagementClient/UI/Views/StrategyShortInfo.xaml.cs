@@ -25,9 +25,11 @@ namespace RisksManagementClient.UI.Views
     /// </summary>
     public partial class StrategyShortInfo : UserControl
     {
-        private Strategy _strategy;
+        private readonly Strategy _strategy;
 
         private MainViewModel _viewModel;
+
+        public EventHandler DeleteStrategy;
 
         public StrategyShortInfo(Strategy strategy)
         {
@@ -44,29 +46,29 @@ namespace RisksManagementClient.UI.Views
 
         private void DuplicateButton_Click(object sender, RoutedEventArgs e)
         {
-            _strategy.Id = 0;
-            ShowStrategyInfoWindow(new CreateStrategyStrategy());
+            _viewModel.CurrentStrategy = _strategy;
+            ShowStrategyFullInfoView(new CreateStrategyStrategy());
         }
 
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            ShowStrategyInfoWindow(new UpdateStrategyStrategy());
+            _viewModel.CurrentStrategy = _strategy;
+            ShowStrategyFullInfoView(new UpdateStrategyStrategy());
+        }
+
+        private void ShowStrategyFullInfoView(IStrategy strategy)
+        {
+            StrategyFullInfo strategyFullInfo = new StrategyFullInfo();
+            MainWindow w = (MainWindow)Window.GetWindow(this);
+            w.MainView.StrategyScroll.Children.Add(strategyFullInfo);
+            w.MainView.ShowSaveDeleteButtonsStrategy();
+            _viewModel.StrategyContext.SetStrategy(strategy);
+            w.MainView.LoadStrategies();
         }
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             ExecuteOperation(new DeleteStrategyStrategy());
-        }
-
-        private void ShowStrategyInfoWindow(IStrategy strategy)
-        {
-            StrategyInfoWindow window = new StrategyInfoWindow(_strategy, _viewModel.StrategyTypes);
-            window.ShowDialog();
-            if (window.DialogResult == true)
-            {
-                _strategy = window.StrategyFullInfo.Strategy;
-                ExecuteOperation(strategy);
-            }
         }
 
         private void ExecuteOperation(IStrategy strategy)
@@ -78,6 +80,7 @@ namespace RisksManagementClient.UI.Views
             MessageBoxes mb = new MessageBoxes();
             if (ok)
             {
+                DeleteStrategy?.Invoke(_strategy, EventArgs.Empty);
                 mb.ShowOkResult("Операция выполена.");
                 MainWindow w = (MainWindow) Window.GetWindow(this);
                 w.MainView.LoadStrategies();

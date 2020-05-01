@@ -84,7 +84,16 @@ namespace RisksManagementClient.UI.Views
             foreach (Risk r in _viewModel.Risks)
             {
                 RiskShortInfoView uc = new RiskShortInfoView(r);
+                uc.DeleteRisk += DeleteRisk;
                 AllRisks.Children.Add(uc);
+            }
+        }
+
+        private void DeleteRisk(object sender, EventArgs e)
+        {
+            if (((Risk) sender)?.Id == _viewModel.CurrentRisk?.Id)
+            {
+                CloseCurrentRisk_Click(null, null);
             }
         }
 
@@ -106,24 +115,48 @@ namespace RisksManagementClient.UI.Views
 
         private void CreateStrategy_OnClick(object sender, RoutedEventArgs e)
         {
-            Strategy s = new Strategy();
-            StrategyInfoWindow window = new StrategyInfoWindow(s, _viewModel.StrategyTypes);
-            window.ShowDialog();
-            if (window.DialogResult == true)
-            {
-                IStrategy strategy = new CreateStrategyStrategy();
-                _viewModel.StrategyContext.SetStrategy(strategy);
-                _viewModel.StrategySaving?.Invoke(window.StrategyFullInfo.Strategy, EventArgs.Empty);
+            _viewModel.CurrentStrategy = new Strategy();
+            StrategyFullInfo strategyFullInfo = new StrategyFullInfo();
+            StrategyScroll.Children.Add(strategyFullInfo);
+            ShowSaveDeleteButtonsStrategy();
 
-                bool ok = _viewModel.StrategyContext.Result;
-                MessageBoxes mb = new MessageBoxes();
-                if (ok)
-                {
-                    mb.ShowOkResult("Операция выполнена.");
-                    LoadStrategies();
-                }
-                else { mb.ShowErrorResult("Операция не была выполнена."); }
+            IStrategy strategy = new CreateStrategyStrategy();
+            _viewModel.StrategyContext.SetStrategy(strategy);
+        }
+
+        public void ShowSaveDeleteButtonsStrategy()
+        {
+            SaveStrategy.Visibility = Visibility.Visible;
+            CloseStrategy.Visibility = Visibility.Visible;
+        }
+
+        public void CollapseSaveDeleteButtonsStrategy()
+        {
+            SaveStrategy.Visibility = Visibility.Collapsed;
+            CloseStrategy.Visibility = Visibility.Collapsed;
+        }
+
+        private void SaveStrategy_Click(object sender, RoutedEventArgs e)
+        {
+            _viewModel.StrategySaving?.Invoke(_viewModel.CurrentStrategy, EventArgs.Empty);
+            bool ok = _viewModel.StrategyContext.Result;
+
+            MessageBoxes mb = new MessageBoxes();
+            if (ok)
+            {
+                mb.ShowOkResult("Операция выполнена.");
+                LoadStrategies();
+                StrategyScroll.Children.Clear();
+                CollapseSaveDeleteButtonsStrategy();
             }
+            else { mb.ShowErrorResult("Операция не была выполнена."); }
+        }
+
+        private void CloseStrategy_Click(object sender, RoutedEventArgs e)
+        {
+            _viewModel.CurrentStrategy = null;
+            StrategyScroll.Children.Clear();
+            CollapseSaveDeleteButtonsStrategy();
         }
 
         public void LoadStrategies()
@@ -132,6 +165,7 @@ namespace RisksManagementClient.UI.Views
             foreach (Strategy s in _viewModel.MitigationStrategies)
             {
                 StrategyShortInfo uc = new StrategyShortInfo(s);
+                uc.DeleteStrategy += DeleteStrategy;
                 AllStrategies.Children.Add(uc);
             }
 
@@ -139,6 +173,14 @@ namespace RisksManagementClient.UI.Views
             {
                 StrategyShortInfo uc = new StrategyShortInfo(s);
                 AllStrategies.Children.Add(uc);
+            }
+        }
+
+        private void DeleteStrategy(object sender, EventArgs e)
+        {
+            if (((Strategy) sender)?.Id == _viewModel.CurrentStrategy?.Id)
+            {
+                CloseStrategy_Click(null, null);
             }
         }
 

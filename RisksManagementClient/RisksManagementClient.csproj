@@ -118,9 +118,6 @@
     <Compile Include="UI\Windows\PersonInfoWindow.xaml.cs">
       <DependentUpon>PersonInfoWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\Windows\StrategyInfoWindow.xaml.cs">
-      <DependentUpon>StrategyInfoWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -159,10 +156,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UI\Windows\PersonInfoWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\Windows\StrategyInfoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

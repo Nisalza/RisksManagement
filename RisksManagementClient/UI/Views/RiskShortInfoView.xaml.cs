@@ -29,6 +29,8 @@ namespace RisksManagementClient.UI.Views
 
         private MainViewModel _viewModel;
 
+        public EventHandler DeleteRisk;
+
         public RiskShortInfoView(Risk risk)
         {
             InitializeComponent();
@@ -69,6 +71,7 @@ namespace RisksManagementClient.UI.Views
             MessageBoxes mb = new MessageBoxes();
             if (ok)
             {
+                DeleteRisk?.Invoke(_risk, EventArgs.Empty);
                 mb.ShowOkResult("Операция выполнена.");
                 w.MainView.LoadRisks();
             }

@@ -12,7 +12,7 @@ namespace RisksManagementService.Database
     {
         private static SingletonConnection _instance;
 
-        public bool IsOpen { get; private set; }
+        private bool _isOpen;
 
         public SqlConnection Connection { get; private set; }
 
@@ -25,25 +25,25 @@ namespace RisksManagementService.Database
         {
             string cnString = ConfigurationManager.ConnectionStrings["RisksManagementDatabase"].ConnectionString;
             Connection = new SqlConnection(cnString);
-            IsOpen = false;
+            _isOpen = false;
             OpenConnection();
         }
 
         public void OpenConnection()
         {
-            if (!IsOpen)
+            if (!_isOpen)
             {
                 Connection.Open();
-                IsOpen = true;
+                _isOpen = true;
             }
         }
 
         public void CloseConnection()
         {
-            if (IsOpen)
+            if (_isOpen)
             {
                 Connection.Close();
-                IsOpen = false;
+                _isOpen = false;
             }
         }
     }

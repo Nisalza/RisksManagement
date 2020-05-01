@@ -52,7 +52,7 @@
                         <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
                             <StackPanel Name="RisksForMap" Orientation="Vertical"/>
                         </ScrollViewer>
-                        <wpf:CartesianChart Grid.Column="1" Series="{Binding Points}"/>
+                        <wpf:CartesianChart Grid.Column="1" Series="{Binding Points}" Margin="15"/>
                     </Grid>
                 </TabItem.Content>
             </TabItem>
@@ -62,7 +62,8 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
@@ -70,7 +71,12 @@
                         </Grid.RowDefinitions>
 
                         <Button Grid.Row="0" Grid.Column="1" Name="CreateStrategy" HorizontalAlignment="Left" Margin="5" Padding="5,2,5,2" Click="CreateStrategy_OnClick">Создать</Button>
+                        <StackPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top">
+                            <Button Visibility="Collapsed" Name="SaveStrategy" HorizontalAlignment="Left" Margin="5" Padding="5,2,5,2" Click="SaveStrategy_Click">Сохранить</Button>
+                            <Button Visibility="Collapsed" Name="CloseStrategy" HorizontalAlignment="Left" Margin="5" Padding="5,2,5,2" Click="CloseStrategy_Click">Закрыть</Button>
+                        </StackPanel>
                         <StackPanel Grid.Row="1" Grid.Column="1" Name="AllStrategies" />
+                        <Grid Grid.Row="1" Grid.Column="2" Name="StrategyScroll" VerticalAlignment="Top"/>
                     </Grid>
                 </TabItem.Content>
             </TabItem>
