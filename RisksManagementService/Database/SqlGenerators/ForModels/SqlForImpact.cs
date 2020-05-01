@@ -43,9 +43,9 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             SelectStatement statement = QueryFactory.Select() as SelectStatement;
 
             AttributesSupport attributesSupport = new AttributesSupport();
-            string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(Probability));
+            string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(Impact));
 
-            var impactType = attributesSupport.DataDescriptionDatabaseColumn(typeof(Probability), "ImpactType");
+            var impactType = attributesSupport.DataDescriptionDatabaseColumn(typeof(Impact), "ImpactType");
             ConditionClause c1 = new ConditionClause
             {
                 ColumnName = impactType,
@@ -69,7 +69,7 @@ namespace RisksManagementService.Database.SqlGenerators.ForModels
             SelectStatement statement = QueryFactory.Select() as SelectStatement;
 
             AttributesSupport attributesSupport = new AttributesSupport();
-            string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(Probability));
+            string tableName = attributesSupport.DataDescriptionDatabaseTable(typeof(Impact));
 
             statement.SelectBuilder.BuildTableName(tableName);
 

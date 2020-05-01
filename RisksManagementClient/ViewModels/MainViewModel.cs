@@ -465,8 +465,8 @@ namespace RisksManagementClient.ViewModels
             var xMax = _probabilities.Select(t => new {key = t.ProbabilityType.Id, a = t.Assessment}).GroupBy(t => t.key);
             var yMax = _impacts.Select(t => new { key = t.ImpactType.Id, a = t.Assessment }).GroupBy(t => t.key);
 
-            var x = _risks.Select(t => t.Probability.Assessment / yMax.First(q => q.Key == t.ProbabilityType.Id).Max(r => r.a)).ToArray();
-            var y = _risks.Select(t => t.Impact.Assessment / xMax.First(q => q.Key == t.ImpactType.Id).Max(q => q.a)).ToArray();
+            var x = _risks.Select(t => t.Probability.Assessment / xMax.First(q => q.Key == t.ProbabilityType.Id).Max(r => r.a)).ToArray();
+            var y = _risks.Select(t => t.Impact.Assessment / yMax.First(q => q.Key == t.ImpactType.Id).Max(r => r.a)).ToArray();
             var labels = _risks.Select(t => t.Id).ToArray();
 
             var bubbles = Points[0];
