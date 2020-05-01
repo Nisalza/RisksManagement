@@ -16,10 +16,10 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="0">Тип стратегии</Label>
-        <ComboBox Grid.Row="0" Grid.Column="1" Name="StrategyTypes" DisplayMemberPath="Name" ItemsSource="{Binding StrategyTypes}" SelectedItem="{Binding CurrentStrategy.StrategyType, Mode=TwoWay}"/>
+        <Label Grid.Row="0" Grid.Column="0" Margin="0,0,0,5" Style="{DynamicResource BaseLabel}">Тип стратегии</Label>
+        <ComboBox Grid.Row="0" Grid.Column="1" Margin="0,0,0,5" Name="StrategyTypes" DisplayMemberPath="Name" ItemsSource="{Binding StrategyTypes}" SelectedItem="{Binding CurrentStrategy.StrategyType, Mode=TwoWay}"/>
 
-        <Label Grid.Row="1" Grid.Column="0">Описание стратегии</Label>
-        <TextBox Grid.Row="1" Grid.Column="1" Name="StrategyDescription" TextWrapping="Wrap" Text="{Binding CurrentStrategy.Description, Mode=TwoWay}"/>
+        <Label Grid.Row="1" Grid.Column="0" Margin="0,0,0,5" Style="{DynamicResource BaseLabel}">Описание стратегии</Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="0,0,0,5" Style="{DynamicResource BaseTextBox}" Name="StrategyDescription" TextWrapping="Wrap" Text="{Binding CurrentStrategy.Description, Mode=TwoWay}"/>
     </Grid>
 </UserControl>

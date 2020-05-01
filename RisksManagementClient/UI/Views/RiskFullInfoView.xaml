@@ -26,69 +26,69 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15"/>
-            <ColumnDefinition Name="Labels" Width="180"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Name="Labels" Width="230"/>
             <ColumnDefinition Name="Data" Width="300"/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="1">Номер</Label>
-        <TextBox Grid.Row="0" Grid.Column="2" Name="RiskId" IsReadOnly="True" Text="{Binding CurrentRisk.Id}"/>
+        <Label Grid.Row="0" Grid.Column="1" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Номер</Label>
+        <TextBox Grid.Row="0" Grid.Column="2" Name="RiskId" IsReadOnly="True" Text="{Binding CurrentRisk.Id}" Style="{DynamicResource BaseTextBox}" Margin="0,0,0,5"/>
 
-        <Label Grid.Row="1" Grid.Column="0">*</Label>
-        <Label Grid.Row="1" Grid.Column="1">Наименование</Label>
-        <TextBox Grid.Row="1" Grid.Column="2" Name="RiskName" Text="{Binding CurrentRisk.Name, Mode=TwoWay}"/>
+        <Label Grid.Row="1" Grid.Column="0" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">*</Label>
+        <Label Grid.Row="1" Grid.Column="1" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Наименование</Label>
+        <TextBox Grid.Row="1" Grid.Column="2" Name="RiskName" Text="{Binding CurrentRisk.Name, Mode=TwoWay}" Style="{DynamicResource BaseTextBox}" Margin="0,0,0,5"/>
 
-        <Label Grid.Row="2" Grid.Column="1">Описание</Label>
-        <TextBox Grid.Row="2" Grid.Column="2" Name="RiskDescription" Text="{Binding CurrentRisk.Description, Mode=TwoWay}"/>
+        <Label Grid.Row="2" Grid.Column="1" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Описание</Label>
+        <TextBox Grid.Row="2" Grid.Column="2" Name="RiskDescription" Text="{Binding CurrentRisk.Description, Mode=TwoWay}" Style="{DynamicResource BaseTextBox}" Margin="0,0,0,5"/>
 
-        <Label Grid.Row="3" Grid.Column="0">*</Label>
-        <Label Grid.Row="3" Grid.Column="1">Тип вероятности</Label>
-        <ComboBox Grid.Row="3" Grid.Column="2" Name="RiskPt" DisplayMemberPath="Name" ItemsSource="{Binding ProbabilityTypes}" SelectedItem="{Binding CurrentRisk.ProbabilityType, Mode=TwoWay}" SelectionChanged="RiskPt_SelectionChanged"/>
+        <Label Grid.Row="3" Grid.Column="0" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">*</Label>
+        <Label Grid.Row="3" Grid.Column="1" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Тип вероятности</Label>
+        <ComboBox Grid.Row="3" Grid.Column="2" Name="RiskPt" DisplayMemberPath="Name" Margin="0,0,0,5" ItemsSource="{Binding ProbabilityTypes}" SelectedItem="{Binding CurrentRisk.ProbabilityType, Mode=TwoWay}" SelectionChanged="RiskPt_SelectionChanged"/>
 
-        <Label Grid.Row="4" Grid.Column="0">*</Label>
-        <Label Grid.Row="4" Grid.Column="1">Вероятность</Label>
-        <ComboBox Grid.Row="4" Grid.Column="2" Name="RiskProb" DisplayMemberPath="Name" ItemsSource="{Binding Probabilities}" SelectedItem="{Binding CurrentRisk.Probability, Mode=TwoWay}"/>
+        <Label Grid.Row="4" Grid.Column="0" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">*</Label>
+        <Label Grid.Row="4" Grid.Column="1" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Вероятность</Label>
+        <ComboBox Grid.Row="4" Grid.Column="2" Name="RiskProb" DisplayMemberPath="Name" Margin="0,0,0,5" ItemsSource="{Binding Probabilities}" SelectedItem="{Binding CurrentRisk.Probability, Mode=TwoWay}"/>
 
-        <Label Grid.Row="5" Grid.Column="0">*</Label>
-        <Label Grid.Row="5" Grid.Column="1">Тип угрозы</Label>
-        <ComboBox Grid.Row="5" Grid.Column="2" Name="RiskIt" DisplayMemberPath="Name" ItemsSource="{Binding ImpactTypes}" SelectedItem="{Binding CurrentRisk.ImpactType, Mode=TwoWay}" SelectionChanged="RiskIt_SelectionChanged"/>
+        <Label Grid.Row="5" Grid.Column="0" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">*</Label>
+        <Label Grid.Row="5" Grid.Column="1" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Тип угрозы</Label>
+        <ComboBox Grid.Row="5" Grid.Column="2" Name="RiskIt" DisplayMemberPath="Name" Margin="0,0,0,5" ItemsSource="{Binding ImpactTypes}" SelectedItem="{Binding CurrentRisk.ImpactType, Mode=TwoWay}" SelectionChanged="RiskIt_SelectionChanged"/>
 
-        <Label Grid.Row="6" Grid.Column="0">*</Label>
-        <Label Grid.Row="6" Grid.Column="1">Угроза</Label>
-        <ComboBox Grid.Row="6" Grid.Column="2" Name="RiskImpact" DisplayMemberPath="Name" ItemsSource="{Binding Impacts}" SelectedItem="{Binding CurrentRisk.Impact, Mode=TwoWay}"/>
+        <Label Grid.Row="6" Grid.Column="0" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">*</Label>
+        <Label Grid.Row="6" Grid.Column="1" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Угроза</Label>
+        <ComboBox Grid.Row="6" Grid.Column="2" Name="RiskImpact" DisplayMemberPath="Name" Margin="0,0,0,5" ItemsSource="{Binding Impacts}" SelectedItem="{Binding CurrentRisk.Impact, Mode=TwoWay}"/>
 
-        <Label Grid.Row="7" Grid.Column="0">*</Label>
-        <Label Grid.Row="7" Grid.Column="1">Приоритет</Label>
-        <ComboBox Grid.Row="7" Grid.Column="2" Name="RiskPriority" DisplayMemberPath="Name" ItemsSource="{Binding Priorities}" SelectedItem="{Binding CurrentRisk.Priority, Mode=TwoWay}"/>
+        <Label Grid.Row="7" Grid.Column="0" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">*</Label>
+        <Label Grid.Row="7" Grid.Column="1" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Приоритет</Label>
+        <ComboBox Grid.Row="7" Grid.Column="2" Name="RiskPriority" DisplayMemberPath="Name" Margin="0,0,0,5" ItemsSource="{Binding Priorities}" SelectedItem="{Binding CurrentRisk.Priority, Mode=TwoWay}"/>
 
-        <Label Grid.Row="8" Grid.Column="0">*</Label>
-        <Label Grid.Row="8" Grid.Column="1">Ответственный</Label>
-        <ComboBox Grid.Row="8" Grid.Column="2" Name="RiskRp" DisplayMemberPath="Name" ItemsSource="{Binding ResponsiblePersons}" SelectedItem="{Binding CurrentRisk.ResponsiblePerson, Mode=TwoWay}"/>
+        <Label Grid.Row="8" Grid.Column="0" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">*</Label>
+        <Label Grid.Row="8" Grid.Column="1" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Ответственный</Label>
+        <ComboBox Grid.Row="8" Grid.Column="2" Name="RiskRp" DisplayMemberPath="Name" Margin="0,0,0,5" ItemsSource="{Binding ResponsiblePersons}" SelectedItem="{Binding CurrentRisk.ResponsiblePerson, Mode=TwoWay}"/>
 
-        <Label Grid.Row="9" Grid.Column="1">План смягчения последствий</Label>
-        <ComboBox Grid.Row="9" Grid.Column="2" Name="RiskMs" DisplayMemberPath="Description" ItemsSource="{Binding MitigationStrategies}" SelectedItem="{Binding CurrentRisk.MitigationStrategy, Mode=TwoWay}"/>
+        <Label Grid.Row="9" Grid.Column="1" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">План смягчения последствий</Label>
+        <ComboBox Grid.Row="9" Grid.Column="2" Name="RiskMs" DisplayMemberPath="Description" Margin="0,0,0,5" ItemsSource="{Binding MitigationStrategies}" SelectedItem="{Binding CurrentRisk.MitigationStrategy, Mode=TwoWay}"/>
 
-        <Label Grid.Row="10" Grid.Column="1">План предотвращения</Label>
-        <ComboBox Grid.Row="10" Grid.Column="2" Name="RiskCs" DisplayMemberPath="Description" ItemsSource="{Binding ContingencyStrategies}" SelectedItem="{Binding CurrentRisk.ContingencyStrategy, Mode=TwoWay}"/>
+        <Label Grid.Row="10" Grid.Column="1" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">План предотвращения</Label>
+        <ComboBox Grid.Row="10" Grid.Column="2" Name="RiskCs" DisplayMemberPath="Description" Margin="0,0,0,5" ItemsSource="{Binding ContingencyStrategies}" SelectedItem="{Binding CurrentRisk.ContingencyStrategy, Mode=TwoWay}"/>
 
-        <Label Grid.Row="11" Grid.Column="0">*</Label>
-        <Label Grid.Row="11" Grid.Column="1">Актуальность</Label>
-        <ComboBox Grid.Row="11" Grid.Column="2" Name="RiskRelevance" DisplayMemberPath="Name" ItemsSource="{Binding Relevances}" SelectedItem="{Binding CurrentRisk.IsRelevance, Mode=TwoWay}"/>
+        <Label Grid.Row="11" Grid.Column="0" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">*</Label>
+        <Label Grid.Row="11" Grid.Column="1" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Актуальность</Label>
+        <ComboBox Grid.Row="11" Grid.Column="2" Name="RiskRelevance" DisplayMemberPath="Name" Margin="0,0,0,5" ItemsSource="{Binding Relevances}" SelectedItem="{Binding CurrentRisk.IsRelevance, Mode=TwoWay}"/>
 
-        <Label Grid.Row="12" Grid.Column="1">Причина</Label>
-        <ComboBox Grid.Row="12" Grid.Column="2" Name="RiskCause" DisplayMemberPath="Name" ItemsSource="{Binding RiskCauses}" SelectedItem="{Binding CurrentRisk.RiskCause, Mode=TwoWay}"/>
+        <Label Grid.Row="12" Grid.Column="1" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Причина</Label>
+        <ComboBox Grid.Row="12" Grid.Column="2" Name="RiskCause" DisplayMemberPath="Name" Margin="0,0,0,5" ItemsSource="{Binding RiskCauses}" SelectedItem="{Binding CurrentRisk.RiskCause, Mode=TwoWay}"/>
 
-        <Label Grid.Row="13" Grid.Column="1">Описание угрозы</Label>
-        <TextBox Grid.Row="13" Grid.Column="2" Name="RiskDamage" Text="{Binding CurrentRisk.Damage, Mode=TwoWay}"/>
+        <Label Grid.Row="13" Grid.Column="1" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Описание угрозы</Label>
+        <TextBox Grid.Row="13" Grid.Column="2" Name="RiskDamage" Margin="0,0,0,5" Text="{Binding CurrentRisk.Damage, Mode=TwoWay}" Style="{DynamicResource BaseTextBox}"/>
 
-        <Label Grid.Row="14" Grid.Column="0">*</Label>
-        <Label Grid.Row="14" Grid.Column="1">Проект</Label>
-        <ComboBox Grid.Row="14" Grid.Column="2" Name="RiskProject" DisplayMemberPath="Name" ItemsSource="{Binding Projects}" SelectedItem="{Binding CurrentRisk.Project, Mode=TwoWay}" SelectionChanged="RiskProject_SelectionChanged"/>
+        <Label Grid.Row="14" Grid.Column="0" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">*</Label>
+        <Label Grid.Row="14" Grid.Column="1" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Проект</Label>
+        <ComboBox Grid.Row="14" Grid.Column="2" Name="RiskProject" Margin="0,0,0,5" DisplayMemberPath="Name" ItemsSource="{Binding Projects}" SelectedItem="{Binding CurrentRisk.Project, Mode=TwoWay}" SelectionChanged="RiskProject_SelectionChanged"/>
 
-        <Label Grid.Row="15" Grid.Column="1">Срок выполнения</Label>
-        <TextBox Grid.Row="15" Grid.Column="2" Name="RiskDeadline" Text="{Binding CurrentRisk.Deadline, Mode=TwoWay}"/>
+        <Label Grid.Row="15" Grid.Column="1" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Срок выполнения</Label>
+        <TextBox Grid.Row="15" Grid.Column="2" Name="RiskDeadline" Margin="0,0,0,5" Text="{Binding CurrentRisk.Deadline, Mode=TwoWay}" Style="{DynamicResource BaseTextBox}"/>
 
-        <Label Grid.Row="16" Grid.Column="1">Классификация</Label>
+        <Label Grid.Row="16" Grid.Column="1" Style="{DynamicResource BaseLabel}">Классификация</Label>
         <ComboBox Grid.Row="16" Grid.Column="2" Name="RiskClassification" DisplayMemberPath="Name" ItemsSource="{Binding Classifications}" SelectedItem="{Binding CurrentRisk.Classification, Mode=TwoWay}"/>
     </Grid>
 </UserControl>

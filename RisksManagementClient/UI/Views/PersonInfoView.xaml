@@ -12,36 +12,36 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="30"/>
-            <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="250"/>
         </Grid.ColumnDefinitions>
 
-        <Label Grid.Row="0" Grid.Column="1" Width="Auto">ФИО</Label>
-        <TextBox Name="UserName" Grid.Row="0" Grid.Column="2" IsReadOnly="True"/>
+        <Label Grid.Row="0" Grid.Column="1" Width="Auto" Margin="0,0,0,5" Style="{DynamicResource BaseLabel}">ФИО</Label>
+        <TextBox Name="UserName" Grid.Row="0" Grid.Column="2" IsReadOnly="True" Margin="0,0,0,5" Style="{DynamicResource BaseTextBox}"/>
 
-        <Border Grid.Row="1" Grid.Column="0">
+        <Border Grid.Row="1" Grid.Column="0" Margin="0,0,0,5">
             <Border.Background>
                 <ImageBrush ImageSource="/RisksManagementClient;component/Img/phone.png" Stretch="Uniform"/>
             </Border.Background>
         </Border>
-        <Label Grid.Row="1" Grid.Column="1" Width="Auto">Телефон</Label>
-        <TextBox Name="UserPhone" Grid.Row="1" Grid.Column="2" IsReadOnly="True"/>
+        <Label Grid.Row="1" Grid.Column="1" Width="Auto" Margin="0,0,0,5" Style="{DynamicResource BaseLabel}">Телефон</Label>
+        <TextBox Name="UserPhone" Grid.Row="1" Grid.Column="2" IsReadOnly="True" Margin="0,0,0,5" Style="{DynamicResource BaseTextBox}"/>
 
-        <Border Grid.Row="2" Grid.Column="0">
+        <Border Grid.Row="2" Grid.Column="0" Margin="0,0,0,5">
             <Border.Background>
                 <ImageBrush ImageSource="/RisksManagementClient;component/Img/mail.png" Stretch="Uniform"/>
             </Border.Background>
         </Border>
-        <Label Grid.Row="2" Grid.Column="1" Width="Auto">Электронная почта</Label>
-        <TextBox Name="UserEmail" Grid.Row="2" Grid.Column="2" IsReadOnly="True"/>
+        <Label Grid.Row="2" Grid.Column="1" Width="Auto" Margin="0,0,0,5" Style="{DynamicResource BaseLabel}">Электронная почта</Label>
+        <TextBox Name="UserEmail" Grid.Row="2" Grid.Column="2" IsReadOnly="True" Margin="0,0,0,5" Style="{DynamicResource BaseTextBox}"/>
 
-        <Border Grid.Row="3" Grid.Column="0">
+        <Border Grid.Row="3" Grid.Column="0" Margin="0,0,0,5">
             <Border.Background>
                 <ImageBrush ImageSource="/RisksManagementClient;component/Img/telegram.png" Stretch="Uniform"/>
             </Border.Background>
         </Border>
-        <Label Grid.Row="3" Grid.Column="1" Width="Auto">Телеграм</Label>
-        <TextBox Name="UserTelegram" Grid.Row="3" Grid.Column="2" IsReadOnly="True"/>
+        <Label Grid.Row="3" Grid.Column="1" Width="Auto" Style="{DynamicResource BaseLabel}">Телеграм</Label>
+        <TextBox Name="UserTelegram" Grid.Row="3" Grid.Column="2" IsReadOnly="True" Style="{DynamicResource BaseTextBox}"/>
     </Grid>
 </UserControl>

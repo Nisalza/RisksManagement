@@ -195,10 +195,11 @@ namespace RisksManagementClient.UI.Views
             RisksForMap.Children.Clear();
             foreach (Risk r in _viewModel.Risks)
             {
-                TextBox t = new TextBox
+                Label t = new Label
                 {
-                    Text = $"({r.Id}) {r.Name}",
-                    IsReadOnly = true
+                    Content = $"({r.Id}) {r.Name}",
+                    Style = Application.Current.FindResource("BaseLabel") as Style,
+                    Margin = new Thickness(0,0,0,5)
                 };
                 RisksForMap.Children.Add(t);
             }

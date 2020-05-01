@@ -457,7 +457,7 @@ namespace RisksManagementClient.ViewModels
                 LabelPoint = p => $"{p.Weight}",
                 Fill = Brushes.White,
                 FontSize = 16,
-                ToolTip = Risks.Select(x => x.Name)
+                Title = "ID: "
             };
 
             Points = new SeriesCollection {ss};

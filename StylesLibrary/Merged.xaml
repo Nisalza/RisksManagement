@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:StylesLibrary">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/StylesLibrary;component/Colors.xaml" />
+        <ResourceDictionary Source="/StylesLibrary;component/Fonts.xaml" />
+        <ResourceDictionary Source="/StylesLibrary;component/Buttons.xaml" />
+        <ResourceDictionary Source="/StylesLibrary;component/Labels.xaml" />
+        <ResourceDictionary Source="/StylesLibrary;component/TextBoxes.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

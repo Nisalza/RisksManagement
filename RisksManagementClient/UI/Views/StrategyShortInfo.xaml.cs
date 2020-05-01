@@ -39,8 +39,8 @@ namespace RisksManagementClient.UI.Views
 
         private void StrategyFullInfo_OnLoaded(object sender, RoutedEventArgs e)
         {
-            StrategyDescription.Text = _strategy.Description;
-            StrategyType.Text = _strategy.StrategyType.Name;
+            StrategyDescription.Content = _strategy.Description;
+            StrategyType.Content = _strategy.StrategyType.Name;
             _viewModel = DataContext as MainViewModel;
         }
 

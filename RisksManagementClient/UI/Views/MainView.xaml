@@ -12,7 +12,7 @@
     </UserControl.DataContext>
 
     <Grid>
-        <TabControl Name="MainTabControl">
+        <TabControl Name="MainTabControl" FontSize="{DynamicResource Small}" FontFamily="{DynamicResource BaseFont}">
             <TabItem Name="RisksTab">
                 <TabItem.Header>Риски</TabItem.Header>
                 <TabItem.Content>
@@ -28,14 +28,14 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <Button Name="CreateRisk" Grid.Row="0" HorizontalAlignment="Left" Margin="5" Padding="5,2,5,2" Click="CreateRisk_Click">Создать</Button>
+                            <Button Name="CreateRisk" Grid.Row="0" HorizontalAlignment="Left" Margin="5" Padding="5,2,5,2" Click="CreateRisk_Click" Style="{DynamicResource BaseButton}">Создать</Button>
                             <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="5">
                                 <StackPanel Name="AllRisks" Orientation="Vertical"/>
                             </ScrollViewer>
                         </Grid>
                         <StackPanel Grid.Column="2" VerticalAlignment="Top" Orientation="Horizontal">
-                            <Button Name="SaveCurrentRisk" Margin="0,0,10,0" Visibility="Collapsed" Click="SaveCurrentRisk_OnClick">Сохранить</Button>
-                            <Button Name="CloseCurrentRisk" Visibility="Collapsed" Click="CloseCurrentRisk_Click">Закрыть</Button>
+                            <Button Style="{DynamicResource BaseButton}" Name="SaveCurrentRisk" Margin="0,0,10,0" Visibility="Collapsed" Click="SaveCurrentRisk_OnClick">Сохранить</Button>
+                            <Button Style="{DynamicResource BaseButton}" Name="CloseCurrentRisk" Visibility="Collapsed" Click="CloseCurrentRisk_Click">Закрыть</Button>
                         </StackPanel>
                         <ScrollViewer Name="RiskScroll" Grid.Column="2" Margin="0,30,0,0" VerticalScrollBarVisibility="Auto"/>
                     </Grid>
@@ -49,7 +49,7 @@
                             <ColumnDefinition Width="Auto" MaxWidth="350"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto">
+                        <ScrollViewer Grid.Column="0" VerticalScrollBarVisibility="Auto" Margin="0,15,0,0">
                             <StackPanel Name="RisksForMap" Orientation="Vertical"/>
                         </ScrollViewer>
                         <wpf:CartesianChart Name="CartesianChart" Grid.Column="1" Series="{Binding Points}" Margin="15" RenderTransformOrigin="0,1" ScrollMode="None">
@@ -92,10 +92,10 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
-                        <Button Grid.Row="0" Grid.Column="1" Name="CreateStrategy" HorizontalAlignment="Left" Margin="5" Padding="5,2,5,2" Click="CreateStrategy_OnClick">Создать</Button>
+                        <Button Grid.Row="0" Grid.Column="1" Name="CreateStrategy" HorizontalAlignment="Left" Margin="5" Padding="5,2,5,2" Click="CreateStrategy_OnClick" Style="{DynamicResource BaseButton}">Создать</Button>
                         <StackPanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Top">
-                            <Button Visibility="Collapsed" Name="SaveStrategy" HorizontalAlignment="Left" Margin="5" Padding="5,2,5,2" Click="SaveStrategy_Click">Сохранить</Button>
-                            <Button Visibility="Collapsed" Name="CloseStrategy" HorizontalAlignment="Left" Margin="5" Padding="5,2,5,2" Click="CloseStrategy_Click">Закрыть</Button>
+                            <Button Style="{DynamicResource BaseButton}" Visibility="Collapsed" Name="SaveStrategy" HorizontalAlignment="Left" Margin="5" Padding="5,2,5,2" Click="SaveStrategy_Click">Сохранить</Button>
+                            <Button Style="{DynamicResource BaseButton}" Visibility="Collapsed" Name="CloseStrategy" HorizontalAlignment="Left" Margin="5" Padding="5,2,5,2" Click="CloseStrategy_Click">Закрыть</Button>
                         </StackPanel>
                         <StackPanel Grid.Row="1" Grid.Column="1" Name="AllStrategies" />
                         <Grid Grid.Row="1" Grid.Column="2" Name="StrategyScroll" VerticalAlignment="Top"/>
@@ -105,10 +105,10 @@
             <TabItem Name="AccountTab">
                 <TabItem.Header>Профиль</TabItem.Header>
                 <TabItem.Content>
-                    <views:AccountView/>
+                    <views:AccountView Margin="0,15,0,0"/>
                 </TabItem.Content>
             </TabItem>
-            <TabItem Name="ReportsTab">
+            <TabItem Name="ReportsTab" Visibility="Collapsed">
                 <TabItem.Header>Отчёты</TabItem.Header>
                 <TabItem.Content>
                     <TextBox/>

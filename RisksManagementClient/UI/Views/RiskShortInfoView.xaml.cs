@@ -40,12 +40,12 @@ namespace RisksManagementClient.UI.Views
         private void RiskShortInfoView_OnLoaded(object sender, RoutedEventArgs e)
         {
             _viewModel = DataContext as MainViewModel;
-            RiskId.Text = _risk.Id.ToString();
-            RiskName.Text = _risk.Name;
-            RiskDescription.Text = _risk.Description;
-            RiskProject.Text = _risk.Project.Name;
-            RiskResponsiblePerson.Text = _risk.ResponsiblePerson.Name;
-            RiskValue.Text = _risk.Value.ToString();
+            RiskId.Content = _risk.Id.ToString();
+            RiskName.Content = _risk.Name;
+            RiskDescription.Content = _risk.Description;
+            RiskProject.Content = _risk.Project.Name;
+            RiskResponsiblePerson.Content = _risk.ResponsiblePerson.Name;
+            RiskValue.Content = _risk.Value.ToString();
         }
 
         private void ShowButton_Click(object sender, RoutedEventArgs e)
