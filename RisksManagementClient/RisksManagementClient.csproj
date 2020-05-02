@@ -103,6 +103,9 @@
     <Compile Include="UI\Views\RiskFullInfoView.xaml.cs">
       <DependentUpon>RiskFullInfoView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Views\RisksFilter.xaml.cs">
+      <DependentUpon>RisksFilter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Views\RiskShortInfoView.xaml.cs">
       <DependentUpon>RiskShortInfoView.xaml</DependentUpon>
     </Compile>
@@ -156,6 +159,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Views\RiskFullInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Views\RisksFilter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
