@@ -34,6 +34,12 @@ namespace RisksManagementClient.UI.Views
         {
             InitializeComponent();
             _viewModel = DataContext as MainViewModel;
+            _viewModel.GetRisksEvent += GetRisksEvent;
+        }
+
+        private void GetRisksEvent(object sender, EventArgs e)
+        {
+            LoadRisks();
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)

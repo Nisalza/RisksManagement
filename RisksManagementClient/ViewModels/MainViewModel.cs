@@ -293,6 +293,8 @@ namespace RisksManagementClient.ViewModels
 
         public EventHandler StrategySaving;
 
+        public EventHandler GetRisksEvent;
+
         #endregion
 
         #region Методы событий
@@ -368,10 +370,14 @@ namespace RisksManagementClient.ViewModels
             _userProjects = Client.GetUsersWithProjects();
         }
 
-        private void GetRisks()
+        public void GetRisks(bool updateView = true)
         {
             Risks = Client.GetRisks();
             GetPoints();
+            if (updateView)
+            {
+                GetRisksEvent?.Invoke(null, null);
+            }
         }
 
         private void GetPriorities()
@@ -457,7 +463,7 @@ namespace RisksManagementClient.ViewModels
                 LabelPoint = p => $"{p.Weight}",
                 Fill = Brushes.White,
                 FontSize = 16,
-                Title = "ID: "
+                Title = "Риск "
             };
 
             Points = new SeriesCollection {ss};

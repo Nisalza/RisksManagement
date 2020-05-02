@@ -7,7 +7,6 @@
         <Setter Property="FontSize" Value="{StaticResource Regular}" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="MinWidth" Value="15"/>
-        <Setter Property="Height" Value="{Binding Width}"/>
 
         <Setter Property="Template">
             <Setter.Value>

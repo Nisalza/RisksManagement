@@ -16,13 +16,13 @@
             <TabItem Name="RisksTab">
                 <TabItem.Header>Риски</TabItem.Header>
                 <TabItem.Content>
-                    <Grid>
+                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Name="FilterColumn" Width="Auto"/>
-                            <ColumnDefinition Name="AllRisksColumn" Width="2*"/>
+                            <ColumnDefinition Name="AllRisksColumn" Width="*"/>
                             <ColumnDefinition Name="RiskColumn" Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <!--todo Сделать фильтр-->
+                        <views:RisksFilter Grid.Column="0"/>
                         <Grid Column="1">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>

@@ -4,54 +4,56 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RisksManagementClient.UI.Views"
-             mc:Ignorable="d">
+             mc:Ignorable="d" Loaded="RisksFilter_OnLoaded" >
     <Grid Margin="5,0,5,0">
-        <StackPanel>
-            <Grid Margin="0,0,0,5">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Label Style="{DynamicResource BaseLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0">Проекты:</Label>
-                <ScrollViewer Grid.Row="1" MaxHeight="100" HorizontalScrollBarVisibility="Auto">
-                    <StackPanel Name="ProjectsFilter"/>
-                </ScrollViewer>
-            </Grid>
-            <Grid Margin="0,0,0,5">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Label Style="{DynamicResource BaseLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0">Подразделения:</Label>
-                <ScrollViewer Grid.Row="1" MaxHeight="100" HorizontalScrollBarVisibility="Auto">
-                    <StackPanel Name="DepartmentsFilter"/>
-                </ScrollViewer>
-            </Grid>
-            <Grid Margin="0,0,0,5">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Label Style="{DynamicResource BaseLabel}" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0">Под моей ответственностью:</Label>
-                <RadioButton Grid.Row="1" Grid.Column="0" Name="ResponsibilityYes"  GroupName="Responsibility" FontSize="{DynamicResource Regular}" FontFamily="{DynamicResource BaseFont}">Да</RadioButton>
-                <RadioButton Grid.Row="1" Grid.Column="1" Name="ResponsibilityNo" GroupName="Responsibility" FontSize="{DynamicResource Regular}" FontFamily="{DynamicResource BaseFont}">Нет</RadioButton>
-            </Grid>
-            <Grid Margin="0,0,0,10">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Label Style="{DynamicResource BaseLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0">Классификация:</Label>
-                <ScrollViewer Grid.Row="1" MaxHeight="100" HorizontalScrollBarVisibility="Auto">
-                    <StackPanel Name="ClassificationFilter"/>
-                </ScrollViewer>
-            </Grid>
-            <Button Margin="0,0,0,10" Name="ApplyRisksFilter" HorizontalAlignment="Center" Style="{DynamicResource BaseButton}">Применить</Button>
-            <Button Margin="0,0,0,5" Name="ResetRisksFilter" HorizontalAlignment="Center" Style="{DynamicResource BaseButton}" Width="{Binding ElementName=ApplyRisksFilter, Path=Width}">Сбросить</Button>
-        </StackPanel>
+        <Border BorderBrush="{DynamicResource DarkBaseBrush}" Padding="0,0,10,0" BorderThickness="0,0,1,0">
+            <StackPanel>
+                <Grid Margin="0,0,0,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Style="{DynamicResource BaseLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0">Проекты:</Label>
+                    <ScrollViewer Grid.Row="1" MaxHeight="150" HorizontalScrollBarVisibility="Auto">
+                        <StackPanel Name="ProjectsFilter" HorizontalAlignment="Stretch"/>
+                    </ScrollViewer>
+                </Grid>
+                <Grid Margin="0,0,0,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Style="{DynamicResource BaseLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0">Подразделения:</Label>
+                    <ScrollViewer Grid.Row="1" MaxHeight="150" HorizontalScrollBarVisibility="Auto">
+                        <StackPanel Name="DepartmentsFilter" HorizontalAlignment="Stretch"/>
+                    </ScrollViewer>
+                </Grid>
+                <Grid Margin="0,0,0,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Style="{DynamicResource BaseLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0">Классификация:</Label>
+                    <ScrollViewer Grid.Row="1" MaxHeight="150" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
+                        <StackPanel Name="ClassificationFilter"/>
+                    </ScrollViewer>
+                </Grid>
+                <Grid Margin="0,0,0,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Style="{DynamicResource BaseLabel}" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="0">Под моей ответственностью:</Label>
+                    <CheckBox IsChecked="true" Margin="0,0,15,0" Grid.Row="1" Grid.Column="0" Name="ResponsibilityYes"  FontSize="{DynamicResource Small}" FontFamily="{DynamicResource BaseFont}" HorizontalAlignment="Left">Да</CheckBox>
+                    <CheckBox IsChecked="true" Grid.Row="1" Grid.Column="1" Name="ResponsibilityNo" FontSize="{DynamicResource Small}" FontFamily="{DynamicResource BaseFont}" HorizontalAlignment="Left">Нет</CheckBox>
+                </Grid>
+                <Button Margin="0,0,0,10" Name="ApplyRisksFilter" HorizontalAlignment="Center" Style="{DynamicResource BaseButton}" Click="ApplyRisksFilter_Click">Применить</Button>
+                <Button Margin="0,0,0,5" Name="ResetRisksFilter" HorizontalAlignment="Center" Style="{DynamicResource BaseButton}" Width="{Binding ElementName=ApplyRisksFilter, Path=Width}" Click="ResetRisksFilter_OnClick">Сбросить</Button>
+            </StackPanel>
+        </Border>
     </Grid>
 </UserControl>
