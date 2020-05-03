@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="RisksManagementClient.UI.Views.StrategiesFilter"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RisksManagementClient.UI.Views"
+             mc:Ignorable="d" Loaded="StrategiesFilter_OnLoaded">
+    <Grid Margin="5,0,5,0">
+        <Border BorderBrush="{DynamicResource DarkBaseBrush}" Padding="0,0,10,0" BorderThickness="0,0,1,0">
+            <StackPanel>
+                <Grid Margin="0,0,0,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0" Style="{DynamicResource BaseLabel}" HorizontalAlignment="Left">Тип стратегии:</Label>
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" MaxHeight="500">
+                        <StackPanel Name="StrategyTypesFilter"/>
+                    </ScrollViewer>
+                </Grid>
+                <Button Margin="0,0,0,10" Name="ApplyStrategiesFilter" HorizontalAlignment="Center" Style="{DynamicResource BaseButton}" Click="ApplyStrategiesFilter_Click">Применить</Button>
+                <Button Margin="0,0,0,5" Name="ResetStrategiesFilter" HorizontalAlignment="Center" Style="{DynamicResource BaseButton}" Width="{Binding ElementName=ApplyRisksFilter, Path=Width}" Click="ResetStrategiesFilter_Click">Сбросить</Button>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

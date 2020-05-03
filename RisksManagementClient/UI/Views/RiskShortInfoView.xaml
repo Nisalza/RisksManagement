@@ -5,43 +5,47 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RisksManagementClient.UI.Views"
              Loaded="RiskShortInfoView_OnLoaded">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Name="Data" Width="*" MaxWidth="500"/>
-        </Grid.ColumnDefinitions>
+    <Grid Margin="10,0,10,10">
+        <Border BorderBrush="{DynamicResource DarkBaseBrush}" Padding="0,0,0,10" BorderThickness="0,1,0,0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Name="Data" Width="*" MaxWidth="500"/>
+                </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Orientation="Horizontal" Margin="5">
-            <Button Name="ShowButton" Content="Радектировать" Margin="0,0,5,0" Click="ShowButton_Click" Style="{DynamicResource BaseButton}"/>
-            <Button Name="DuplicateButton" Content="Дублировать" Margin="0,0,5,0" Click="DuplicateButton_Click" Style="{DynamicResource BaseButton}"/>
-            <Button Name="DeleteButton" Content="Удалить" Click="DeleteButton_Click" Style="{DynamicResource BaseButton}"/>
-        </StackPanel>
+                <StackPanel Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Orientation="Horizontal" Margin="5">
+                    <Button Name="ShowButton" Content="Радактировать" Margin="0,0,5,0" Click="ShowButton_Click" Style="{DynamicResource BaseButton}"/>
+                    <Button Name="DuplicateButton" Content="Дублировать" Margin="0,0,5,0" Click="DuplicateButton_Click" Style="{DynamicResource BaseButton}"/>
+                    <Button Name="DeleteButton" Content="Удалить" Click="DeleteButton_Click" Style="{DynamicResource BaseButton}"/>
+                </StackPanel>
 
-        <Label Grid.Row="1" Grid.Column="0" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Номер</Label>
-        <Label Name="RiskId" Grid.Row="1" Grid.Column="1" Margin="0,0,0,5" Style="{DynamicResource BaseLabel}"/>
+                <Label Grid.Row="1" Grid.Column="0" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Номер</Label>
+                <Label Name="RiskId" Grid.Row="1" Grid.Column="1" Margin="0,0,0,5" Style="{DynamicResource BaseLabel}"/>
 
-        <Label Grid.Row="2" Grid.Column="0" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Наименование</Label>
-        <Label Name="RiskName" Grid.Row="2" Grid.Column="1" Margin="0,0,0,5" Style="{DynamicResource BaseLabel}"/>
+                <Label Grid.Row="2" Grid.Column="0" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Наименование</Label>
+                <Label Name="RiskName" Grid.Row="2" Grid.Column="1" Margin="0,0,0,5" Style="{DynamicResource BaseLabel}"/>
 
-        <Label Grid.Row="3" Grid.Column="0" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Описание</Label>
-        <Label Name="RiskDescription" Grid.Row="3" Grid.Column="1" Margin="0,0,0,5" Style="{DynamicResource BaseLabel}"/>
+                <Label Grid.Row="3" Grid.Column="0" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Описание</Label>
+                <Label Name="RiskDescription" Grid.Row="3" Grid.Column="1" Margin="0,0,0,5" Style="{DynamicResource BaseLabel}"/>
 
-        <Label Grid.Row="4" Grid.Column="0" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Проект</Label>
-        <Label Name="RiskProject" Grid.Row="4" Grid.Column="1" Margin="0,0,0,5" Style="{DynamicResource BaseLabel}"/>
+                <Label Grid.Row="4" Grid.Column="0" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Проект</Label>
+                <Label Name="RiskProject" Grid.Row="4" Grid.Column="1" Margin="0,0,0,5" Style="{DynamicResource BaseLabel}"/>
 
-        <Label Grid.Row="5" Grid.Column="0" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Ответственный</Label>
-        <Label Name="RiskResponsiblePerson" Grid.Row="5" Grid.Column="1" Margin="0,0,0,5" Style="{DynamicResource BaseLabel}"/>
+                <Label Grid.Row="5" Grid.Column="0" Style="{DynamicResource BaseLabel}" Margin="0,0,0,5">Ответственный</Label>
+                <Label Name="RiskResponsiblePerson" Grid.Row="5" Grid.Column="1" Margin="0,0,0,5" Style="{DynamicResource BaseLabel}"/>
 
-        <Label Grid.Row="6" Grid.Column="0" Style="{DynamicResource BaseLabel}">Величина</Label>
-        <Label Name="RiskValue" Grid.Row="6" Grid.Column="1" Style="{DynamicResource BaseLabel}"/>
+                <Label Grid.Row="6" Grid.Column="0" Style="{DynamicResource BaseLabel}">Величина</Label>
+                <Label Name="RiskValue" Grid.Row="6" Grid.Column="1" Style="{DynamicResource BaseLabel}"/>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

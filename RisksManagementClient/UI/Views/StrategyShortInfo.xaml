@@ -4,27 +4,31 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RisksManagementClient.UI.Views" Loaded="StrategyFullInfo_OnLoaded">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*" MaxWidth="500"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+    <Grid Margin="10,0,10,10">
+        <Border BorderBrush="{DynamicResource DarkBaseBrush}" Padding="0,0,0,10" BorderThickness="0,1,0,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*" MaxWidth="500"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Orientation="Horizontal" Margin="5">
-            <Button Name="EditButton" Content="Редактировать" Margin="0,0,5,0" Click="EditButton_Click" Style="{DynamicResource BaseButton}"/>
-            <Button Name="DuplicateButton" Content="Дублировать" Margin="0,0,5,0" Click="DuplicateButton_Click" Style="{DynamicResource BaseButton}"/>
-            <Button Name="DeleteButton" Content="Удалить" Click="DeleteButton_Click" Style="{DynamicResource BaseButton}"/>
-        </StackPanel>
+                <StackPanel Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Orientation="Horizontal" Margin="5">
+                    <Button Name="EditButton" Content="Редактировать" Margin="0,0,5,0" Click="EditButton_Click" Style="{DynamicResource BaseButton}"/>
+                    <Button Name="DuplicateButton" Content="Дублировать" Margin="0,0,5,0" Click="DuplicateButton_Click" Style="{DynamicResource BaseButton}"/>
+                    <Button Name="DeleteButton" Content="Удалить" Click="DeleteButton_Click" Style="{DynamicResource BaseButton}"/>
+                </StackPanel>
 
-        <Label Grid.Row="1" Grid.Column="0" Margin="0,0,0,5" Style="{DynamicResource BaseLabel}">Тип стратегии</Label>
-        <Label Grid.Row="1" Grid.Column="1" Margin="0,0,0,5" Name="StrategyType" Style="{DynamicResource BaseLabel}"/>
+                <Label Grid.Row="1" Grid.Column="0" Margin="0,0,0,5" Style="{DynamicResource BaseLabel}">Тип стратегии</Label>
+                <Label Grid.Row="1" Grid.Column="1" Margin="0,0,0,5" Name="StrategyType" Style="{DynamicResource BaseLabel}"/>
 
-        <Label Grid.Row="2" Grid.Column="0" Margin="0,0,0,5" Style="{DynamicResource BaseLabel}">Описание стратегии</Label>
-        <Label Grid.Row="2" Grid.Column="1" Margin="0,0,0,5" Name="StrategyDescription" Style="{DynamicResource BaseLabel}"/>
+                <Label Grid.Row="2" Grid.Column="0" Margin="0,0,0,5" Style="{DynamicResource BaseLabel}">Описание стратегии</Label>
+                <Label Grid.Row="2" Grid.Column="1" Margin="0,0,0,5" Name="StrategyDescription" Style="{DynamicResource BaseLabel}"/>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

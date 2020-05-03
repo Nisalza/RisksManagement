@@ -35,11 +35,7 @@ namespace RisksManagementClient.UI.Views
             InitializeComponent();
             _viewModel = DataContext as MainViewModel;
             _viewModel.GetRisksEvent += GetRisksEvent;
-        }
-
-        private void GetRisksEvent(object sender, EventArgs e)
-        {
-            LoadRisks();
+            _viewModel.GetStrategiesEvent += GetStrategiesEvent;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -51,6 +47,11 @@ namespace RisksManagementClient.UI.Views
         }
 
         #region Риски
+
+        private void GetRisksEvent(object sender, EventArgs e)
+        {
+            LoadRisks();
+        }
 
         private void CreateRisk_Click(object sender, RoutedEventArgs e)
         {
@@ -121,6 +122,11 @@ namespace RisksManagementClient.UI.Views
 
         #region Стратегии
 
+        private void GetStrategiesEvent(object sender, EventArgs e)
+        {
+            LoadStrategies();
+        }
+
         private void CreateStrategy_OnClick(object sender, RoutedEventArgs e)
         {
             _viewModel.CurrentStrategy = new Strategy();
@@ -170,16 +176,11 @@ namespace RisksManagementClient.UI.Views
         public void LoadStrategies()
         {
             AllStrategies.Children.Clear();
-            foreach (Strategy s in _viewModel.MitigationStrategies)
+
+            foreach (Strategy s in _viewModel.Strategies)
             {
                 StrategyShortInfo uc = new StrategyShortInfo(s);
                 uc.DeleteStrategy += DeleteStrategy;
-                AllStrategies.Children.Add(uc);
-            }
-
-            foreach (Strategy s in _viewModel.ContingencyStrategies)
-            {
-                StrategyShortInfo uc = new StrategyShortInfo(s);
                 AllStrategies.Children.Add(uc);
             }
         }

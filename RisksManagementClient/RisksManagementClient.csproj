@@ -109,6 +109,9 @@
     <Compile Include="UI\Views\RiskShortInfoView.xaml.cs">
       <DependentUpon>RiskShortInfoView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Views\StrategiesFilter.xaml.cs">
+      <DependentUpon>StrategiesFilter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Views\StrategyFullInfo.xaml.cs">
       <DependentUpon>StrategyFullInfo.xaml</DependentUpon>
     </Compile>
@@ -171,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\Views\RiskShortInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Views\StrategiesFilter.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

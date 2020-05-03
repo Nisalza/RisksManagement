@@ -4,5 +4,6 @@
     <Style x:Key="BaseCheckBox" TargetType="CheckBox">
         <Setter Property="FontFamily" Value="{StaticResource BaseFont}"/>
         <Setter Property="FontSize" Value="{DynamicResource Small}"/>
+        <Setter Property="Padding" Value="0,0,5,0"/>
     </Style>
 </ResourceDictionary>

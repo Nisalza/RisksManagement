@@ -55,7 +55,6 @@ namespace RisksManagementClient.UI.Views
                 };
                 ProjectsFilter.Children.Add(cb);
             }
-
         }
 
         private void LoadDepartments()

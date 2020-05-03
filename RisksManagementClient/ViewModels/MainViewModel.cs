@@ -211,6 +211,16 @@ namespace RisksManagementClient.ViewModels
             }
         }
 
+        public Strategy[] Strategies
+        {
+            get => _strategies;
+            set
+            {
+                _strategies = value;
+                RaisePropertyChanged();
+            }
+        }
+
         public Relevance[] Relevances
         {
             get => _relevances;
@@ -294,6 +304,8 @@ namespace RisksManagementClient.ViewModels
         public EventHandler StrategySaving;
 
         public EventHandler GetRisksEvent;
+
+        public EventHandler GetStrategiesEvent;
 
         #endregion
 
@@ -395,12 +407,16 @@ namespace RisksManagementClient.ViewModels
             Relevances = Client.GetRelevance();
         }
 
-        private void GetStrategies()
+        public void GetStrategies(bool updateView = true)
         {
             _strategies = Client.GetStrategies();
             //todo Перенести константы в конфиги
             MitigationStrategies = _strategies.Where(x => x.StrategyType.Id == 1).ToArray();
             ContingencyStrategies = _strategies.Where(x => x.StrategyType.Id == 2).ToArray();
+            if (updateView)
+            {
+                GetStrategiesEvent?.Invoke(null, null);
+            }
         }
 
         private void GetStrategyTypes()

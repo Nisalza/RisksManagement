@@ -14,7 +14,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Style="{DynamicResource BaseLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0">Проекты:</Label>
-                    <ScrollViewer Grid.Row="1" MaxHeight="150" HorizontalScrollBarVisibility="Auto">
+                    <ScrollViewer Grid.Row="1" MaxHeight="150" VerticalScrollBarVisibility="Auto">
                         <StackPanel Name="ProjectsFilter" HorizontalAlignment="Stretch"/>
                     </ScrollViewer>
                 </Grid>
@@ -24,7 +24,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Style="{DynamicResource BaseLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0">Подразделения:</Label>
-                    <ScrollViewer Grid.Row="1" MaxHeight="150" HorizontalScrollBarVisibility="Auto">
+                    <ScrollViewer Grid.Row="1" MaxHeight="150" VerticalScrollBarVisibility="Auto">
                         <StackPanel Name="DepartmentsFilter" HorizontalAlignment="Stretch"/>
                     </ScrollViewer>
                 </Grid>
@@ -34,7 +34,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Label Style="{DynamicResource BaseLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="0">Классификация:</Label>
-                    <ScrollViewer Grid.Row="1" MaxHeight="150" HorizontalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
+                    <ScrollViewer Grid.Row="1" MaxHeight="150" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Stretch">
                         <StackPanel Name="ClassificationFilter"/>
                     </ScrollViewer>
                 </Grid>
