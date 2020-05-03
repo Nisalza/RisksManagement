@@ -66,14 +66,13 @@ namespace RisksManagementClient.UI.Views
             _viewModel.RiskContext.SetStrategy(new DeleteRiskStrategy());
             _viewModel.RiskSaving?.Invoke(null, EventArgs.Empty);
 
-            MainWindow w = (MainWindow)Window.GetWindow(this);
+            
             bool ok = _viewModel.RiskContext.Result;
             MessageBoxes mb = new MessageBoxes();
             if (ok)
             {
                 DeleteRisk?.Invoke(_risk, EventArgs.Empty);
                 mb.ShowOkResult("Операция выполнена.");
-                w.MainView.LoadRisks();
             }
             else { mb.ShowErrorResult("Операция не была выполнена."); }
         }

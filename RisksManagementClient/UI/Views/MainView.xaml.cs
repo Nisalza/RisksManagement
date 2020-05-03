@@ -103,6 +103,7 @@ namespace RisksManagementClient.UI.Views
             if (((Risk) sender)?.Id == _viewModel.CurrentRisk?.Id)
             {
                 CloseCurrentRisk_Click(null, null);
+                LoadRisks();
             }
         }
 
@@ -190,6 +191,7 @@ namespace RisksManagementClient.UI.Views
             if (((Strategy) sender)?.Id == _viewModel.CurrentStrategy?.Id)
             {
                 CloseStrategy_Click(null, null);
+                LoadStrategies();
             }
         }
 

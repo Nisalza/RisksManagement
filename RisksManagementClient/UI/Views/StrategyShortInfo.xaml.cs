@@ -82,8 +82,6 @@ namespace RisksManagementClient.UI.Views
             {
                 DeleteStrategy?.Invoke(_strategy, EventArgs.Empty);
                 mb.ShowOkResult("Операция выполена.");
-                MainWindow w = (MainWindow) Window.GetWindow(this);
-                w.MainView.LoadStrategies();
             }
             else
             {

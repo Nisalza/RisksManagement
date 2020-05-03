@@ -4,7 +4,7 @@
     <Style x:Key="BaseButton" TargetType="Button">
         <Setter Property="Background" Value="{StaticResource MediumBaseBrush}" />
         <Setter Property="FontFamily" Value="{StaticResource BaseFont}" />
-        <Setter Property="FontSize" Value="{StaticResource Regular}" />
+        <Setter Property="FontSize" Value="{StaticResource Small}" />
         <Setter Property="Foreground" Value="White" />
         <Setter Property="MinWidth" Value="15"/>
 

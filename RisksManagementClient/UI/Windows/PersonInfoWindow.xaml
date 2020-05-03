@@ -6,5 +6,5 @@
         xmlns:local="clr-namespace:RisksManagementClient.UI.Windows"
         xmlns:views="clr-namespace:RisksManagementClient.UI.Views"
         Height="Auto" Width="Auto" SizeToContent="WidthAndHeight" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-    <Grid Name="MainGrid" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+    <Grid Name="MainGrid" Margin="10" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 </Window>
